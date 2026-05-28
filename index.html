@@ -566,11 +566,7 @@ function countUp(el,target,dur=1200){
 }
 
 // ══ PROJECTS ═════════════════════════════════════════════
-const baseProjects=[
-  {title:'House Price Prediction',description:'ML project predicting house prices using regression algorithms and smart data preprocessing techniques.',imageText:'🏠',tags:['Python','Regression','Pandas','Scikit-learn'],github:'#',live:'#'},
-  {title:'Heart Disease Detection',description:'Classification-based ML model predicting heart disease from medical dataset analysis and feature engineering.',imageText:'❤️',tags:['Classification','Scikit-Learn','NumPy','Python'],github:'#',live:'#'},
-  {title:'Student Performance Analysis',description:'EDA and visualization project studying student performance trends with actionable insights.',imageText:'📊',tags:['EDA','Matplotlib','Seaborn','Python'],github:'#',live:'#'},
-];
+const baseProjects=[];
 let extra=JSON.parse(localStorage.getItem('ba_extra')||'[]');
 const all=()=>[...baseProjects,...extra];
 
