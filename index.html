@@ -234,6 +234,16 @@
     .skill-bar{height:3px;background:var(--border);border-radius:2px;overflow:hidden;}
     .skill-fill{height:100%;background:linear-gradient(90deg,var(--primary),var(--secondary));border-radius:2px;width:0;transition:width 1.4s cubic-bezier(.25,.46,.45,.94);will-change:width;}
 
+    .add-skill-btn{background:transparent;border:1.5px dashed rgba(var(--secondary-rgb),.3);border-radius:18px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0.8rem;min-height:180px;cursor:pointer;transition:all .3s;color:var(--muted);font-family:inherit;padding:20px;}
+    .add-skill-btn:hover{border-color:var(--secondary);color:var(--secondary);background:rgba(var(--secondary-rgb),.04);box-shadow:var(--glow-s);}
+    .add-skill-btn svg{width:30px;height:30px;transition:transform .3s;}
+    .add-skill-btn:hover svg{transform:scale(1.15) rotate(90deg);}
+    .add-skill-btn span{font-size:.74rem;font-family:'JetBrains Mono',monospace;letter-spacing:.12em;text-transform:uppercase;}
+
+    .skill-delete-btn {position:absolute;top:8px;right:8px;width:24px;height:24px;border-radius:6px;border:none;background:rgba(244,63,94,.12);color:#f43f5e;cursor:pointer;display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity .2s, transform .2s;}
+    .skill-card:hover .skill-delete-btn {opacity:1;}
+    .skill-delete-btn:hover {background:#f43f5e;color:white;transform:scale(1.1);}
+
     /* ── PROJECTS ── */
     #projects{background:var(--bg);}
     .projects-container{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:24px;}
@@ -347,7 +357,6 @@
 </head>
 <body>
 
-<!-- ══ LOADER ══════════════════════════════════════════════ -->
 <div id="loader">
   <div class="ld-orbit">
     <div class="ld-orbit-ring"></div>
@@ -360,22 +369,18 @@
   <div class="ld-status">Initializing portfolio<span class="ld-dots"></span></div>
 </div>
 
-<!-- ══ CURSOR ═══════════════════════════════════════════════ -->
 <div id="cur"></div>
 <div id="cur-ring"></div>
 
-<!-- ══ BG ═══════════════════════════════════════════════════ -->
 <div class="grid-bg"></div>
 <div class="ambient amb-1"></div>
 <div class="ambient amb-2"></div>
 
-<!-- ══ TOAST ════════════════════════════════════════════════ -->
 <div class="toast" id="toast">
   <svg class="toast-icon" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
   <span id="toast-msg"></span>
 </div>
 
-<!-- ══ NAV ══════════════════════════════════════════════════ -->
 <nav id="navbar">
   <a href="#home" class="logo">Barakat.</a>
   <input type="checkbox" id="menu-menu" class="menu-checkbox"/>
@@ -396,7 +401,6 @@
   </div>
 </nav>
 
-<!-- ══ HERO ══════════════════════════════════════════════════ -->
 <section class="hero" id="home">
   <div class="hero-content">
     <div class="hero-badge">🟢 Open to opportunities</div>
@@ -427,26 +431,15 @@
   </div>
 </section>
 
-<!-- ══ SKILLS ════════════════════════════════════════════════ -->
 <section id="skills">
   <div class="reveal">
     <div class="section-tag"><span>Expertise</span></div>
     <h2 class="section-title">My <span class="gradient-text">Skills</span></h2>
     <p class="section-subtitle">Technologies and tools I use while building Machine Learning and AI projects.</p>
   </div>
-  <div class="skills-grid">
-    <div class="skill-card reveal" style="transition-delay:.05s"><span class="skill-icon">🐍</span><h3>Python</h3><p>Core language for ML, automation, data handling, and AI development.</p><div class="skill-bar-wrap"><div class="skill-bar-label"><span>Proficiency</span><span>90%</span></div><div class="skill-bar"><div class="skill-fill" data-w="90"></div></div></div></div>
-    <div class="skill-card reveal" style="transition-delay:.1s"><span class="skill-icon">⚙️</span><h3>Scikit-learn</h3><p>Building regression, classification, clustering, and predictive ML models.</p><div class="skill-bar-wrap"><div class="skill-bar-label"><span>Proficiency</span><span>85%</span></div><div class="skill-bar"><div class="skill-fill" data-w="85"></div></div></div></div>
-    <div class="skill-card reveal" style="transition-delay:.15s"><span class="skill-icon">🐼</span><h3>Pandas</h3><p>Data cleaning, preprocessing, transformation, and analysis on structured datasets.</p><div class="skill-bar-wrap"><div class="skill-bar-label"><span>Proficiency</span><span>88%</span></div><div class="skill-bar"><div class="skill-fill" data-w="88"></div></div></div></div>
-    <div class="skill-card reveal" style="transition-delay:.2s"><span class="skill-icon">🔢</span><h3>NumPy</h3><p>Numerical computing, matrix operations, and optimized data calculations.</p><div class="skill-bar-wrap"><div class="skill-bar-label"><span>Proficiency</span><span>82%</span></div><div class="skill-bar"><div class="skill-fill" data-w="82"></div></div></div></div>
-    <div class="skill-card reveal" style="transition-delay:.25s"><span class="skill-icon">📊</span><h3>Matplotlib / Seaborn</h3><p>Professional data visualization and plotting for ML insights and analytics.</p><div class="skill-bar-wrap"><div class="skill-bar-label"><span>Proficiency</span><span>80%</span></div><div class="skill-bar"><div class="skill-fill" data-w="80"></div></div></div></div>
-    <div class="skill-card reveal" style="transition-delay:.3s"><span class="skill-icon">🧠</span><h3>Machine Learning</h3><p>Regression, classification, model evaluation, feature engineering, predictive analytics.</p><div class="skill-bar-wrap"><div class="skill-bar-label"><span>Proficiency</span><span>83%</span></div><div class="skill-bar"><div class="skill-fill" data-w="83"></div></div></div></div>
-    <div class="skill-card reveal" style="transition-delay:.35s"><span class="skill-icon">🔧</span><h3>Data Preprocessing</h3><p>Handling missing values, encoding, scaling, splitting, and feature preparation.</p><div class="skill-bar-wrap"><div class="skill-bar-label"><span>Proficiency</span><span>87%</span></div><div class="skill-bar"><div class="skill-fill" data-w="87"></div></div></div></div>
-    <div class="skill-card reveal" style="transition-delay:.4s"><span class="skill-icon">📈</span><h3>Model Evaluation</h3><p>Accuracy, precision, confusion matrix, cross-validation, and ML performance optimization.</p><div class="skill-bar-wrap"><div class="skill-bar-label"><span>Proficiency</span><span>78%</span></div><div class="skill-bar"><div class="skill-fill" data-w="78"></div></div></div></div>
-  </div>
+  <div class="skills-grid" id="skillsContainer"></div>
 </section>
 
-<!-- ══ PROJECTS ═══════════════════════════════════════════════ -->
 <section id="projects">
   <div class="reveal">
     <div class="section-tag"><span>Portfolio</span></div>
@@ -456,7 +449,6 @@
   <div class="projects-container" id="projectsContainer"></div>
 </section>
 
-<!-- ══ CONTACT ════════════════════════════════════════════════ -->
 <section id="contact">
   <div class="reveal">
     <div class="section-tag"><span>Get In Touch</span></div>
@@ -478,7 +470,6 @@
 
 <button class="floating-btn" id="topBtn" aria-label="Back to top">↑</button>
 
-<!-- ══ ADD / EDIT PROJECT MODAL ═══════════════════════════════ -->
 <div class="modal-overlay" id="modalOverlay">
   <div class="modal">
     <div class="modal-hdr">
@@ -500,11 +491,25 @@
   </div>
 </div>
 
+<div class="modal-overlay" id="skillModalOverlay">
+  <div class="modal">
+    <div class="modal-hdr">
+      <h3 class="modal-title">// Add New Skill</h3>
+      <button class="modal-close" id="skillModalClose">✕</button>
+    </div>
+    <div class="form-group"><label class="form-label">Skill Name *</label><input class="form-input" id="sName" placeholder="e.g. TensorFlow"/></div>
+    <div class="form-group"><label class="form-label">Description *</label><textarea class="form-textarea" id="sDesc" placeholder="What do you use this tool for?"></textarea></div>
+    <div class="form-row">
+      <div class="form-group"><label class="form-label">Proficiency (%) *</label><input type="number" class="form-input" id="sProgress" placeholder="85" min="1" max="100"/></div>
+      <div class="form-group"><label class="form-label">Emoji Icon</label><input class="form-input" id="sEmoji" placeholder="🧠" maxlength="2"/></div>
+    </div>
+    <button class="btn primary-btn" id="submitSkill" style="width:100%;justify-content:center;margin-top:.2rem;">Add Skill</button>
+  </div>
+</div>
+
 <script>
 // ══ LOADER ════════════════════════════════════════════════
-// Hide after bar animation finishes (~1.6s) — never waits for fonts
 setTimeout(()=>document.getElementById('loader').classList.add('done'), 1700);
-// Hard fallback at 2.5s in case anything is slow
 setTimeout(()=>document.getElementById('loader').classList.add('done'), 2500);
 
 // ══ THEME ════════════════════════════════════════════════
@@ -525,10 +530,12 @@ document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cur.style.le
 (function anim(){rx+=(mx-rx)*.13;ry+=(my-ry)*.13;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(anim);})();
 function hoverOn(){cur.classList.add('hov');ring.classList.add('hov');}
 function hoverOff(){cur.classList.remove('hov');ring.classList.remove('hov');}
-document.querySelectorAll('a,button,.project-card,.skill-card,.add-project-btn,.stat-box').forEach(el=>{
-  el.addEventListener('mouseenter',hoverOn);
-  el.addEventListener('mouseleave',hoverOff);
-});
+function bindCursorHovers(){
+  document.querySelectorAll('a,button,.project-card,.skill-card,.add-project-btn,.add-skill-btn,.stat-box').forEach(el=>{
+    el.removeEventListener('mouseenter',hoverOn);el.removeEventListener('mouseleave',hoverOff);
+    el.addEventListener('mouseenter',hoverOn);el.addEventListener('mouseleave',hoverOff);
+  });
+}
 
 // ══ NAV ══════════════════════════════════════════════════
 const navbar=document.getElementById('navbar');
@@ -548,13 +555,11 @@ document.querySelectorAll('.nav-links a').forEach(a=>a.addEventListener('click',
 const revObs=new IntersectionObserver(entries=>{
   entries.forEach((e,i)=>{if(e.isIntersecting)setTimeout(()=>e.target.classList.add('visible'),i*55);});
 },{threshold:.09});
-document.querySelectorAll('.reveal').forEach(el=>revObs.observe(el));
 
-// ══ SKILL BARS ═══════════════════════════════════════════
+// ══ SKILL BARS OBSERVER ══════════════════════════════════
 const barObs=new IntersectionObserver(entries=>{
   entries.forEach(e=>{if(e.isIntersecting)e.target.querySelectorAll('.skill-fill').forEach(b=>{b.style.width=b.dataset.w+'%';});});
 },{threshold:.25});
-document.querySelectorAll('.skills-grid').forEach(el=>barObs.observe(el));
 
 // ══ TYPEWRITER ═══════════════════════════════════════════
 const words=['AI & ML','Intelligent','Data-Driven','Predictive'];
@@ -574,20 +579,121 @@ function countUp(el,target,dur=1200){
   requestAnimationFrame(step);
 }
 
-// ══ PROJECTS ═════════════════════════════════════════════
-// Base projects stored separately — edits saved to localStorage
+// ══ SKILLS LOGIC ═════════════════════════════════════════
+const baseSkills=[
+  {id:'s0',icon:'🐍',name:'Python',desc:'Core language for ML, automation, data handling, and AI development.',w:'90'},
+  {id:'s1',icon:'⚙️',name:'Scikit-learn',desc:'Building regression, classification, clustering, and predictive ML models.',w:'85'},
+  {id:'s2',icon:'🐼',name:'Pandas',desc:'Data cleaning, preprocessing, transformation, and analysis on structured datasets.',w:'88'},
+  {id:'s3',icon:'🔢',name:'NumPy',desc:'Numerical computing, matrix operations, and optimized data calculations.',w:'82'},
+  {id:'s4',icon:'📊',name:'Matplotlib / Seaborn',desc:'Professional data visualization and plotting for ML insights and analytics.',w:'80'},
+  {id:'s5',icon:'🧠',name:'Machine Learning',desc:'Regression, classification, model evaluation, feature engineering, predictive analytics.',w:'83'},
+  {id:'s6',icon:'🔧',name:'Data Preprocessing',desc:'Handling missing values, encoding, scaling, splitting, and feature preparation.',w:'87'},
+  {id:'s7',icon:'📈',name:'Model Evaluation',desc:'Accuracy, precision, confusion matrix, cross-validation, and ML performance optimization.',w:'78'}
+];
+
+let baseSkillEdits=JSON.parse(localStorage.getItem('ba_base_skill_edits')||'{}');
+let extraSkills=JSON.parse(localStorage.getItem('ba_extra_skills')||'[]');
+
+function getBaseSkills(){
+  return baseSkills
+    .map(s=>({...s,...(baseSkillEdits[s.id]||{})}))
+    .filter(s=>!s._deleted);
+}
+function allSkills(){return [...getBaseSkills(),...extraSkills];}
+
+function renderSkills(){
+  const sContainer=document.getElementById('skillsContainer');
+  sContainer.innerHTML='';
+  
+  allSkills().forEach((s,i)=>{
+    const card=document.createElement('div');
+    card.className='skill-card reveal';
+    card.style.transitionDelay=(i*.05)+'s';
+    card.innerHTML=`
+      <button class="skill-delete-btn" title="Delete skill" onclick="deleteSkill('${s.id}')">✕</button>
+      <span class="skill-icon">${s.icon||'💡'}</span>
+      <h3>${s.name}</h3>
+      <p>${s.desc}</p>
+      <div class="skill-bar-wrap">
+        <div class="skill-bar-label"><span>Proficiency</span><span>${s.w}%</span></div>
+        <div class="skill-bar"><div class="skill-fill" data-w="${s.w}"></div></div>
+      </div>`;
+    sContainer.appendChild(card);
+    revObs.observe(card);
+  });
+
+  const sBtn=document.createElement('button');
+  sBtn.className='add-skill-btn reveal';
+  sBtn.innerHTML=`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg><span>Add New Skill</span>`;
+  sBtn.addEventListener('click',()=>openAddSkill());
+  sContainer.appendChild(sBtn);
+  revObs.observe(sBtn);
+  
+  barObs.disconnect();
+  barObs.observe(sContainer);
+  bindCursorHovers();
+}
+
+const skOv=document.getElementById('skillModalOverlay');
+function openAddSkill(){
+  document.getElementById('sName').value='';
+  document.getElementById('sDesc').value='';
+  document.getElementById('sProgress').value='';
+  document.getElementById('sEmoji').value='';
+  skOv.classList.add('open');
+}
+document.getElementById('skillModalClose').addEventListener('click',()=>skOv.classList.remove('open'));
+skOv.addEventListener('click',e=>{if(e.target===skOv)skOv.classList.remove('open');});
+
+document.getElementById('submitSkill').addEventListener('click',()=>{
+  const name=document.getElementById('sName').value.trim();
+  const desc=document.getElementById('sDesc').value.trim();
+  const progress=document.getElementById('sProgress').value.trim();
+  const emoji=document.getElementById('sEmoji').value.trim()||'🧠';
+
+  if(!name||!desc||!progress){
+    ['sName','sDesc','sProgress'].forEach(id=>{if(!document.getElementById(id).value)document.getElementById(id).style.borderColor='#f43f5e';});
+    return;
+  }
+  ['sName','sDesc','sProgress'].forEach(id=>document.getElementById(id).style.borderColor='');
+
+  extraSkills.push({id:'sk'+Date.now(),name,desc,w:progress,icon:emoji});
+  localStorage.setItem('ba_extra_skills',JSON.stringify(extraSkills));
+  showToast('Skill added! 🚀');
+  renderSkills();
+  skOv.classList.remove('open');
+});
+
+function deleteSkill(id){
+  if(!confirm('Delete this skill?')) return;
+  if(baseSkills.some(s=>s.id===id)){
+    baseSkillEdits[id]={...baseSkillEdits[id],_deleted:true};
+    localStorage.setItem('ba_base_skill_edits',JSON.stringify(baseSkillEdits));
+  } else {
+    extraSkills=extraSkills.filter(s=>s.id!==id);
+    localStorage.setItem('ba_extra_skills',JSON.stringify(extraSkills));
+  }
+  renderSkills();
+  showToast('Skill removed.');
+}
+window.deleteSkill=deleteSkill;
+
+
+// ══ PROJECTS LOGIC ═══════════════════════════════════════
 const baseProjects=[
   {id:'b0',title:'House Price Prediction',description:'ML project predicting house prices using regression algorithms and smart data preprocessing techniques.',imageText:'🏠',tags:['Python','Regression','Pandas','Scikit-learn'],github:'#',live:'#'},
   {id:'b1',title:'Heart Disease Detection',description:'Classification-based ML model predicting heart disease from medical dataset analysis and feature engineering.',imageText:'❤️',tags:['Classification','Scikit-Learn','NumPy','Python'],github:'#',live:'#'},
   {id:'b2',title:'Student Performance Analysis',description:'EDA and visualization project studying student performance trends with actionable insights.',imageText:'📊',tags:['EDA','Matplotlib','Seaborn','Python'],github:'#',live:'#'},
 ];
 
-// Load saved edits for base projects + extra added projects
 let baseEdits=JSON.parse(localStorage.getItem('ba_base_edits')||'{}');
 let extra=JSON.parse(localStorage.getItem('ba_extra')||'[]');
 
+/* FIX FOR PROJECT DELETION IS APPLIED HERE: Added filter(p => !p._deleted) */
 function getBase(){
-  return baseProjects.map(p=>({...p,...(baseEdits[p.id]||{})}));
+  return baseProjects
+    .map(p=>({...p,...(baseEdits[p.id]||{})}))
+    .filter(p=>!p._deleted);
 }
 function all(){return [...getBase(),...extra];}
 
@@ -623,25 +729,24 @@ function renderProjects(){
       </div>`;
     c.appendChild(card);
     revObs.observe(card);
-    card.addEventListener('mouseenter',hoverOn);
-    card.addEventListener('mouseleave',hoverOff);
   });
-  // Add new project button
+
   const btn=document.createElement('button');
-  btn.className='add-project-btn';
+  btn.className='add-project-btn reveal';
   btn.innerHTML=`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg><span>Add New Project</span>`;
   btn.addEventListener('click',()=>openAdd());
-  btn.addEventListener('mouseenter',hoverOn);btn.addEventListener('mouseleave',hoverOff);
   c.appendChild(btn);
+  revObs.observe(btn);
+
   countUp(document.getElementById('projectCount'),all().length);
+  bindCursorHovers();
 }
-renderProjects();
 
 // ══ MODAL LOGIC ══════════════════════════════════════════
 const ov=document.getElementById('modalOverlay');
 const modalTitle=document.getElementById('modalTitle');
 const submitBtn=document.getElementById('submitProject');
-let editingId=null; // null = add mode, string = edit mode
+let editingId=null;
 
 function openAdd(){
   editingId=null;
@@ -653,35 +758,31 @@ function openAdd(){
 }
 
 function openEdit(id){
-  const project=all().find(p=>p.id===id||p.id===id);
+  const project=all().find(p=>p.id===id);
   if(!project) return;
   editingId=id;
   modalTitle.textContent='// Edit Project';
   modalTitle.classList.add('editing');
   submitBtn.textContent='Save Changes';
-  // Pre-fill form
+  
   document.getElementById('pTitle').value=project.title||'';
   document.getElementById('pDesc').value=project.description||'';
   document.getElementById('pEmoji').value=project.imageText||'';
   document.getElementById('pTech').value=(project.tags||[]).join(', ');
   document.getElementById('pGithub').value=project.github!=='#'?project.github||'':'';
   document.getElementById('pDemo').value=project.live!=='#'?project.live||'':'';
-  // Set category dropdown
+  
   const typeEl=document.getElementById('pType');
   const tag=(project.tags||[])[0]||'ML';
   const match=['ML','DL','NLP','CV','DA'].find(v=>tag.toUpperCase()===v);
   typeEl.value=match||'ML';
   ov.classList.add('open');
 }
-// Expose to inline onclick
 window.openEdit=openEdit;
 
 function deleteProject(id){
   if(!confirm('Delete this project?')) return;
-  // Check if base project
-  const isBase=baseProjects.some(p=>p.id===id);
-  if(isBase){
-    // Mark as deleted in base edits
+  if(baseProjects.some(p=>p.id===id)){
     baseEdits[id]={...baseEdits[id],_deleted:true};
     localStorage.setItem('ba_base_edits',JSON.stringify(baseEdits));
   } else {
@@ -718,14 +819,11 @@ submitBtn.addEventListener('click',()=>{
   const tags=tech?tech.split(',').map(t=>t.trim()).filter(Boolean):[type];
 
   if(editingId===null){
-    // ADD new project
     extra.push({id:'e'+Date.now(),title,description:desc,imageText:emoji,tags,github,live});
     localStorage.setItem('ba_extra',JSON.stringify(extra));
     showToast('Project added! 🎉');
   } else {
-    // EDIT — check if base or extra
-    const isBase=baseProjects.some(p=>p.id===editingId);
-    if(isBase){
+    if(baseProjects.some(p=>p.id===editingId)){
       baseEdits[editingId]={title,description:desc,imageText:emoji,tags,github,live};
       localStorage.setItem('ba_base_edits',JSON.stringify(baseEdits));
     } else {
@@ -753,6 +851,11 @@ function showToast(msg){
   t.classList.add('show');
   setTimeout(()=>t.classList.remove('show'),3500);
 }
+
+// ══ INITIAL ARCHITECTURE RENDER ══════════════════════════
+document.querySelectorAll('.reveal').forEach(el=>revObs.observe(el));
+renderSkills();
+renderProjects();
 </script>
 </body>
 </html>
