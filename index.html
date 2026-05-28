@@ -782,17 +782,19 @@ window.openEdit=openEdit;
 
 function deleteProject(id){
   if(!confirm('Delete this project?')) return;
-  if(baseProjects.some(p=>p.id===id)){
-    baseEdits[id]={...baseEdits[id],_deleted:true};
-    localStorage.setItem('ba_base_edits',JSON.stringify(baseEdits));
+  
+  // String conversion lagaya taaki 'b2' (SMS Spam) perfect match ho jaye
+  if(baseProjects.some(p => String(p.id) === String(id))){
+    baseEdits[id] = {...baseEdits[id], _deleted: true};
+    localStorage.setItem('ba_base_edits', JSON.stringify(baseEdits));
   } else {
-    extra=extra.filter(p=>p.id!==id);
-    localStorage.setItem('ba_extra',JSON.stringify(extra));
+    extra = extra.filter(p => String(p.id) !== String(id));
+    localStorage.setItem('ba_extra', JSON.stringify(extra));
   }
   renderProjects();
   showToast('Project removed.');
 }
-window.deleteProject=deleteProject;
+window.deleteProject = deleteProject;
 
 function clearForm(){
   ['pTitle','pDesc','pTech','pEmoji','pGithub','pDemo'].forEach(id=>{
