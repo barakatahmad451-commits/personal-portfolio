@@ -257,6 +257,16 @@
     .add-project-btn:hover svg{transform:scale(1.15) rotate(90deg);}
     .add-project-btn span{font-size:.78rem;font-family:'JetBrains Mono',monospace;letter-spacing:.15em;text-transform:uppercase;}
 
+    /* ── CARD EDIT / DELETE ACTIONS ── */
+    .card-actions{position:absolute;top:10px;right:10px;display:flex;gap:6px;opacity:0;transition:opacity .25s;z-index:10;}
+    .project-card:hover .card-actions{opacity:1;}
+    .card-action-btn{width:30px;height:30px;border-radius:8px;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .2s;backdrop-filter:blur(8px);}
+    .btn-edit{background:rgba(var(--primary-rgb),.15);color:var(--primary);border:1px solid rgba(var(--primary-rgb),.25);}
+    .btn-edit:hover{background:var(--primary);color:white;transform:scale(1.1);}
+    .btn-delete{background:rgba(244,63,94,.12);color:#f43f5e;border:1px solid rgba(244,63,94,.22);}
+    .btn-delete:hover{background:#f43f5e;color:white;transform:scale(1.1);}
+    .modal-title.editing{background:linear-gradient(90deg,var(--secondary),var(--primary));-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+
     /* ── CONTACT ── */
     #contact{background:var(--bg2);}
     .contact-box{max-width:600px;margin:auto;background:var(--card-bg);border:1px solid var(--border);border-radius:22px;padding:36px 30px;backdrop-filter:blur(15px);}
@@ -403,9 +413,8 @@
   <div class="hero-image">
     <div class="profile-card">
       <div class="profile-circle">
-        <img src="barakat-3d.png" alt="Barakat Ahmad"
-         onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-block';">
-        <span style="font-size:3.2rem; z-index:3; position:relative; display:none;">👨‍💻</span>
+        <img src="image/barakat-3d.png" alt="Barakat Ahmad"
+          onerror="this.style.display='none';this.parentElement.innerHTML+='<span style=\'font-size:3.2rem;z-index:3;position:relative\'>👨‍💻</span>'"/>
       </div>
       <h2>Barakat Ahmad</h2>
       <p>ML Developer &nbsp;•&nbsp; Python Enthusiast<br/>Data Scientist &nbsp;•&nbsp; Future AI Engineer</p>
@@ -469,11 +478,11 @@
 
 <button class="floating-btn" id="topBtn" aria-label="Back to top">↑</button>
 
-<!-- ══ ADD PROJECT MODAL ══════════════════════════════════════ -->
+<!-- ══ ADD / EDIT PROJECT MODAL ═══════════════════════════════ -->
 <div class="modal-overlay" id="modalOverlay">
   <div class="modal">
     <div class="modal-hdr">
-      <h3 class="modal-title">// Add New Project</h3>
+      <h3 class="modal-title" id="modalTitle">// Add New Project</h3>
       <button class="modal-close" id="modalClose">✕</button>
     </div>
     <div class="form-group"><label class="form-label">Project Title *</label><input class="form-input" id="pTitle" placeholder="e.g. Fraud Detection System"/></div>
@@ -484,8 +493,8 @@
     </div>
     <div class="form-group"><label class="form-label">Tech Stack (comma separated)</label><input class="form-input" id="pTech" placeholder="Python, Scikit-learn, Pandas"/></div>
     <div class="form-row">
-      <div class="form-group"><label class="form-label">GitHub URL</label><input class="form-input" id="pGithub" placeholder="https://github.com/..."/></div>
-      <div class="form-group"><label class="form-label">Live Demo URL</label><input class="form-input" id="pDemo" placeholder="https://..."/></div>
+      <div class="form-group"><label class="form-label">GitHub URL</label><input class="form-input" id="pGithub" placeholder="https://github.com/yourrepo"/></div>
+      <div class="form-group"><label class="form-label">Live Demo URL</label><input class="form-input" id="pDemo" placeholder="https://yourapp.com"/></div>
     </div>
     <button class="btn primary-btn" id="submitProject" style="width:100%;justify-content:center;margin-top:.2rem;">Add Project</button>
   </div>
@@ -566,58 +575,170 @@ function countUp(el,target,dur=1200){
 }
 
 // ══ PROJECTS ═════════════════════════════════════════════
-const baseProjects=[];
+// Base projects stored separately — edits saved to localStorage
+const baseProjects=[
+  {id:'b0',title:'House Price Prediction',description:'ML project predicting house prices using regression algorithms and smart data preprocessing techniques.',imageText:'🏠',tags:['Python','Regression','Pandas','Scikit-learn'],github:'#',live:'#'},
+  {id:'b1',title:'Heart Disease Detection',description:'Classification-based ML model predicting heart disease from medical dataset analysis and feature engineering.',imageText:'❤️',tags:['Classification','Scikit-Learn','NumPy','Python'],github:'#',live:'#'},
+  {id:'b2',title:'Student Performance Analysis',description:'EDA and visualization project studying student performance trends with actionable insights.',imageText:'📊',tags:['EDA','Matplotlib','Seaborn','Python'],github:'#',live:'#'},
+];
+
+// Load saved edits for base projects + extra added projects
+let baseEdits=JSON.parse(localStorage.getItem('ba_base_edits')||'{}');
 let extra=JSON.parse(localStorage.getItem('ba_extra')||'[]');
-const all=()=>[...baseProjects,...extra];
+
+function getBase(){
+  return baseProjects.map(p=>({...p,...(baseEdits[p.id]||{})}));
+}
+function all(){return [...getBase(),...extra];}
 
 function renderProjects(){
   const c=document.getElementById('projectsContainer');
   c.innerHTML='';
   all().forEach((p,i)=>{
     const tags=p.tags.map(t=>`<span class="tag">${t}</span>`).join('');
-    const gh=p.github&&p.github!=='#'?`<a href="${p.github}" target="_blank" rel="noopener">GitHub</a>`:`<a href="#" style="opacity:.35;pointer-events:none;cursor:default">GitHub</a>`;
-    const lv=p.live&&p.live!=='#'?`<a href="${p.live}" target="_blank" rel="noopener">Live Demo</a>`:`<a href="#" style="opacity:.35;pointer-events:none;cursor:default">Live Demo</a>`;
+    const gh=p.github&&p.github!=='#'
+      ?`<a href="${p.github}" target="_blank" rel="noopener">GitHub</a>`
+      :`<a href="#" style="opacity:.35;pointer-events:none;cursor:default">GitHub</a>`;
+    const lv=p.live&&p.live!=='#'
+      ?`<a href="${p.live}" target="_blank" rel="noopener">Live Demo</a>`
+      :`<a href="#" style="opacity:.35;pointer-events:none;cursor:default">Live Demo</a>`;
     const card=document.createElement('div');
     card.className='project-card reveal';
     card.style.transitionDelay=(i*.07)+'s';
-    card.innerHTML=`<div class="project-image">${p.imageText||'🤖'}</div><div class="project-content"><h3>${p.title}</h3><p>${p.description}</p><div class="project-tags">${tags}</div><div class="project-links">${gh}${lv}</div></div>`;
+    card.innerHTML=`
+      <div class="card-actions">
+        <button class="card-action-btn btn-edit" title="Edit project" onclick="openEdit('${p.id}')">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+        </button>
+        <button class="card-action-btn btn-delete" title="Delete project" onclick="deleteProject('${p.id}')">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14a2 2 0 01-2 2H8a2 2 0 01-2-2L5 6"/><path d="M10 11v6M14 11v6"/><path d="M9 6V4a1 1 0 011-1h4a1 1 0 011 1v2"/></svg>
+        </button>
+      </div>
+      <div class="project-image">${p.imageText||'🤖'}</div>
+      <div class="project-content">
+        <h3>${p.title}</h3>
+        <p>${p.description}</p>
+        <div class="project-tags">${tags}</div>
+        <div class="project-links">${gh}${lv}</div>
+      </div>`;
     c.appendChild(card);
     revObs.observe(card);
     card.addEventListener('mouseenter',hoverOn);
     card.addEventListener('mouseleave',hoverOff);
   });
-  // Add button
+  // Add new project button
   const btn=document.createElement('button');
   btn.className='add-project-btn';
   btn.innerHTML=`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg><span>Add New Project</span>`;
-  btn.addEventListener('click',()=>document.getElementById('modalOverlay').classList.add('open'));
+  btn.addEventListener('click',()=>openAdd());
   btn.addEventListener('mouseenter',hoverOn);btn.addEventListener('mouseleave',hoverOff);
   c.appendChild(btn);
   countUp(document.getElementById('projectCount'),all().length);
 }
 renderProjects();
 
-// ══ MODAL ════════════════════════════════════════════════
+// ══ MODAL LOGIC ══════════════════════════════════════════
 const ov=document.getElementById('modalOverlay');
-document.getElementById('modalClose').addEventListener('click',()=>ov.classList.remove('open'));
-ov.addEventListener('click',e=>{if(e.target===ov)ov.classList.remove('open');});
+const modalTitle=document.getElementById('modalTitle');
+const submitBtn=document.getElementById('submitProject');
+let editingId=null; // null = add mode, string = edit mode
 
-document.getElementById('submitProject').addEventListener('click',()=>{
+function openAdd(){
+  editingId=null;
+  modalTitle.textContent='// Add New Project';
+  modalTitle.classList.remove('editing');
+  submitBtn.textContent='Add Project';
+  clearForm();
+  ov.classList.add('open');
+}
+
+function openEdit(id){
+  const project=all().find(p=>p.id===id||p.id===id);
+  if(!project) return;
+  editingId=id;
+  modalTitle.textContent='// Edit Project';
+  modalTitle.classList.add('editing');
+  submitBtn.textContent='Save Changes';
+  // Pre-fill form
+  document.getElementById('pTitle').value=project.title||'';
+  document.getElementById('pDesc').value=project.description||'';
+  document.getElementById('pEmoji').value=project.imageText||'';
+  document.getElementById('pTech').value=(project.tags||[]).join(', ');
+  document.getElementById('pGithub').value=project.github!=='#'?project.github||'':'';
+  document.getElementById('pDemo').value=project.live!=='#'?project.live||'':'';
+  // Set category dropdown
+  const typeEl=document.getElementById('pType');
+  const tag=(project.tags||[])[0]||'ML';
+  const match=['ML','DL','NLP','CV','DA'].find(v=>tag.toUpperCase()===v);
+  typeEl.value=match||'ML';
+  ov.classList.add('open');
+}
+// Expose to inline onclick
+window.openEdit=openEdit;
+
+function deleteProject(id){
+  if(!confirm('Delete this project?')) return;
+  // Check if base project
+  const isBase=baseProjects.some(p=>p.id===id);
+  if(isBase){
+    // Mark as deleted in base edits
+    baseEdits[id]={...baseEdits[id],_deleted:true};
+    localStorage.setItem('ba_base_edits',JSON.stringify(baseEdits));
+  } else {
+    extra=extra.filter(p=>p.id!==id);
+    localStorage.setItem('ba_extra',JSON.stringify(extra));
+  }
+  renderProjects();
+  showToast('Project removed.');
+}
+window.deleteProject=deleteProject;
+
+function clearForm(){
+  ['pTitle','pDesc','pTech','pEmoji','pGithub','pDemo'].forEach(id=>{
+    const el=document.getElementById(id);el.value='';el.style.borderColor='';
+  });
+  document.getElementById('pType').value='ML';
+}
+
+document.getElementById('modalClose').addEventListener('click',()=>{ov.classList.remove('open');clearForm();});
+ov.addEventListener('click',e=>{if(e.target===ov){ov.classList.remove('open');clearForm();}});
+
+submitBtn.addEventListener('click',()=>{
   const title=document.getElementById('pTitle').value.trim();
   const desc=document.getElementById('pDesc').value.trim();
   const pti=document.getElementById('pTitle'),pdi=document.getElementById('pDesc');
   if(!title||!desc){pti.style.borderColor='#f43f5e';pdi.style.borderColor='#f43f5e';return;}
+  pti.style.borderColor='';pdi.style.borderColor='';
+
   const emoji=document.getElementById('pEmoji').value.trim()||'🤖';
   const tech=document.getElementById('pTech').value.trim();
   const type=document.getElementById('pType').value;
-  const github=document.getElementById('pGithub').value.trim();
-  const live=document.getElementById('pDemo').value.trim();
-  extra.push({title,description:desc,imageText:emoji,tags:tech?tech.split(',').map(t=>t.trim()).filter(Boolean):[type],github:github||'#',live:live||'#'});
-  localStorage.setItem('ba_extra',JSON.stringify(extra));
+  const github=document.getElementById('pGithub').value.trim()||'#';
+  const live=document.getElementById('pDemo').value.trim()||'#';
+  const tags=tech?tech.split(',').map(t=>t.trim()).filter(Boolean):[type];
+
+  if(editingId===null){
+    // ADD new project
+    extra.push({id:'e'+Date.now(),title,description:desc,imageText:emoji,tags,github,live});
+    localStorage.setItem('ba_extra',JSON.stringify(extra));
+    showToast('Project added! 🎉');
+  } else {
+    // EDIT — check if base or extra
+    const isBase=baseProjects.some(p=>p.id===editingId);
+    if(isBase){
+      baseEdits[editingId]={title,description:desc,imageText:emoji,tags,github,live};
+      localStorage.setItem('ba_base_edits',JSON.stringify(baseEdits));
+    } else {
+      const idx=extra.findIndex(p=>p.id===editingId);
+      if(idx!==-1){extra[idx]={...extra[idx],title,description:desc,imageText:emoji,tags,github,live};}
+      localStorage.setItem('ba_extra',JSON.stringify(extra));
+    }
+    showToast('Project updated! ✅');
+  }
+
   renderProjects();
   ov.classList.remove('open');
-  ['pTitle','pDesc','pTech','pEmoji','pGithub','pDemo'].forEach(id=>{const el=document.getElementById(id);el.value='';el.style.borderColor='';});
-  showToast('Project added successfully! 🎉');
+  clearForm();
 });
 
 // ══ CONTACT ══════════════════════════════════════════════
