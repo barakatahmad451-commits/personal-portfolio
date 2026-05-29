@@ -1,2548 +1,739 @@
 <!doctype html>
 <html lang="en" data-theme="dark">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="Barakat Ahmad — Machine Learning Developer building intelligent AI systems with Python, Scikit-learn, TensorFlow and more."
-    />
-    <title>Barakat Ahmad | ML Developer</title>
-    <link
-      rel="icon"
-      href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>👨‍💻</text></svg>"
-    />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      rel="preload"
-      as="style"
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap"
-      onload="
-        this.onload = null;
-        this.rel = 'stylesheet';
-      "
-    />
-    <noscript
-      ><link
-        href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap"
-        rel="stylesheet"
-    /></noscript>
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Barakat Ahmad — Machine Learning Developer building intelligent AI systems with Python, Scikit-learn, TensorFlow and more."/>
+  <title>Barakat Ahmad | ML Developer</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>👨‍💻</text></svg>"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap" onload="this.onload=null;this.rel='stylesheet'"/>
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet"/></noscript>
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box;}html{scroll-behavior:smooth;}
+    [data-theme="dark"]{--bg:#020617;--bg2:#040d1f;--surface:rgba(255,255,255,.04);--surface2:rgba(255,255,255,.07);--border:rgba(255,255,255,.08);--border2:rgba(255,255,255,.14);--text:#fff;--muted:#94a3b8;--muted2:#64748b;--primary:#8b5cf6;--secondary:#06b6d4;--primary-rgb:139,92,246;--secondary-rgb:6,182,212;--shadow:0 20px 50px rgba(0,0,0,.55);--shadow-sm:0 8px 25px rgba(0,0,0,.4);--glow-p:0 0 30px rgba(139,92,246,.35);--glow-s:0 0 30px rgba(6,182,212,.35);--nav-bg:rgba(2,6,23,.82);--nav-scrolled:rgba(2,6,23,.97);--card-bg:rgba(255,255,255,.025);--loader-bg:#020617;--amb1:rgba(139,92,246,.13);--amb2:rgba(6,182,212,.1);--grid-line:rgba(255,255,255,.025);--tag-bg:rgba(139,92,246,.1);--tag-border:rgba(139,92,246,.22);--tag-text:#d8b4fe;--input-bg:rgba(255,255,255,.04);--input-border:rgba(255,255,255,.08);--modal-bg:#07101f;--danger-bg:rgba(244,63,94,.12);--danger:hsl(350,90%,60%);}
+    [data-theme="light"]{--bg:#f0f4ff;--bg2:#e8eeff;--surface:rgba(255,255,255,.85);--surface2:rgba(255,255,255,.95);--border:rgba(99,102,241,.15);--border2:rgba(99,102,241,.25);--text:#0f172a;--muted:#475569;--muted2:#64748b;--primary:#7c3aed;--secondary:#0891b2;--primary-rgb:124,58,237;--secondary-rgb:8,145,178;--shadow:0 20px 50px rgba(99,102,241,.18);--shadow-sm:0 8px 25px rgba(99,102,241,.12);--glow-p:0 0 25px rgba(124,58,237,.2);--glow-s:0 0 25px rgba(8,145,178,.2);--nav-bg:rgba(240,244,255,.88);--nav-scrolled:rgba(240,244,255,.98);--card-bg:rgba(255,255,255,.75);--loader-bg:#f0f4ff;--amb1:rgba(124,58,237,.1);--amb2:rgba(8,145,178,.08);--grid-line:rgba(99,102,241,.06);--tag-bg:rgba(124,58,237,.08);--tag-border:rgba(124,58,237,.2);--tag-text:#7c3aed;--input-bg:rgba(255,255,255,.9);--input-border:rgba(99,102,241,.2);--modal-bg:#eef2ff;--danger-bg:rgba(244,63,94,.08);--danger:hsl(350,80%,50%);}
+    body{font-family:'Poppins',-apple-system,BlinkMacSystemFont,sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden;cursor:none;transition:background .4s,color .4s;}
+    #cur{width:10px;height:10px;background:var(--secondary);border-radius:50%;position:fixed;top:0;left:0;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:transform .1s;box-shadow:0 0 12px var(--secondary);will-change:left,top;}
+    #cur-ring{width:32px;height:32px;border:1.5px solid rgba(var(--secondary-rgb),.5);border-radius:50%;position:fixed;top:0;left:0;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:all .15s;will-change:left,top;}
+    #cur.hov{transform:translate(-50%,-50%) scale(2.2);background:var(--primary);}
+    #cur-ring.hov{transform:translate(-50%,-50%) scale(1.4);border-color:var(--primary);}
+    .grid-bg{position:fixed;inset:0;background-image:linear-gradient(var(--grid-line) 1px,transparent 1px),linear-gradient(90deg,var(--grid-line) 1px,transparent 1px);background-size:50px 50px;z-index:-2;pointer-events:none;}
+    .ambient{position:fixed;border-radius:50%;pointer-events:none;z-index:-1;}
+    .amb-1{width:500px;height:500px;top:-180px;left:-120px;background:radial-gradient(circle,var(--amb1) 0%,transparent 70%);}
+    .amb-2{width:450px;height:450px;bottom:-130px;right:-80px;background:radial-gradient(circle,var(--amb2) 0%,transparent 70%);}
+    ::-webkit-scrollbar{width:4px;}::-webkit-scrollbar-track{background:var(--bg);}::-webkit-scrollbar-thumb{background:linear-gradient(var(--primary),var(--secondary));border-radius:2px;}
+    #loader{position:fixed;inset:0;background:var(--loader-bg);z-index:99999;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0;transition:opacity .5s,visibility .5s;}
+    #loader.done{opacity:0;visibility:hidden;pointer-events:none;}
+    .ld-orbit{position:relative;width:110px;height:110px;margin-bottom:2rem;}
+    .ld-orbit-ring{position:absolute;inset:0;border-radius:50%;border:2px solid transparent;animation:orbitSpin 2s linear infinite;}
+    .ld-orbit-ring:nth-child(1){border-top-color:var(--primary);border-right-color:var(--primary);animation-duration:1.4s;}
+    .ld-orbit-ring:nth-child(2){inset:12px;border-bottom-color:var(--secondary);border-left-color:var(--secondary);animation-direction:reverse;animation-duration:1.8s;}
+    .ld-orbit-ring:nth-child(3){inset:24px;border-top-color:rgba(var(--primary-rgb),.4);border-left-color:rgba(var(--primary-rgb),.4);animation-duration:2.4s;}
+    .ld-orbit-core{position:absolute;inset:36px;border-radius:50%;background:linear-gradient(135deg,var(--primary),var(--secondary));display:flex;align-items:center;justify-content:center;font-size:.9rem;font-weight:800;color:white;font-family:'JetBrains Mono',monospace;animation:corePulse 1.6s ease-in-out infinite;box-shadow:0 0 20px rgba(var(--primary-rgb),.5);}
+    @keyframes orbitSpin{to{transform:rotate(360deg);}}
+    @keyframes corePulse{0%,100%{transform:scale(1);}50%{transform:scale(1.08);}}
+    .ld-name{font-family:'JetBrains Mono',monospace;font-size:1.05rem;font-weight:700;letter-spacing:.25em;text-transform:uppercase;background:linear-gradient(90deg,var(--primary),var(--secondary));-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:.8rem;}
+    .ld-bar-wrap{width:200px;height:3px;background:var(--border);border-radius:2px;overflow:hidden;margin-bottom:.7rem;}
+    .ld-bar-fill{height:100%;border-radius:2px;background:linear-gradient(90deg,var(--primary),var(--secondary));width:0%;animation:ldFill 1.6s cubic-bezier(.4,0,.2,1) forwards;}
+    @keyframes ldFill{0%{width:0%;}60%{width:75%;}100%{width:100%;}}
+    .ld-status{font-family:'JetBrains Mono',monospace;font-size:.6rem;letter-spacing:.2em;color:var(--muted);text-transform:uppercase;}
+    .ld-dots::after{content:'';animation:ldDots 1.2s steps(4,end) infinite;}
+    @keyframes ldDots{0%{content:'';}25%{content:'.';}50%{content:'..';}75%{content:'...';}100%{content:'';}}
+    nav{position:fixed;top:0;width:100%;padding:18px 8%;display:flex;justify-content:space-between;align-items:center;backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);background:var(--nav-bg);border-bottom:1px solid var(--border);z-index:1000;transition:padding .3s,background .3s;}
+    nav.scrolled{padding:13px 8%;background:var(--nav-scrolled);}
+    .logo{font-size:1.85rem;font-weight:800;background:linear-gradient(90deg,var(--primary),var(--secondary));-webkit-background-clip:text;-webkit-text-fill-color:transparent;text-decoration:none;letter-spacing:-.02em;}
+    .nav-right{display:flex;align-items:center;gap:1.2rem;}
+    .nav-links{display:flex;gap:28px;align-items:center;}
+    .nav-links a{text-decoration:none;color:var(--muted);font-weight:500;font-size:.92rem;position:relative;transition:color .3s;}
+    .nav-links a::after{content:'';position:absolute;width:0;height:2px;left:0;bottom:-5px;background:linear-gradient(90deg,var(--primary),var(--secondary));transition:.3s;border-radius:1px;}
+    .nav-links a:hover,.nav-links a.active{color:var(--text);}
+    .nav-links a:hover::after,.nav-links a.active::after{width:100%;}
+    .theme-toggle{width:44px;height:24px;border-radius:999px;border:1.5px solid var(--border2);background:var(--surface2);cursor:pointer;position:relative;transition:all .35s;flex-shrink:0;display:flex;align-items:center;padding:2px;}
+    .theme-toggle::before{content:'';width:18px;height:18px;border-radius:50%;background:linear-gradient(135deg,var(--primary),var(--secondary));position:absolute;left:2px;transition:transform .35s cubic-bezier(.34,1.56,.64,1);box-shadow:0 2px 8px rgba(var(--primary-rgb),.4);}
+    [data-theme="light"] .theme-toggle::before{transform:translateX(19px);}
+    .theme-toggle-icon{position:absolute;font-size:.65rem;transition:opacity .3s;}
+    .theme-toggle-icon.sun{right:4px;opacity:1;}
+    .theme-toggle-icon.moon{left:4px;opacity:0;}
+    [data-theme="light"] .theme-toggle-icon.sun{opacity:0;}
+    [data-theme="light"] .theme-toggle-icon.moon{opacity:1;}
+    .admin-btn{padding:7px 14px;border-radius:8px;border:1px solid rgba(var(--primary-rgb),.3);background:rgba(var(--primary-rgb),.08);color:var(--primary);font-size:.75rem;font-family:'JetBrains Mono',monospace;letter-spacing:.08em;cursor:pointer;transition:all .3s;display:flex;align-items:center;gap:.4rem;}
+    .admin-btn:hover{background:var(--primary);color:white;border-color:var(--primary);}
+    .admin-btn svg{width:13px;height:13px;}
+    .menu-checkbox{display:none;}
+    .menu-toggle{display:none;flex-direction:column;gap:5px;cursor:pointer;z-index:1001;padding:4px;}
+    .menu-toggle span{width:24px;height:2px;background:var(--text);border-radius:2px;transition:.3s;display:block;}
+    section{padding:140px 8% 90px;}
+    .hero{min-height:88vh;display:flex;align-items:center;justify-content:space-between;gap:60px;position:relative;}
+    .hero-content{flex:1.2;min-width:300px;}
+    .hero-badge{display:inline-flex;align-items:center;gap:.6rem;background:rgba(var(--secondary-rgb),.08);border:1px solid rgba(var(--secondary-rgb),.22);border-radius:999px;padding:.35rem 1rem;font-size:.78rem;font-family:'JetBrains Mono',monospace;color:var(--secondary);letter-spacing:.08em;margin-bottom:1.4rem;opacity:0;animation:fadeUp .7s .2s forwards;}
+    .hero-badge::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--secondary);box-shadow:0 0 8px var(--secondary);animation:pulse 1.8s infinite;}
+    @keyframes pulse{0%,100%{opacity:.5;}50%{opacity:1;}}
+    .hero-content h1{font-size:clamp(2.5rem,5vw,4.4rem);line-height:1.08;margin-bottom:1.3rem;font-weight:800;opacity:0;animation:fadeUp .8s .4s forwards;color:var(--text);}
+    .gradient-text{background:linear-gradient(90deg,var(--primary),var(--secondary));-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+    .hero-content p{color:var(--muted);font-size:1rem;line-height:1.85;margin-bottom:2rem;max-width:570px;opacity:0;animation:fadeUp .8s .6s forwards;}
+    .hero-buttons{display:flex;gap:14px;flex-wrap:wrap;opacity:0;animation:fadeUp .8s .8s forwards;}
+    .btn{padding:13px 26px;border-radius:12px;text-decoration:none;font-weight:600;font-size:.9rem;transition:all .3s;display:inline-flex;align-items:center;justify-content:center;gap:.5rem;cursor:pointer;font-family:inherit;border:none;}
+    .primary-btn{background:linear-gradient(90deg,var(--primary),var(--secondary));color:white;box-shadow:0 8px 25px rgba(var(--primary-rgb),.3);}
+    .primary-btn:hover{transform:translateY(-4px);box-shadow:0 15px 35px rgba(var(--primary-rgb),.45);}
+    .secondary-btn{background:var(--surface);border:1px solid var(--border2);color:var(--text);}
+    .secondary-btn:hover{background:var(--surface2);transform:translateY(-4px);}
+    .hero-image{flex:.85;display:flex;justify-content:center;min-width:280px;opacity:0;animation:fadeLeft .9s .5s forwards;}
+    .profile-card{width:100%;max-width:350px;border-radius:28px;background:var(--card-bg);border:1px solid var(--border);backdrop-filter:blur(16px);padding:30px 22px;box-shadow:var(--shadow);transition:transform .5s cubic-bezier(.175,.885,.32,1.275),border-color .4s,box-shadow .4s;will-change:transform;}
+    .profile-card:hover{transform:translateY(-10px) rotateX(3deg) rotateY(-3deg);border-color:rgba(var(--primary-rgb),.35);box-shadow:0 25px 60px rgba(var(--primary-rgb),.2);}
+    .profile-circle{width:130px;height:130px;border-radius:50%;margin:6px auto 20px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;box-shadow:0 10px 30px rgba(var(--primary-rgb),.3);}
+    .profile-circle img{width:100%;height:100%;object-fit:cover;border-radius:50%;z-index:3;padding:4px;background:var(--bg);}
+    .profile-circle::before{content:'';position:absolute;width:200%;height:200%;background:conic-gradient(transparent,var(--primary),var(--secondary),transparent 60%);animation:spin 4s linear infinite;z-index:1;}
+    @keyframes spin{100%{transform:rotate(360deg);}}
+    .profile-card h2{text-align:center;font-size:1.55rem;margin-bottom:7px;font-weight:700;color:var(--text);}
+    .profile-card>p{text-align:center;color:var(--muted);line-height:1.6;font-size:.86rem;}
+    .stats{margin-top:22px;display:grid;grid-template-columns:repeat(3,1fr);gap:8px;}
+    .stat-box{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:13px 8px;text-align:center;transition:all .3s;}
+    .stat-box:hover{border-color:rgba(var(--primary-rgb),.3);background:rgba(var(--primary-rgb),.06);}
+    .stat-box h4{font-size:1.4rem;background:linear-gradient(90deg,var(--primary),var(--secondary));-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:2px;font-weight:700;}
+    .stat-box span{font-size:.72rem;color:var(--muted);display:block;}
+    .section-title{font-size:clamp(1.9rem,4vw,2.75rem);text-align:center;margin-bottom:12px;font-weight:800;color:var(--text);}
+    .section-subtitle{max-width:580px;margin:0 auto 48px;text-align:center;color:var(--muted);line-height:1.75;font-size:.95rem;}
+    .section-tag{display:flex;align-items:center;justify-content:center;gap:.7rem;margin-bottom:.9rem;}
+    .section-tag span{font-family:'JetBrains Mono',monospace;font-size:.68rem;letter-spacing:.22em;color:var(--secondary);text-transform:uppercase;}
+    .section-tag::before,.section-tag::after{content:'';flex:0 0 36px;height:1px;background:linear-gradient(90deg,transparent,var(--secondary));}
+    .section-tag::after{background:linear-gradient(90deg,var(--secondary),transparent);}
+    #skills{background:var(--bg2);}
+    .skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;}
+    .skill-card{background:var(--card-bg);border:1px solid var(--border);padding:26px 20px;border-radius:18px;transition:all .35s;position:relative;overflow:hidden;will-change:transform;}
+    .skill-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2.5px;background:linear-gradient(90deg,var(--primary),var(--secondary));opacity:.6;transition:opacity .3s;}
+    .skill-card:hover{transform:translateY(-6px);border-color:rgba(var(--primary-rgb),.3);box-shadow:var(--shadow-sm),var(--glow-p);}
+    .skill-card:hover::before{opacity:1;}
+    .skill-icon{font-size:1.9rem;margin-bottom:10px;display:block;}
+    .skill-card h3{font-size:1.05rem;margin-bottom:8px;font-weight:700;color:var(--text);}
+    .skill-card p{color:var(--muted);line-height:1.65;font-size:.85rem;}
+    .skill-bar-wrap{margin-top:13px;}
+    .skill-bar-label{display:flex;justify-content:space-between;font-size:.68rem;color:var(--muted2);margin-bottom:5px;font-family:'JetBrains Mono',monospace;}
+    .skill-bar{height:3px;background:var(--border);border-radius:2px;overflow:hidden;}
+    .skill-fill{height:100%;background:linear-gradient(90deg,var(--primary),var(--secondary));border-radius:2px;width:0;transition:width 1.4s cubic-bezier(.25,.46,.45,.94);}
+    .card-actions{position:absolute;top:10px;right:10px;display:flex;gap:6px;z-index:10;opacity:0;transition:opacity .2s;}
+    .skill-card:hover .card-actions,.project-card:hover .card-actions{opacity:1;}
+    .ca-btn{width:28px;height:28px;border-radius:7px;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .2s;backdrop-filter:blur(8px);}
+    .ca-edit{background:rgba(var(--primary-rgb),.15);color:var(--primary);border:1px solid rgba(var(--primary-rgb),.25);}
+    .ca-edit:hover{background:var(--primary);color:white;}
+    .ca-del{background:var(--danger-bg);color:var(--danger);border:1px solid rgba(244,63,94,.22);}
+    .ca-del:hover{background:var(--danger);color:white;}
+    #projects{background:var(--bg);}
+    .projects-container{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:24px;}
+    .project-card{background:var(--card-bg);border-radius:22px;overflow:hidden;border:1px solid var(--border);transition:all .35s;display:flex;flex-direction:column;height:100%;position:relative;will-change:transform;}
+    .project-card:hover{transform:translateY(-8px);border-color:rgba(var(--secondary-rgb),.3);box-shadow:var(--shadow),var(--glow-s);}
+    .project-image{height:170px;display:flex;align-items:center;justify-content:center;font-size:2.4rem;background:linear-gradient(135deg,rgba(var(--primary-rgb),.35),rgba(var(--secondary-rgb),.35));border-bottom:1px solid var(--border);position:relative;overflow:hidden;}
+    .project-image::after{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,transparent 55%,rgba(0,0,0,.25));}
+    .project-content{padding:20px;display:flex;flex-direction:column;flex-grow:1;}
+    .project-content h3{font-size:1.15rem;margin-bottom:9px;font-weight:700;color:var(--text);}
+    .project-content p{color:var(--muted);line-height:1.65;margin-bottom:16px;font-size:.875rem;flex-grow:1;}
+    .project-tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:16px;}
+    .tag{padding:4px 10px;border-radius:999px;background:var(--tag-bg);border:1px solid var(--tag-border);font-size:.72rem;color:var(--tag-text);font-family:'JetBrains Mono',monospace;}
+    .project-links{display:flex;gap:9px;}
+    .project-links a{flex:1;text-align:center;text-decoration:none;padding:9px;border-radius:10px;background:var(--surface);border:1px solid var(--border2);color:var(--text);transition:all .3s;font-weight:600;font-size:.82rem;}
+    .project-links a:hover{background:linear-gradient(90deg,var(--primary),var(--secondary));border-color:transparent;color:white;transform:translateY(-2px);}
+    .project-links a.disabled{opacity:.3;pointer-events:none;}
+    .add-card-btn{background:transparent;border:1.5px dashed rgba(var(--primary-rgb),.3);border-radius:22px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1rem;min-height:280px;cursor:pointer;transition:all .3s;color:var(--muted);font-family:inherit;}
+    .add-card-btn:hover{border-color:var(--primary);color:var(--primary);background:rgba(var(--primary-rgb),.04);box-shadow:var(--glow-p);}
+    .add-card-btn svg{width:36px;height:36px;transition:transform .3s;}
+    .add-card-btn:hover svg{transform:rotate(90deg) scale(1.1);}
+    .add-card-btn span{font-size:.78rem;font-family:'JetBrains Mono',monospace;letter-spacing:.15em;text-transform:uppercase;}
+    .add-skill-btn{border-radius:18px;min-height:180px;}
+    .add-skill-btn:hover{border-color:var(--secondary);color:var(--secondary);box-shadow:var(--glow-s);}
+    #contact{background:var(--bg2);}
+    .contact-box{max-width:600px;margin:auto;background:var(--card-bg);border:1px solid var(--border);border-radius:22px;padding:36px 30px;backdrop-filter:blur(15px);}
+    .contact-box h2{font-size:1.5rem;margin-bottom:1.5rem;text-align:center;font-weight:700;color:var(--text);}
+    .contact-form{display:flex;flex-direction:column;gap:14px;}
+    .contact-form input,.contact-form textarea{padding:13px 15px;border-radius:10px;border:1px solid var(--input-border);background:var(--input-bg);color:var(--text);font-family:inherit;font-size:.9rem;outline:none;transition:all .3s;}
+    .contact-form input:focus,.contact-form textarea:focus{border-color:var(--secondary);box-shadow:0 0 0 3px rgba(var(--secondary-rgb),.12);}
+    .contact-form textarea{min-height:130px;resize:vertical;}
+    .contact-form input::placeholder,.contact-form textarea::placeholder{color:var(--muted2);}
+    footer{text-align:center;padding:26px;color:var(--muted);border-top:1px solid var(--border);font-size:.87rem;}
+    footer a{color:var(--secondary);text-decoration:none;}
+    .toast{position:fixed;bottom:2rem;right:2rem;background:var(--modal-bg);border:1px solid var(--primary);border-radius:12px;padding:.9rem 1.3rem;font-size:.84rem;color:var(--text);z-index:6000;transform:translateY(80px);opacity:0;transition:all .4s;box-shadow:var(--glow-p);display:flex;align-items:center;gap:.6rem;max-width:300px;}
+    .toast.show{transform:translateY(0);opacity:1;}
+    .toast-icon{color:var(--secondary);flex-shrink:0;}
+    .floating-btn{position:fixed;right:24px;bottom:-70px;width:44px;height:44px;border-radius:50%;border:none;background:linear-gradient(135deg,var(--primary),var(--secondary));color:white;font-size:1.15rem;cursor:pointer;box-shadow:0 5px 20px rgba(var(--primary-rgb),.4);z-index:2000;transition:bottom .4s,transform .2s;display:flex;align-items:center;justify-content:center;}
+    .floating-btn.show{bottom:24px;}
+    .floating-btn:hover{transform:scale(1.1);}
+    .modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.78);backdrop-filter:blur(10px);z-index:5000;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .3s;padding:1rem;}
+    .modal-overlay.open{opacity:1;pointer-events:all;}
+    .modal{background:var(--modal-bg);border:1px solid var(--border2);border-radius:20px;padding:2rem;width:100%;max-width:520px;transform:translateY(18px) scale(.97);transition:all .3s;box-shadow:var(--shadow),var(--glow-p);max-height:90vh;overflow-y:auto;}
+    .modal-overlay.open .modal{transform:translateY(0) scale(1);}
+    .modal-hdr{display:flex;justify-content:space-between;align-items:center;margin-bottom:1.6rem;}
+    .modal-title{font-size:1.1rem;font-weight:700;background:linear-gradient(90deg,var(--primary),var(--secondary));-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+    .modal-close{background:none;border:none;color:var(--muted);font-size:1.3rem;cursor:pointer;transition:color .2s;line-height:1;}
+    .modal-close:hover{color:var(--danger);}
+    .form-group{margin-bottom:1rem;}
+    .form-label{display:block;font-family:'JetBrains Mono',monospace;font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin-bottom:.4rem;}
+    .form-input,.form-textarea,.form-select{width:100%;background:var(--input-bg);border:1px solid var(--input-border);border-radius:10px;padding:.68rem .9rem;color:var(--text);font-family:inherit;font-size:.88rem;outline:none;transition:border-color .3s,box-shadow .3s;}
+    .form-input:focus,.form-textarea:focus,.form-select:focus{border-color:var(--primary);box-shadow:0 0 0 3px rgba(var(--primary-rgb),.12);}
+    .form-input::placeholder,.form-textarea::placeholder{color:var(--muted2);}
+    .form-textarea{resize:vertical;min-height:80px;}
+    .form-select{cursor:pointer;}
+    .form-select option{background:var(--modal-bg);color:var(--text);}
+    .form-row{display:grid;grid-template-columns:1fr 1fr;gap:.9rem;}
+    .login-note{font-size:.78rem;color:var(--muted);text-align:center;margin-top:.8rem;font-family:'JetBrains Mono',monospace;}
+    .fb-status{display:inline-flex;align-items:center;gap:.4rem;font-size:.68rem;font-family:'JetBrains Mono',monospace;padding:.3rem .7rem;border-radius:999px;border:1px solid;}
+    .fb-status.connected{color:#22c55e;border-color:rgba(34,197,94,.3);background:rgba(34,197,94,.08);}
+    .fb-status.error{color:var(--danger);border-color:rgba(244,63,94,.3);background:var(--danger-bg);}
+    .fb-status::before{content:'';width:6px;height:6px;border-radius:50%;background:currentColor;animation:pulse 1.8s infinite;}
+    @keyframes fadeUp{from{opacity:0;transform:translateY(28px);}to{opacity:1;transform:translateY(0);}}
+    @keyframes fadeLeft{from{opacity:0;transform:translateX(28px);}to{opacity:1;transform:translateX(0);}}
+    .reveal{opacity:0;transform:translateY(32px);transition:opacity .65s ease,transform .65s ease;}
+    .reveal.visible{opacity:1;transform:translateY(0);}
+    .type-cursor{display:inline-block;background:var(--secondary);width:2.5px;height:.85em;vertical-align:middle;margin-left:2px;animation:blink 1s infinite;border-radius:1px;}
+    @keyframes blink{0%,100%{opacity:1;}50%{opacity:0;}}
+    @media(max-width:992px){
+      .menu-toggle{display:flex;}
+      .nav-links{position:fixed;top:0;right:-100%;width:260px;height:100vh;background:var(--nav-scrolled);backdrop-filter:blur(24px);flex-direction:column;justify-content:center;gap:34px;border-left:1px solid var(--border);transition:right .4s cubic-bezier(.1,.9,.2,1);z-index:999;}
+      .nav-links a{font-size:1.1rem;}
+      .menu-checkbox:checked~.nav-right .nav-links{right:0;}
+      .menu-checkbox:checked~.menu-toggle span:nth-child(1){transform:rotate(45deg) translate(5px,5px);}
+      .menu-checkbox:checked~.menu-toggle span:nth-child(2){opacity:0;}
+      .menu-checkbox:checked~.menu-toggle span:nth-child(3){transform:rotate(-45deg) translate(5px,-6px);}
+      .hero{flex-direction:column;text-align:center;justify-content:center;gap:48px;}
+      .hero-content p{margin:0 auto 2rem;}
+      .hero-buttons{justify-content:center;}
+      section{padding:100px 5% 70px;}
+      .form-row{grid-template-columns:1fr;}
+      .admin-btn span{display:none;}
+    }
+    @media(max-width:576px){
+      .hero-content h1{font-size:2.3rem;}
+      .section-title{font-size:1.9rem;}
+      .contact-box{padding:22px 16px;}
+      .modal{padding:1.5rem;}
+      .toast{right:1rem;bottom:1rem;left:1rem;max-width:none;}
+    }
+  </style>
+</head>
+<body>
 
-    <style>
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
-      html {
-        scroll-behavior: smooth;
-      }
-      [data-theme="dark"] {
-        --bg: #020617;
-        --bg2: #040d1f;
-        --surface: rgba(255, 255, 255, 0.04);
-        --surface2: rgba(255, 255, 255, 0.07);
-        --border: rgba(255, 255, 255, 0.08);
-        --border2: rgba(255, 255, 255, 0.14);
-        --text: #fff;
-        --muted: #94a3b8;
-        --muted2: #64748b;
-        --primary: #8b5cf6;
-        --secondary: #06b6d4;
-        --primary-rgb: 139, 92, 246;
-        --secondary-rgb: 6, 182, 212;
-        --shadow: 0 20px 50px rgba(0, 0, 0, 0.55);
-        --shadow-sm: 0 8px 25px rgba(0, 0, 0, 0.4);
-        --glow-p: 0 0 30px rgba(139, 92, 246, 0.35);
-        --glow-s: 0 0 30px rgba(6, 182, 212, 0.35);
-        --nav-bg: rgba(2, 6, 23, 0.82);
-        --nav-scrolled: rgba(2, 6, 23, 0.97);
-        --card-bg: rgba(255, 255, 255, 0.025);
-        --loader-bg: #020617;
-        --amb1: rgba(139, 92, 246, 0.13);
-        --amb2: rgba(6, 182, 212, 0.1);
-        --grid-line: rgba(255, 255, 255, 0.025);
-        --tag-bg: rgba(139, 92, 246, 0.1);
-        --tag-border: rgba(139, 92, 246, 0.22);
-        --tag-text: #d8b4fe;
-        --input-bg: rgba(255, 255, 255, 0.04);
-        --input-border: rgba(255, 255, 255, 0.08);
-        --modal-bg: #07101f;
-        --danger-bg: rgba(244, 63, 94, 0.12);
-        --danger: hsl(350, 90%, 60%);
-      }
-      [data-theme="light"] {
-        --bg: #f0f4ff;
-        --bg2: #e8eeff;
-        --surface: rgba(255, 255, 255, 0.85);
-        --surface2: rgba(255, 255, 255, 0.95);
-        --border: rgba(99, 102, 241, 0.15);
-        --border2: rgba(99, 102, 241, 0.25);
-        --text: #0f172a;
-        --muted: #475569;
-        --muted2: #64748b;
-        --primary: #7c3aed;
-        --secondary: #0891b2;
-        --primary-rgb: 124, 58, 237;
-        --secondary-rgb: 8, 145, 178;
-        --shadow: 0 20px 50px rgba(99, 102, 241, 0.18);
-        --shadow-sm: 0 8px 25px rgba(99, 102, 241, 0.12);
-        --glow-p: 0 0 25px rgba(124, 58, 237, 0.2);
-        --glow-s: 0 0 25px rgba(8, 145, 178, 0.2);
-        --nav-bg: rgba(240, 244, 255, 0.88);
-        --nav-scrolled: rgba(240, 244, 255, 0.98);
-        --card-bg: rgba(255, 255, 255, 0.75);
-        --loader-bg: #f0f4ff;
-        --amb1: rgba(124, 58, 237, 0.1);
-        --amb2: rgba(8, 145, 178, 0.08);
-        --grid-line: rgba(99, 102, 241, 0.06);
-        --tag-bg: rgba(124, 58, 237, 0.08);
-        --tag-border: rgba(124, 58, 237, 0.2);
-        --tag-text: #7c3aed;
-        --input-bg: rgba(255, 255, 255, 0.9);
-        --input-border: rgba(99, 102, 241, 0.2);
-        --modal-bg: #eef2ff;
-        --danger-bg: rgba(244, 63, 94, 0.08);
-        --danger: hsl(350, 80%, 50%);
-      }
+<div id="loader">
+  <div class="ld-orbit">
+    <div class="ld-orbit-ring"></div><div class="ld-orbit-ring"></div><div class="ld-orbit-ring"></div>
+    <div class="ld-orbit-core">ML</div>
+  </div>
+  <div class="ld-name">Barakat Ahmad</div>
+  <div class="ld-bar-wrap"><div class="ld-bar-fill"></div></div>
+  <div class="ld-status">Connecting to Firebase<span class="ld-dots"></span></div>
+</div>
 
-      body {
-        font-family:
-          "Poppins",
-          -apple-system,
-          BlinkMacSystemFont,
-          sans-serif;
-        background: var(--bg);
-        color: var(--text);
-        overflow-x: hidden;
-        cursor: none;
-        transition:
-          background 0.4s,
-          color 0.4s;
-      }
-      #cur {
-        width: 10px;
-        height: 10px;
-        background: var(--secondary);
-        border-radius: 50%;
-        position: fixed;
-        top: 0;
-        left: 0;
-        pointer-events: none;
-        z-index: 9999;
-        transform: translate(-50%, -50%);
-        transition: transform 0.1s;
-        box-shadow: 0 0 12px var(--secondary);
-        will-change: left, top;
-      }
-      #cur-ring {
-        width: 32px;
-        height: 32px;
-        border: 1.5px solid rgba(var(--secondary-rgb), 0.5);
-        border-radius: 50%;
-        position: fixed;
-        top: 0;
-        left: 0;
-        pointer-events: none;
-        z-index: 9998;
-        transform: translate(-50%, -50%);
-        transition: all 0.15s;
-        will-change: left, top;
-      }
-      #cur.hov {
-        transform: translate(-50%, -50%) scale(2.2);
-        background: var(--primary);
-      }
-      #cur-ring.hov {
-        transform: translate(-50%, -50%) scale(1.4);
-        border-color: var(--primary);
-      }
-      .grid-bg {
-        position: fixed;
-        inset: 0;
-        background-image:
-          linear-gradient(var(--grid-line) 1px, transparent 1px),
-          linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
-        background-size: 50px 50px;
-        z-index: -2;
-        pointer-events: none;
-      }
-      .ambient {
-        position: fixed;
-        border-radius: 50%;
-        pointer-events: none;
-        z-index: -1;
-      }
-      .amb-1 {
-        width: 500px;
-        height: 500px;
-        top: -180px;
-        left: -120px;
-        background: radial-gradient(circle, var(--amb1) 0%, transparent 70%);
-      }
-      .amb-2 {
-        width: 450px;
-        height: 450px;
-        bottom: -130px;
-        right: -80px;
-        background: radial-gradient(circle, var(--amb2) 0%, transparent 70%);
-      }
-      ::-webkit-scrollbar {
-        width: 4px;
-      }
-      ::-webkit-scrollbar-track {
-        background: var(--bg);
-      }
-      ::-webkit-scrollbar-thumb {
-        background: linear-gradient(var(--primary), var(--secondary));
-        border-radius: 2px;
-      }
+<div id="cur"></div><div id="cur-ring"></div>
+<div class="grid-bg"></div>
+<div class="ambient amb-1"></div><div class="ambient amb-2"></div>
 
-      /* LOADER */
-      #loader {
-        position: fixed;
-        inset: 0;
-        background: var(--loader-bg);
-        z-index: 99999;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        gap: 0;
-        transition:
-          opacity 0.5s,
-          visibility 0.5s;
-      }
-      #loader.done {
-        opacity: 0;
-        visibility: hidden;
-        pointer-events: none;
-      }
-      .ld-orbit {
-        position: relative;
-        width: 110px;
-        height: 110px;
-        margin-bottom: 2rem;
-      }
-      .ld-orbit-ring {
-        position: absolute;
-        inset: 0;
-        border-radius: 50%;
-        border: 2px solid transparent;
-        animation: orbitSpin 2s linear infinite;
-      }
-      .ld-orbit-ring:nth-child(1) {
-        border-top-color: var(--primary);
-        border-right-color: var(--primary);
-        animation-duration: 1.4s;
-      }
-      .ld-orbit-ring:nth-child(2) {
-        inset: 12px;
-        border-bottom-color: var(--secondary);
-        border-left-color: var(--secondary);
-        animation-direction: reverse;
-        animation-duration: 1.8s;
-      }
-      .ld-orbit-ring:nth-child(3) {
-        inset: 24px;
-        border-top-color: rgba(var(--primary-rgb), 0.4);
-        border-left-color: rgba(var(--primary-rgb), 0.4);
-        animation-duration: 2.4s;
-      }
-      .ld-orbit-core {
-        position: absolute;
-        inset: 36px;
-        border-radius: 50%;
-        background: linear-gradient(135deg, var(--primary), var(--secondary));
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 0.9rem;
-        font-weight: 800;
-        color: white;
-        font-family: "JetBrains Mono", monospace;
-        animation: corePulse 1.6s ease-in-out infinite;
-        box-shadow: 0 0 20px rgba(var(--primary-rgb), 0.5);
-      }
-      @keyframes orbitSpin {
-        to {
-          transform: rotate(360deg);
-        }
-      }
-      @keyframes corePulse {
-        0%,
-        100% {
-          transform: scale(1);
-        }
-        50% {
-          transform: scale(1.08);
-        }
-      }
-      .ld-name {
-        font-family: "JetBrains Mono", monospace;
-        font-size: 1.05rem;
-        font-weight: 700;
-        letter-spacing: 0.25em;
-        text-transform: uppercase;
-        background: linear-gradient(90deg, var(--primary), var(--secondary));
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        margin-bottom: 0.8rem;
-      }
-      .ld-bar-wrap {
-        width: 200px;
-        height: 3px;
-        background: var(--border);
-        border-radius: 2px;
-        overflow: hidden;
-        margin-bottom: 0.7rem;
-      }
-      .ld-bar-fill {
-        height: 100%;
-        border-radius: 2px;
-        background: linear-gradient(90deg, var(--primary), var(--secondary));
-        width: 0%;
-        animation: ldFill 1.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-      }
-      @keyframes ldFill {
-        0% {
-          width: 0%;
-        }
-        60% {
-          width: 75%;
-        }
-        100% {
-          width: 100%;
-        }
-      }
-      .ld-status {
-        font-family: "JetBrains Mono", monospace;
-        font-size: 0.6rem;
-        letter-spacing: 0.2em;
-        color: var(--muted);
-        text-transform: uppercase;
-      }
-      .ld-dots::after {
-        content: "";
-        animation: ldDots 1.2s steps(4, end) infinite;
-      }
-      @keyframes ldDots {
-        0% {
-          content: "";
-        }
-        25% {
-          content: ".";
-        }
-        50% {
-          content: "..";
-        }
-        75% {
-          content: "...";
-        }
-        100% {
-          content: "";
-        }
-      }
+<div class="toast" id="toast">
+  <svg class="toast-icon" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+  <span id="toast-msg"></span>
+</div>
 
-      /* NAV */
-      nav {
-        position: fixed;
-        top: 0;
-        width: 100%;
-        padding: 18px 8%;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        backdrop-filter: blur(20px);
-        -webkit-backdrop-filter: blur(20px);
-        background: var(--nav-bg);
-        border-bottom: 1px solid var(--border);
-        z-index: 1000;
-        transition:
-          padding 0.3s,
-          background 0.3s;
-      }
-      nav.scrolled {
-        padding: 13px 8%;
-        background: var(--nav-scrolled);
-      }
-      .logo {
-        font-size: 1.85rem;
-        font-weight: 800;
-        background: linear-gradient(90deg, var(--primary), var(--secondary));
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        text-decoration: none;
-        letter-spacing: -0.02em;
-      }
-      .nav-right {
-        display: flex;
-        align-items: center;
-        gap: 1.2rem;
-      }
-      .nav-links {
-        display: flex;
-        gap: 28px;
-        align-items: center;
-      }
-      .nav-links a {
-        text-decoration: none;
-        color: var(--muted);
-        font-weight: 500;
-        font-size: 0.92rem;
-        position: relative;
-        transition: color 0.3s;
-      }
-      .nav-links a::after {
-        content: "";
-        position: absolute;
-        width: 0;
-        height: 2px;
-        left: 0;
-        bottom: -5px;
-        background: linear-gradient(90deg, var(--primary), var(--secondary));
-        transition: 0.3s;
-        border-radius: 1px;
-      }
-      .nav-links a:hover,
-      .nav-links a.active {
-        color: var(--text);
-      }
-      .nav-links a:hover::after,
-      .nav-links a.active::after {
-        width: 100%;
-      }
-      .theme-toggle {
-        width: 44px;
-        height: 24px;
-        border-radius: 999px;
-        border: 1.5px solid var(--border2);
-        background: var(--surface2);
-        cursor: pointer;
-        position: relative;
-        transition: all 0.35s;
-        flex-shrink: 0;
-        display: flex;
-        align-items: center;
-        padding: 2px;
-      }
-      .theme-toggle::before {
-        content: "";
-        width: 18px;
-        height: 18px;
-        border-radius: 50%;
-        background: linear-gradient(135deg, var(--primary), var(--secondary));
-        position: absolute;
-        left: 2px;
-        transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
-        box-shadow: 0 2px 8px rgba(var(--primary-rgb), 0.4);
-      }
-      [data-theme="light"] .theme-toggle::before {
-        transform: translateX(19px);
-      }
-      .theme-toggle-icon {
-        position: absolute;
-        font-size: 0.65rem;
-        transition: opacity 0.3s;
-      }
-      .theme-toggle-icon.sun {
-        right: 4px;
-        opacity: 1;
-      }
-      .theme-toggle-icon.moon {
-        left: 4px;
-        opacity: 0;
-      }
-      [data-theme="light"] .theme-toggle-icon.sun {
-        opacity: 0;
-      }
-      [data-theme="light"] .theme-toggle-icon.moon {
-        opacity: 1;
-      }
+<nav id="navbar">
+  <a href="#home" class="logo">Barakat.</a>
+  <input type="checkbox" id="menu-menu" class="menu-checkbox"/>
+  <label for="menu-menu" class="menu-toggle" aria-label="Menu"><span></span><span></span><span></span></label>
+  <div class="nav-right">
+    <div class="nav-links">
+      <a href="#home">Home</a><a href="#skills">Skills</a><a href="#projects">Projects</a><a href="#contact">Contact</a>
+    </div>
+    <button class="admin-btn" id="adminBtn">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      <span>Admin</span>
+    </button>
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+      <span class="theme-toggle-icon sun">☀️</span>
+      <span class="theme-toggle-icon moon">🌙</span>
+    </button>
+  </div>
+</nav>
 
-      /* ADMIN BUTTON */
-      .admin-btn {
-        padding: 7px 14px;
-        border-radius: 8px;
-        border: 1px solid rgba(var(--primary-rgb), 0.3);
-        background: rgba(var(--primary-rgb), 0.08);
-        color: var(--primary);
-        font-size: 0.75rem;
-        font-family: "JetBrains Mono", monospace;
-        letter-spacing: 0.08em;
-        cursor: pointer;
-        transition: all 0.3s;
-        display: flex;
-        align-items: center;
-        gap: 0.4rem;
-      }
-      .admin-btn:hover {
-        background: var(--primary);
-        color: white;
-        border-color: var(--primary);
-      }
-      .admin-btn svg {
-        width: 13px;
-        height: 13px;
-      }
-
-      .menu-checkbox {
-        display: none;
-      }
-      .menu-toggle {
-        display: none;
-        flex-direction: column;
-        gap: 5px;
-        cursor: pointer;
-        z-index: 1001;
-        padding: 4px;
-      }
-      .menu-toggle span {
-        width: 24px;
-        height: 2px;
-        background: var(--text);
-        border-radius: 2px;
-        transition: 0.3s;
-        display: block;
-      }
-
-      /* HERO */
-      section {
-        padding: 140px 8% 90px;
-      }
-      .hero {
-        min-height: 88vh;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 60px;
-        position: relative;
-      }
-      .hero-content {
-        flex: 1.2;
-        min-width: 300px;
-      }
-      .hero-badge {
-        display: inline-flex;
-        align-items: center;
-        gap: 0.6rem;
-        background: rgba(var(--secondary-rgb), 0.08);
-        border: 1px solid rgba(var(--secondary-rgb), 0.22);
-        border-radius: 999px;
-        padding: 0.35rem 1rem;
-        font-size: 0.78rem;
-        font-family: "JetBrains Mono", monospace;
-        color: var(--secondary);
-        letter-spacing: 0.08em;
-        margin-bottom: 1.4rem;
-        opacity: 0;
-        animation: fadeUp 0.7s 0.2s forwards;
-      }
-      .hero-badge::before {
-        content: "";
-        width: 6px;
-        height: 6px;
-        border-radius: 50%;
-        background: var(--secondary);
-        box-shadow: 0 0 8px var(--secondary);
-        animation: pulse 1.8s infinite;
-      }
-      @keyframes pulse {
-        0%,
-        100% {
-          opacity: 0.5;
-        }
-        50% {
-          opacity: 1;
-        }
-      }
-      .hero-content h1 {
-        font-size: clamp(2.5rem, 5vw, 4.4rem);
-        line-height: 1.08;
-        margin-bottom: 1.3rem;
-        font-weight: 800;
-        opacity: 0;
-        animation: fadeUp 0.8s 0.4s forwards;
-        color: var(--text);
-      }
-      .gradient-text {
-        background: linear-gradient(90deg, var(--primary), var(--secondary));
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-      }
-      .hero-content p {
-        color: var(--muted);
-        font-size: 1rem;
-        line-height: 1.85;
-        margin-bottom: 2rem;
-        max-width: 570px;
-        opacity: 0;
-        animation: fadeUp 0.8s 0.6s forwards;
-      }
-      .hero-buttons {
-        display: flex;
-        gap: 14px;
-        flex-wrap: wrap;
-        opacity: 0;
-        animation: fadeUp 0.8s 0.8s forwards;
-      }
-      .btn {
-        padding: 13px 26px;
-        border-radius: 12px;
-        text-decoration: none;
-        font-weight: 600;
-        font-size: 0.9rem;
-        transition: all 0.3s;
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        gap: 0.5rem;
-        cursor: pointer;
-        font-family: inherit;
-        border: none;
-      }
-      .primary-btn {
-        background: linear-gradient(90deg, var(--primary), var(--secondary));
-        color: white;
-        box-shadow: 0 8px 25px rgba(var(--primary-rgb), 0.3);
-      }
-      .primary-btn:hover {
-        transform: translateY(-4px);
-        box-shadow: 0 15px 35px rgba(var(--primary-rgb), 0.45);
-      }
-      .secondary-btn {
-        background: var(--surface);
-        border: 1px solid var(--border2);
-        color: var(--text);
-      }
-      .secondary-btn:hover {
-        background: var(--surface2);
-        transform: translateY(-4px);
-      }
-
-      /* PROFILE CARD */
-      .hero-image {
-        flex: 0.85;
-        display: flex;
-        justify-content: center;
-        min-width: 280px;
-        opacity: 0;
-        animation: fadeLeft 0.9s 0.5s forwards;
-      }
-      .profile-card {
-        width: 100%;
-        max-width: 350px;
-        border-radius: 28px;
-        background: var(--card-bg);
-        border: 1px solid var(--border);
-        backdrop-filter: blur(16px);
-        padding: 30px 22px;
-        box-shadow: var(--shadow);
-        transition:
-          transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275),
-          border-color 0.4s,
-          box-shadow 0.4s;
-        will-change: transform;
-      }
-      .profile-card:hover {
-        transform: translateY(-10px) rotateX(3deg) rotateY(-3deg);
-        border-color: rgba(var(--primary-rgb), 0.35);
-        box-shadow: 0 25px 60px rgba(var(--primary-rgb), 0.2);
-      }
-      .profile-circle {
-        width: 130px;
-        height: 130px;
-        border-radius: 50%;
-        margin: 6px auto 20px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        position: relative;
-        overflow: hidden;
-        box-shadow: 0 10px 30px rgba(var(--primary-rgb), 0.3);
-      }
-      .profile-circle img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        border-radius: 50%;
-        z-index: 3;
-        padding: 4px;
-        background: var(--bg);
-      }
-      .profile-circle::before {
-        content: "";
-        position: absolute;
-        width: 200%;
-        height: 200%;
-        background: conic-gradient(
-          transparent,
-          var(--primary),
-          var(--secondary),
-          transparent 60%
-        );
-        animation: spin 4s linear infinite;
-        z-index: 1;
-      }
-      @keyframes spin {
-        100% {
-          transform: rotate(360deg);
-        }
-      }
-      .profile-card h2 {
-        text-align: center;
-        font-size: 1.55rem;
-        margin-bottom: 7px;
-        font-weight: 700;
-        color: var(--text);
-      }
-      .profile-card > p {
-        text-align: center;
-        color: var(--muted);
-        line-height: 1.6;
-        font-size: 0.86rem;
-      }
-      .stats {
-        margin-top: 22px;
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 8px;
-      }
-      .stat-box {
-        background: var(--surface);
-        border: 1px solid var(--border);
-        border-radius: 14px;
-        padding: 13px 8px;
-        text-align: center;
-        transition: all 0.3s;
-      }
-      .stat-box:hover {
-        border-color: rgba(var(--primary-rgb), 0.3);
-        background: rgba(var(--primary-rgb), 0.06);
-      }
-      .stat-box h4 {
-        font-size: 1.4rem;
-        background: linear-gradient(90deg, var(--primary), var(--secondary));
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        margin-bottom: 2px;
-        font-weight: 700;
-      }
-      .stat-box span {
-        font-size: 0.72rem;
-        color: var(--muted);
-        display: block;
-      }
-
-      /* SECTIONS */
-      .section-title {
-        font-size: clamp(1.9rem, 4vw, 2.75rem);
-        text-align: center;
-        margin-bottom: 12px;
-        font-weight: 800;
-        color: var(--text);
-      }
-      .section-subtitle {
-        max-width: 580px;
-        margin: 0 auto 48px;
-        text-align: center;
-        color: var(--muted);
-        line-height: 1.75;
-        font-size: 0.95rem;
-      }
-      .section-tag {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 0.7rem;
-        margin-bottom: 0.9rem;
-      }
-      .section-tag span {
-        font-family: "JetBrains Mono", monospace;
-        font-size: 0.68rem;
-        letter-spacing: 0.22em;
-        color: var(--secondary);
-        text-transform: uppercase;
-      }
-      .section-tag::before,
-      .section-tag::after {
-        content: "";
-        flex: 0 0 36px;
-        height: 1px;
-        background: linear-gradient(90deg, transparent, var(--secondary));
-      }
-      .section-tag::after {
-        background: linear-gradient(90deg, var(--secondary), transparent);
-      }
-
-      /* SKILLS */
-      #skills {
-        background: var(--bg2);
-      }
-      .skills-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-        gap: 16px;
-      }
-      .skill-card {
-        background: var(--card-bg);
-        border: 1px solid var(--border);
-        padding: 26px 20px;
-        border-radius: 18px;
-        transition: all 0.35s;
-        position: relative;
-        overflow: hidden;
-        will-change: transform;
-      }
-      .skill-card::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        height: 2.5px;
-        background: linear-gradient(90deg, var(--primary), var(--secondary));
-        opacity: 0.6;
-        transition: opacity 0.3s;
-      }
-      .skill-card:hover {
-        transform: translateY(-6px);
-        border-color: rgba(var(--primary-rgb), 0.3);
-        box-shadow: var(--shadow-sm), var(--glow-p);
-      }
-      .skill-card:hover::before {
-        opacity: 1;
-      }
-      .skill-icon {
-        font-size: 1.9rem;
-        margin-bottom: 10px;
-        display: block;
-      }
-      .skill-card h3 {
-        font-size: 1.05rem;
-        margin-bottom: 8px;
-        font-weight: 700;
-        color: var(--text);
-      }
-      .skill-card p {
-        color: var(--muted);
-        line-height: 1.65;
-        font-size: 0.85rem;
-      }
-      .skill-bar-wrap {
-        margin-top: 13px;
-      }
-      .skill-bar-label {
-        display: flex;
-        justify-content: space-between;
-        font-size: 0.68rem;
-        color: var(--muted2);
-        margin-bottom: 5px;
-        font-family: "JetBrains Mono", monospace;
-      }
-      .skill-bar {
-        height: 3px;
-        background: var(--border);
-        border-radius: 2px;
-        overflow: hidden;
-      }
-      .skill-fill {
-        height: 100%;
-        background: linear-gradient(90deg, var(--primary), var(--secondary));
-        border-radius: 2px;
-        width: 0;
-        transition: width 1.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-      }
-
-      /* CARD ACTIONS (admin only) */
-      .card-actions {
-        position: absolute;
-        top: 10px;
-        right: 10px;
-        display: flex;
-        gap: 6px;
-        z-index: 10;
-        opacity: 0;
-        transition: opacity 0.2s;
-      }
-      .skill-card:hover .card-actions,
-      .project-card:hover .card-actions {
-        opacity: 1;
-      }
-      .ca-btn {
-        width: 28px;
-        height: 28px;
-        border-radius: 7px;
-        border: none;
-        cursor: pointer;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        transition: all 0.2s;
-        backdrop-filter: blur(8px);
-      }
-      .ca-edit {
-        background: rgba(var(--primary-rgb), 0.15);
-        color: var(--primary);
-        border: 1px solid rgba(var(--primary-rgb), 0.25);
-      }
-      .ca-edit:hover {
-        background: var(--primary);
-        color: white;
-      }
-      .ca-del {
-        background: var(--danger-bg);
-        color: var(--danger);
-        border: 1px solid rgba(244, 63, 94, 0.22);
-      }
-      .ca-del:hover {
-        background: var(--danger);
-        color: white;
-      }
-
-      /* PROJECTS */
-      #projects {
-        background: var(--bg);
-      }
-      .projects-container {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
-        gap: 24px;
-      }
-      .project-card {
-        background: var(--card-bg);
-        border-radius: 22px;
-        overflow: hidden;
-        border: 1px solid var(--border);
-        transition: all 0.35s;
-        display: flex;
-        flex-direction: column;
-        height: 100%;
-        position: relative;
-        will-change: transform;
-      }
-      .project-card:hover {
-        transform: translateY(-8px);
-        border-color: rgba(var(--secondary-rgb), 0.3);
-        box-shadow: var(--shadow), var(--glow-s);
-      }
-      .project-image {
-        height: 170px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 2.4rem;
-        background: linear-gradient(
-          135deg,
-          rgba(var(--primary-rgb), 0.35),
-          rgba(var(--secondary-rgb), 0.35)
-        );
-        border-bottom: 1px solid var(--border);
-        position: relative;
-        overflow: hidden;
-      }
-      .project-image::after {
-        content: "";
-        position: absolute;
-        inset: 0;
-        background: linear-gradient(
-          to bottom,
-          transparent 55%,
-          rgba(0, 0, 0, 0.25)
-        );
-      }
-      .project-content {
-        padding: 20px;
-        display: flex;
-        flex-direction: column;
-        flex-grow: 1;
-      }
-      .project-content h3 {
-        font-size: 1.15rem;
-        margin-bottom: 9px;
-        font-weight: 700;
-        color: var(--text);
-      }
-      .project-content p {
-        color: var(--muted);
-        line-height: 1.65;
-        margin-bottom: 16px;
-        font-size: 0.875rem;
-        flex-grow: 1;
-      }
-      .project-tags {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 6px;
-        margin-bottom: 16px;
-      }
-      .tag {
-        padding: 4px 10px;
-        border-radius: 999px;
-        background: var(--tag-bg);
-        border: 1px solid var(--tag-border);
-        font-size: 0.72rem;
-        color: var(--tag-text);
-        font-family: "JetBrains Mono", monospace;
-      }
-      .project-links {
-        display: flex;
-        gap: 9px;
-      }
-      .project-links a {
-        flex: 1;
-        text-align: center;
-        text-decoration: none;
-        padding: 9px;
-        border-radius: 10px;
-        background: var(--surface);
-        border: 1px solid var(--border2);
-        color: var(--text);
-        transition: all 0.3s;
-        font-weight: 600;
-        font-size: 0.82rem;
-      }
-      .project-links a:hover {
-        background: linear-gradient(90deg, var(--primary), var(--secondary));
-        border-color: transparent;
-        color: white;
-        transform: translateY(-2px);
-      }
-      .project-links a.disabled {
-        opacity: 0.3;
-        pointer-events: none;
-      }
-
-      /* ADD CARD BUTTONS */
-      .add-card-btn {
-        background: transparent;
-        border: 1.5px dashed rgba(var(--primary-rgb), 0.3);
-        border-radius: 22px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        gap: 1rem;
-        min-height: 280px;
-        cursor: pointer;
-        transition: all 0.3s;
-        color: var(--muted);
-        font-family: inherit;
-      }
-      .add-card-btn:hover {
-        border-color: var(--primary);
-        color: var(--primary);
-        background: rgba(var(--primary-rgb), 0.04);
-        box-shadow: var(--glow-p);
-      }
-      .add-card-btn svg {
-        width: 36px;
-        height: 36px;
-        transition: transform 0.3s;
-      }
-      .add-card-btn:hover svg {
-        transform: rotate(90deg) scale(1.1);
-      }
-      .add-card-btn span {
-        font-size: 0.78rem;
-        font-family: "JetBrains Mono", monospace;
-        letter-spacing: 0.15em;
-        text-transform: uppercase;
-      }
-      .add-skill-btn {
-        border-radius: 18px;
-        min-height: 180px;
-      }
-      .add-skill-btn:hover {
-        border-color: var(--secondary);
-        color: var(--secondary);
-        box-shadow: var(--glow-s);
-      }
-
-      /* CONTACT */
-      #contact {
-        background: var(--bg2);
-      }
-      .contact-box {
-        max-width: 600px;
-        margin: auto;
-        background: var(--card-bg);
-        border: 1px solid var(--border);
-        border-radius: 22px;
-        padding: 36px 30px;
-        backdrop-filter: blur(15px);
-      }
-      .contact-box h2 {
-        font-size: 1.5rem;
-        margin-bottom: 1.5rem;
-        text-align: center;
-        font-weight: 700;
-        color: var(--text);
-      }
-      .contact-form {
-        display: flex;
-        flex-direction: column;
-        gap: 14px;
-      }
-      .contact-form input,
-      .contact-form textarea {
-        padding: 13px 15px;
-        border-radius: 10px;
-        border: 1px solid var(--input-border);
-        background: var(--input-bg);
-        color: var(--text);
-        font-family: inherit;
-        font-size: 0.9rem;
-        outline: none;
-        transition: all 0.3s;
-      }
-      .contact-form input:focus,
-      .contact-form textarea:focus {
-        border-color: var(--secondary);
-        box-shadow: 0 0 0 3px rgba(var(--secondary-rgb), 0.12);
-      }
-      .contact-form textarea {
-        min-height: 130px;
-        resize: vertical;
-      }
-      .contact-form input::placeholder,
-      .contact-form textarea::placeholder {
-        color: var(--muted2);
-      }
-      footer {
-        text-align: center;
-        padding: 26px;
-        color: var(--muted);
-        border-top: 1px solid var(--border);
-        font-size: 0.87rem;
-      }
-      footer a {
-        color: var(--secondary);
-        text-decoration: none;
-      }
-
-      /* TOAST */
-      .toast {
-        position: fixed;
-        bottom: 2rem;
-        right: 2rem;
-        background: var(--modal-bg);
-        border: 1px solid var(--primary);
-        border-radius: 12px;
-        padding: 0.9rem 1.3rem;
-        font-size: 0.84rem;
-        color: var(--text);
-        z-index: 6000;
-        transform: translateY(80px);
-        opacity: 0;
-        transition: all 0.4s;
-        box-shadow: var(--glow-p);
-        display: flex;
-        align-items: center;
-        gap: 0.6rem;
-        max-width: 300px;
-      }
-      .toast.show {
-        transform: translateY(0);
-        opacity: 1;
-      }
-      .toast-icon {
-        color: var(--secondary);
-        flex-shrink: 0;
-      }
-      .floating-btn {
-        position: fixed;
-        right: 24px;
-        bottom: -70px;
-        width: 44px;
-        height: 44px;
-        border-radius: 50%;
-        border: none;
-        background: linear-gradient(135deg, var(--primary), var(--secondary));
-        color: white;
-        font-size: 1.15rem;
-        cursor: pointer;
-        box-shadow: 0 5px 20px rgba(var(--primary-rgb), 0.4);
-        z-index: 2000;
-        transition:
-          bottom 0.4s,
-          transform 0.2s;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-      .floating-btn.show {
-        bottom: 24px;
-      }
-      .floating-btn:hover {
-        transform: scale(1.1);
-      }
-
-      /* MODAL */
-      .modal-overlay {
-        position: fixed;
-        inset: 0;
-        background: rgba(0, 0, 0, 0.78);
-        backdrop-filter: blur(10px);
-        z-index: 5000;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        opacity: 0;
-        pointer-events: none;
-        transition: opacity 0.3s;
-        padding: 1rem;
-      }
-      .modal-overlay.open {
-        opacity: 1;
-        pointer-events: all;
-      }
-      .modal {
-        background: var(--modal-bg);
-        border: 1px solid var(--border2);
-        border-radius: 20px;
-        padding: 2rem;
-        width: 100%;
-        max-width: 520px;
-        transform: translateY(18px) scale(0.97);
-        transition: all 0.3s;
-        box-shadow: var(--shadow), var(--glow-p);
-        max-height: 90vh;
-        overflow-y: auto;
-      }
-      .modal-overlay.open .modal {
-        transform: translateY(0) scale(1);
-      }
-      .modal-hdr {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-bottom: 1.6rem;
-      }
-      .modal-title {
-        font-size: 1.1rem;
-        font-weight: 700;
-        background: linear-gradient(90deg, var(--primary), var(--secondary));
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-      }
-      .modal-close {
-        background: none;
-        border: none;
-        color: var(--muted);
-        font-size: 1.3rem;
-        cursor: pointer;
-        transition: color 0.2s;
-        line-height: 1;
-      }
-      .modal-close:hover {
-        color: var(--danger);
-      }
-      .form-group {
-        margin-bottom: 1rem;
-      }
-      .form-label {
-        display: block;
-        font-family: "JetBrains Mono", monospace;
-        font-size: 0.62rem;
-        letter-spacing: 0.18em;
-        text-transform: uppercase;
-        color: var(--muted);
-        margin-bottom: 0.4rem;
-      }
-      .form-input,
-      .form-textarea,
-      .form-select {
-        width: 100%;
-        background: var(--input-bg);
-        border: 1px solid var(--input-border);
-        border-radius: 10px;
-        padding: 0.68rem 0.9rem;
-        color: var(--text);
-        font-family: inherit;
-        font-size: 0.88rem;
-        outline: none;
-        transition:
-          border-color 0.3s,
-          box-shadow 0.3s;
-      }
-      .form-input:focus,
-      .form-textarea:focus,
-      .form-select:focus {
-        border-color: var(--primary);
-        box-shadow: 0 0 0 3px rgba(var(--primary-rgb), 0.12);
-      }
-      .form-input::placeholder,
-      .form-textarea::placeholder {
-        color: var(--muted2);
-      }
-      .form-textarea {
-        resize: vertical;
-        min-height: 80px;
-      }
-      .form-select {
-        cursor: pointer;
-      }
-      .form-select option {
-        background: var(--modal-bg);
-        color: var(--text);
-      }
-      .form-row {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 0.9rem;
-      }
-
-      /* ADMIN LOGIN MODAL */
-      .login-note {
-        font-size: 0.78rem;
-        color: var(--muted);
-        text-align: center;
-        margin-top: 0.8rem;
-        font-family: "JetBrains Mono", monospace;
-      }
-      .admin-bar {
-        background: linear-gradient(
-          90deg,
-          rgba(var(--primary-rgb), 0.08),
-          rgba(var(--secondary-rgb), 0.08)
-        );
-        border: 1px solid rgba(var(--primary-rgb), 0.2);
-        border-radius: 10px;
-        padding: 0.7rem 1rem;
-        margin-bottom: 1.5rem;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        font-size: 0.8rem;
-        color: var(--primary);
-        font-family: "JetBrains Mono", monospace;
-      }
-      .admin-bar button {
-        background: none;
-        border: none;
-        color: var(--danger);
-        cursor: pointer;
-        font-size: 0.75rem;
-        font-family: "JetBrains Mono", monospace;
-        text-decoration: underline;
-      }
-
-      /* FIREBASE STATUS */
-      .fb-status {
-        display: inline-flex;
-        align-items: center;
-        gap: 0.4rem;
-        font-size: 0.68rem;
-        font-family: "JetBrains Mono", monospace;
-        padding: 0.3rem 0.7rem;
-        border-radius: 999px;
-        border: 1px solid;
-      }
-      .fb-status.connected {
-        color: #22c55e;
-        border-color: rgba(34, 197, 94, 0.3);
-        background: rgba(34, 197, 94, 0.08);
-      }
-      .fb-status.error {
-        color: var(--danger);
-        border-color: rgba(244, 63, 94, 0.3);
-        background: var(--danger-bg);
-      }
-      .fb-status::before {
-        content: "";
-        width: 6px;
-        height: 6px;
-        border-radius: 50%;
-        background: currentColor;
-        animation: pulse 1.8s infinite;
-      }
-
-      /* ANIMATIONS */
-      @keyframes fadeUp {
-        from {
-          opacity: 0;
-          transform: translateY(28px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-      @keyframes fadeLeft {
-        from {
-          opacity: 0;
-          transform: translateX(28px);
-        }
-        to {
-          opacity: 1;
-          transform: translateX(0);
-        }
-      }
-      .reveal {
-        opacity: 0;
-        transform: translateY(32px);
-        transition:
-          opacity 0.65s ease,
-          transform 0.65s ease;
-      }
-      .reveal.visible {
-        opacity: 1;
-        transform: translateY(0);
-      }
-      .type-cursor {
-        display: inline-block;
-        background: var(--secondary);
-        width: 2.5px;
-        height: 0.85em;
-        vertical-align: middle;
-        margin-left: 2px;
-        animation: blink 1s infinite;
-        border-radius: 1px;
-      }
-      @keyframes blink {
-        0%,
-        100% {
-          opacity: 1;
-        }
-        50% {
-          opacity: 0;
-        }
-      }
-
-      /* SKELETON LOADER */
-      .skeleton {
-        background: linear-gradient(
-          90deg,
-          var(--surface) 25%,
-          var(--surface2) 50%,
-          var(--surface) 75%
-        );
-        background-size: 200% 100%;
-        animation: shimmer 1.5s infinite;
-        border-radius: 8px;
-      }
-      @keyframes shimmer {
-        0% {
-          background-position: 200% 0;
-        }
-        100% {
-          background-position: -200% 0;
-        }
-      }
-
-      @media (max-width: 992px) {
-        .menu-toggle {
-          display: flex;
-        }
-        .nav-links {
-          position: fixed;
-          top: 0;
-          right: -100%;
-          width: 260px;
-          height: 100vh;
-          background: var(--nav-scrolled);
-          backdrop-filter: blur(24px);
-          flex-direction: column;
-          justify-content: center;
-          gap: 34px;
-          border-left: 1px solid var(--border);
-          transition: right 0.4s cubic-bezier(0.1, 0.9, 0.2, 1);
-          z-index: 999;
-        }
-        .nav-links a {
-          font-size: 1.1rem;
-        }
-        .menu-checkbox:checked ~ .nav-right .nav-links {
-          right: 0;
-        }
-        .menu-checkbox:checked ~ .menu-toggle span:nth-child(1) {
-          transform: rotate(45deg) translate(5px, 5px);
-        }
-        .menu-checkbox:checked ~ .menu-toggle span:nth-child(2) {
-          opacity: 0;
-        }
-        .menu-checkbox:checked ~ .menu-toggle span:nth-child(3) {
-          transform: rotate(-45deg) translate(5px, -6px);
-        }
-        .hero {
-          flex-direction: column;
-          text-align: center;
-          justify-content: center;
-          gap: 48px;
-        }
-        .hero-content p {
-          margin: 0 auto 2rem;
-        }
-        .hero-buttons {
-          justify-content: center;
-        }
-        section {
-          padding: 100px 5% 70px;
-        }
-        .form-row {
-          grid-template-columns: 1fr;
-        }
-        .admin-btn span {
-          display: none;
-        }
-      }
-      @media (max-width: 576px) {
-        .hero-content h1 {
-          font-size: 2.3rem;
-        }
-        .section-title {
-          font-size: 1.9rem;
-        }
-        .contact-box {
-          padding: 22px 16px;
-        }
-        .modal {
-          padding: 1.5rem;
-        }
-        .toast {
-          right: 1rem;
-          bottom: 1rem;
-          left: 1rem;
-          max-width: none;
-        }
-      }
-    </style>
-  </head>
-  <body>
-    <!-- LOADER -->
-    <div id="loader">
-      <div class="ld-orbit">
-        <div class="ld-orbit-ring"></div>
-        <div class="ld-orbit-ring"></div>
-        <div class="ld-orbit-ring"></div>
-        <div class="ld-orbit-core">ML</div>
+<section class="hero" id="home">
+  <div class="hero-content">
+    <div class="hero-badge">🟢 Open to opportunities</div>
+    <h1>Building <span class="gradient-text"><span id="typeTarget"></span><span class="type-cursor"></span></span><br/>Projects That Matter</h1>
+    <p>I'm <strong>Barakat Ahmad</strong> — a Machine Learning developer focused on building intelligent systems using real-world datasets and modern AI technologies. I work with Python, Scikit-learn, Pandas, NumPy, and deep data analysis to create impactful ML solutions.</p>
+    <div class="hero-buttons">
+      <a href="#projects" class="btn primary-btn">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+        View Projects
+      </a>
+      <a href="#contact" class="btn secondary-btn">Contact Me</a>
+    </div>
+  </div>
+  <div class="hero-image">
+    <div class="profile-card">
+      <div class="profile-circle">
+        <img src="barakat-3d.png" alt="Barakat Ahmad" onerror="this.style.display='none';this.parentElement.innerHTML+='<span style=\'font-size:3.2rem;z-index:3;position:relative\'>👨‍💻</span>'"/>
       </div>
-      <div class="ld-name">Barakat Ahmad</div>
-      <div class="ld-bar-wrap"><div class="ld-bar-fill"></div></div>
-      <div class="ld-status">
-        Connecting to Firebase<span class="ld-dots"></span>
+      <h2>Barakat Ahmad</h2>
+      <p>ML Developer &nbsp;•&nbsp; Python Enthusiast<br/>Data Scientist &nbsp;•&nbsp; Future AI Engineer</p>
+      <div class="stats">
+        <div class="stat-box"><h4 id="projectCount">0</h4><span>Projects</span></div>
+        <div class="stat-box"><h4>1+</h4><span>Years</span></div>
+        <div class="stat-box"><h4>ML</h4><span>Focus</span></div>
       </div>
     </div>
+  </div>
+</section>
 
-    <div id="cur"></div>
-    <div id="cur-ring"></div>
-    <div class="grid-bg"></div>
-    <div class="ambient amb-1"></div>
-    <div class="ambient amb-2"></div>
+<section id="skills">
+  <div class="reveal">
+    <div class="section-tag"><span>Expertise</span></div>
+    <h2 class="section-title">My <span class="gradient-text">Skills</span></h2>
+    <p class="section-subtitle">Technologies and tools I use while building Machine Learning and AI projects.</p>
+  </div>
+  <div class="skills-grid" id="skillsGrid"></div>
+</section>
 
-    <div class="toast" id="toast">
-      <svg
-        class="toast-icon"
-        width="17"
-        height="17"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="2.5"
-      >
-        <polyline points="20 6 9 17 4 12" />
-      </svg>
-      <span id="toast-msg"></span>
+<section id="projects">
+  <div class="reveal">
+    <div class="section-tag"><span>Portfolio</span></div>
+    <h2 class="section-title">My <span class="gradient-text">Projects</span></h2>
+    <p class="section-subtitle">Machine Learning and data science projects I've built from scratch.</p>
+  </div>
+  <div class="projects-container" id="projectsGrid"></div>
+</section>
+
+<section id="contact">
+  <div class="reveal">
+    <div class="section-tag"><span>Get In Touch</span></div>
+    <h2 class="section-title">Let's <span class="gradient-text">Connect</span></h2>
+    <p class="section-subtitle">Want to collaborate, hire, or discuss ML ideas? Feel free to reach out.</p>
+  </div>
+  <div class="contact-box reveal">
+    <h2>Send a Message</h2>
+    <form class="contact-form" id="contactForm">
+      <input type="text" placeholder="Your Name" required/>
+      <input type="email" placeholder="Your Email" required/>
+      <textarea placeholder="Write your message here..."></textarea>
+      <button type="submit" class="btn primary-btn" style="justify-content:center;">Send Message</button>
+    </form>
+  </div>
+</section>
+
+<footer>© 2026 <a href="#">Barakat Ahmad</a>. Built with passion &amp; Python 🐍</footer>
+<button class="floating-btn" id="topBtn" aria-label="Back to top">↑</button>
+
+<!-- ADMIN LOGIN MODAL -->
+<div class="modal-overlay" id="loginModal">
+  <div class="modal" style="max-width:400px;">
+    <div class="modal-hdr">
+      <h3 class="modal-title">// Admin Login</h3>
+      <button class="modal-close" onclick="closeModal('loginModal')">✕</button>
     </div>
+    <div id="fbStatusWrap" style="margin-bottom:1.2rem;display:flex;justify-content:center;"></div>
+    <div class="form-group">
+      <label class="form-label">Email</label>
+      <input class="form-input" id="loginEmail" type="email" placeholder="your@email.com"/>
+    </div>
+    <div class="form-group">
+      <label class="form-label">Password</label>
+      <input class="form-input" id="loginPass" type="password" placeholder="••••••••"/>
+    </div>
+    <button class="btn primary-btn" id="loginBtn" style="width:100%;justify-content:center;margin-top:.3rem;">Sign In</button>
+    <p class="login-note">Only the portfolio owner can log in.</p>
+  </div>
+</div>
 
-    <!-- NAV -->
-    <nav id="navbar">
-      <a href="#home" class="logo">Barakat.</a>
-      <input type="checkbox" id="menu-menu" class="menu-checkbox" />
-      <label for="menu-menu" class="menu-toggle" aria-label="Menu"
-        ><span></span><span></span><span></span
-      ></label>
-      <div class="nav-right">
-        <div class="nav-links">
-          <a href="#home">Home</a><a href="#skills">Skills</a
-          ><a href="#projects">Projects</a><a href="#contact">Contact</a>
-        </div>
-        <button class="admin-btn" id="adminBtn">
-          <svg
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-          >
-            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-          </svg>
-          <span>Admin</span>
-        </button>
-        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
-          <span class="theme-toggle-icon sun">☀️</span>
-          <span class="theme-toggle-icon moon">🌙</span>
-        </button>
+<!-- PROJECT MODAL -->
+<div class="modal-overlay" id="projectModal">
+  <div class="modal">
+    <div class="modal-hdr">
+      <h3 class="modal-title" id="projectModalTitle">// Add Project</h3>
+      <button class="modal-close" onclick="closeModal('projectModal')">✕</button>
+    </div>
+    <div class="form-group"><label class="form-label">Title *</label><input class="form-input" id="pTitle" placeholder="e.g. Fraud Detection"/></div>
+    <div class="form-group"><label class="form-label">Description *</label><textarea class="form-textarea" id="pDesc" placeholder="What does this project do?"></textarea></div>
+    <div class="form-row">
+      <div class="form-group"><label class="form-label">Category</label>
+        <select class="form-select" id="pType">
+          <option value="ML">Machine Learning</option><option value="DL">Deep Learning</option>
+          <option value="NLP">NLP</option><option value="CV">Computer Vision</option><option value="DA">Data Analysis</option>
+        </select>
       </div>
-    </nav>
+      <div class="form-group"><label class="form-label">Emoji</label><input class="form-input" id="pEmoji" placeholder="🤖" maxlength="2"/></div>
+    </div>
+    <div class="form-group"><label class="form-label">Tech Stack (comma separated)</label><input class="form-input" id="pTech" placeholder="Python, Scikit-learn, Pandas"/></div>
+    <div class="form-row">
+      <div class="form-group"><label class="form-label">GitHub URL</label><input class="form-input" id="pGithub" placeholder="https://github.com/..."/></div>
+      <div class="form-group"><label class="form-label">Live Demo URL</label><input class="form-input" id="pLive" placeholder="https://..."/></div>
+    </div>
+    <button class="btn primary-btn" id="saveProjectBtn" style="width:100%;justify-content:center;margin-top:.2rem;">Save Project</button>
+  </div>
+</div>
 
-    <!-- HERO -->
-    <section class="hero" id="home">
-      <div class="hero-content">
-        <div class="hero-badge">🟢 Open to opportunities</div>
-        <h1>
-          Building
-          <span class="gradient-text"
-            ><span id="typeTarget"></span
-            ><span class="type-cursor"></span></span
-          ><br />Projects That Matter
-        </h1>
-        <p>
-          I'm <strong>Barakat Ahmad</strong> — a Machine Learning developer
-          focused on building intelligent systems using real-world datasets and
-          modern AI technologies. I work with Python, Scikit-learn, Pandas,
-          NumPy, and deep data analysis to create impactful ML solutions.
-        </p>
-        <div class="hero-buttons">
-          <a href="#projects" class="btn primary-btn">
-            <svg
-              width="15"
-              height="15"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2.5"
-            >
-              <rect x="3" y="3" width="7" height="7" rx="1" />
-              <rect x="14" y="3" width="7" height="7" rx="1" />
-              <rect x="3" y="14" width="7" height="7" rx="1" />
-              <rect x="14" y="14" width="7" height="7" rx="1" />
-            </svg>
-            View Projects
-          </a>
-          <a href="#contact" class="btn secondary-btn">Contact Me</a>
-        </div>
-      </div>
-      <div class="hero-image">
-        <div class="profile-card">
-          <div class="profile-circle">
-            <img
-              src="barakat-3d.png"
-              alt="Barakat Ahmad"
-              onerror="
-                this.style.display = 'none';
-                this.parentElement.innerHTML +=
-                  '<span style=\'font-size:3.2rem;z-index:3;position:relative\'>👨‍💻</span>';
-              "
-            />
-          </div>
-          <h2>Barakat Ahmad</h2>
-          <p>
-            ML Developer &nbsp;•&nbsp; Python Enthusiast<br />Data Scientist
-            &nbsp;•&nbsp; Future AI Engineer
-          </p>
-          <div class="stats">
-            <div class="stat-box">
-              <h4 id="projectCount">0</h4>
-              <span>Projects</span>
-            </div>
-            <div class="stat-box">
-              <h4>1+</h4>
-              <span>Years</span>
-            </div>
-            <div class="stat-box">
-              <h4>ML</h4>
-              <span>Focus</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+<!-- SKILL MODAL -->
+<div class="modal-overlay" id="skillModal">
+  <div class="modal">
+    <div class="modal-hdr">
+      <h3 class="modal-title" id="skillModalTitle">// Add Skill</h3>
+      <button class="modal-close" onclick="closeModal('skillModal')">✕</button>
+    </div>
+    <div class="form-group"><label class="form-label">Skill Name *</label><input class="form-input" id="sName" placeholder="e.g. TensorFlow"/></div>
+    <div class="form-group"><label class="form-label">Description *</label><textarea class="form-textarea" id="sDesc" placeholder="What do you use this for?"></textarea></div>
+    <div class="form-row">
+      <div class="form-group"><label class="form-label">Proficiency % *</label><input type="number" class="form-input" id="sLevel" placeholder="85" min="1" max="100"/></div>
+      <div class="form-group"><label class="form-label">Emoji</label><input class="form-input" id="sEmoji" placeholder="🧠" maxlength="2"/></div>
+    </div>
+    <button class="btn primary-btn" id="saveSkillBtn" style="width:100%;justify-content:center;margin-top:.2rem;">Save Skill</button>
+  </div>
+</div>
 
-    <!-- SKILLS -->
-    <section id="skills">
-      <div class="reveal">
-        <div class="section-tag"><span>Expertise</span></div>
-        <h2 class="section-title">
-          My <span class="gradient-text">Skills</span>
-        </h2>
-        <p class="section-subtitle">
-          Technologies and tools I use while building Machine Learning and AI
-          projects.
-        </p>
-      </div>
-      <div class="skills-grid" id="skillsGrid"></div>
-    </section>
+<!-- ════ NON-MODULE UI SCRIPT ════ -->
+<script>
+  // THEME
+  const html=document.documentElement;
+  html.setAttribute('data-theme',localStorage.getItem('ba_theme')||'dark');
+  document.getElementById('themeToggle').addEventListener('click',()=>{
+    const n=html.getAttribute('data-theme')==='dark'?'light':'dark';
+    html.setAttribute('data-theme',n);localStorage.setItem('ba_theme',n);
+  });
+  // CURSOR
+  const cur=document.getElementById('cur'),ring=document.getElementById('cur-ring');
+  let mx=0,my=0,rx=0,ry=0;
+  document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cur.style.left=mx+'px';cur.style.top=my+'px';});
+  (function a(){rx+=(mx-rx)*.13;ry+=(my-ry)*.13;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(a);})();
+  const hOn=()=>{cur.classList.add('hov');ring.classList.add('hov');};
+  const hOff=()=>{cur.classList.remove('hov');ring.classList.remove('hov');};
+  function bindHovers(){document.querySelectorAll('a,button,.project-card,.skill-card,.stat-box,.add-card-btn').forEach(el=>{el.removeEventListener('mouseenter',hOn);el.removeEventListener('mouseleave',hOff);el.addEventListener('mouseenter',hOn);el.addEventListener('mouseleave',hOff);});}
+  window.bindHovers=bindHovers;
+  bindHovers();
+  // NAV
+  const navbar=document.getElementById('navbar');
+  window.addEventListener('scroll',()=>{
+    navbar.classList.toggle('scrolled',window.scrollY>50);
+    document.getElementById('topBtn').classList.toggle('show',window.scrollY>300);
+    document.querySelectorAll('section[id]').forEach(s=>{
+      const a=document.querySelector(`.nav-links a[href="#${s.id}"]`);
+      if(a)a.classList.toggle('active',window.scrollY>=s.offsetTop-130&&window.scrollY<s.offsetTop+s.offsetHeight-130);
+    });
+  },{passive:true});
+  document.getElementById('topBtn').addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
+  document.querySelectorAll('.nav-links a').forEach(a=>a.addEventListener('click',()=>{document.getElementById('menu-menu').checked=false;}));
+  // REVEAL
+  const revObs=new IntersectionObserver(entries=>{entries.forEach((e,i)=>{if(e.isIntersecting)setTimeout(()=>e.target.classList.add('visible'),i*55);});},{threshold:.09});
+  window.revObs=revObs;
+  document.querySelectorAll('.reveal').forEach(el=>revObs.observe(el));
+  // SKILL BARS
+  const barObs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting)e.target.querySelectorAll('.skill-fill').forEach(b=>{b.style.width=b.dataset.w+'%';});});},{threshold:.25});
+  window.barObs=barObs;
+  // TYPEWRITER
+  const words=['AI & ML','Intelligent','Data-Driven','Predictive'];
+  let wi=0,ci=0,er=false;
+  const tEl=document.getElementById('typeTarget');
+  function type(){const w=words[wi];if(!er){tEl.textContent=w.slice(0,++ci);if(ci===w.length){er=true;setTimeout(type,1800);return;}}else{tEl.textContent=w.slice(0,--ci);if(ci===0){er=false;wi=(wi+1)%words.length;}}setTimeout(type,er?52:88);}
+  setTimeout(type,1400);
+  // COUNTER
+  function countUp(el,target){let s=0;const step=ts=>{if(!s)s=ts;const p=Math.min((ts-s)/1200,1);el.textContent=Math.floor(p*target);if(p<1)requestAnimationFrame(step);else el.textContent=target;};requestAnimationFrame(step);}
+  window.countUp=countUp;
+  // MODAL HELPERS
+  function openModal(id){document.getElementById(id).classList.add('open');}
+  function closeModal(id){document.getElementById(id).classList.remove('open');}
+  window.openModal=openModal;window.closeModal=closeModal;
+  document.querySelectorAll('.modal-overlay').forEach(ov=>ov.addEventListener('click',e=>{if(e.target===ov)ov.classList.remove('open');}));
+  function clearForm(ids){ids.forEach(id=>{const el=document.getElementById(id);if(el){el.value='';el.style.borderColor='';} });}
+  function highlight(ids){ids.forEach(id=>{const el=document.getElementById(id);if(el&&!el.value.trim())el.style.borderColor='#f43f5e';});}
+  window.clearForm=clearForm;window.highlight=highlight;
+  // TOAST
+  function showToast(msg,isError=false){
+    const t=document.getElementById('toast');
+    t.style.borderColor=isError?'var(--danger)':'var(--primary)';
+    document.getElementById('toast-msg').textContent=msg;
+    t.classList.add('show');setTimeout(()=>t.classList.remove('show'),3500);
+  }
+  window.showToast=showToast;
+  // CONTACT
+  document.getElementById('contactForm').addEventListener('submit',e=>{e.preventDefault();showToast("Message sent! I'll get back to you soon 🚀");e.target.reset();});
+  // LOADER fallback — hide after 3s no matter what
+  setTimeout(()=>document.getElementById('loader').classList.add('done'),3000);
+</script>
 
-    <!-- PROJECTS -->
-    <section id="projects">
-      <div class="reveal">
-        <div class="section-tag"><span>Portfolio</span></div>
-        <h2 class="section-title">
-          My <span class="gradient-text">Projects</span>
-        </h2>
-        <p class="section-subtitle">
-          Machine Learning and data science projects I've built from scratch.
-        </p>
-      </div>
-      <div class="projects-container" id="projectsGrid"></div>
-    </section>
+<!-- ════ FIREBASE MODULE SCRIPT ════ -->
+<script type="module">
+  import { initializeApp }     from 'https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js';
+  import { getFirestore, collection, addDoc, updateDoc, deleteDoc, doc, onSnapshot, query, orderBy }
+                               from 'https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js';
+  import { getAuth, signInWithEmailAndPassword, signOut, onAuthStateChanged }
+                               from 'https://www.gstatic.com/firebasejs/11.0.1/firebase-auth.js';
 
-    <!-- CONTACT -->
-    <section id="contact">
-      <div class="reveal">
-        <div class="section-tag"><span>Get In Touch</span></div>
-        <h2 class="section-title">
-          Let's <span class="gradient-text">Connect</span>
-        </h2>
-        <p class="section-subtitle">
-          Want to collaborate, hire, or discuss ML ideas? Feel free to reach
-          out.
-        </p>
-      </div>
-      <div class="contact-box reveal">
-        <h2>Send a Message</h2>
-        <form class="contact-form" id="contactForm">
-          <input type="text" placeholder="Your Name" required />
-          <input type="email" placeholder="Your Email" required />
-          <textarea placeholder="Write your message here..."></textarea>
-          <button
-            type="submit"
-            class="btn primary-btn"
-            style="justify-content: center"
-          >
-            Send Message
+  // ── YOUR FIREBASE CONFIG ──────────────────────────
+  const firebaseConfig = {
+    apiKey:            "AIzaSyAdB8BQWxA3b2jWhm_lYw-51sq0nwa8vlY",
+    authDomain:        "personal-portfolio-a9824.firebaseapp.com",
+    databaseURL:       "https://personal-portfolio-a9824-default-rtdb.firebaseio.com",
+    projectId:         "personal-portfolio-a9824",
+    storageBucket:     "personal-portfolio-a9824.firebasestorage.app",
+    messagingSenderId: "708755341255",
+    appId:             "1:708755341255:web:0dcc7cd0103be35dbce3e2",
+    measurementId:     "G-639R0D4TZE"
+  };
+
+  // ── INIT ─────────────────────────────────────────
+  const app  = initializeApp(firebaseConfig);
+  const db   = getFirestore(app);
+  const auth = getAuth(app);
+
+  // ── STATE ────────────────────────────────────────
+  let isAdmin = false;
+  let localProjects = [];
+  let localSkills   = [];
+  let editingProjectId = null;
+  let editingSkillId   = null;
+
+  // ── HELPERS ──────────────────────────────────────
+  function hideLoader(){document.getElementById('loader').classList.add('done');}
+
+  function setFbStatus(ok){
+    const w=document.getElementById('fbStatusWrap');
+    if(w) w.innerHTML=`<span class="fb-status ${ok?'connected':'error'}">${ok?'Firebase Connected':'Connection Error'}</span>`;
+  }
+
+  // ── AUTH ─────────────────────────────────────────
+  onAuthStateChanged(auth, user=>{
+    isAdmin = !!user;
+    const btn=document.getElementById('adminBtn');
+    btn.innerHTML=`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="13" height="13"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg><span>${isAdmin?'Logout':'Admin'}</span>`;
+    // re-render to show/hide edit buttons
+    renderProjectCards(localProjects);
+    renderSkillCards(localSkills);
+    if(isAdmin) window.closeModal('loginModal');
+  });
+
+  document.getElementById('loginBtn').addEventListener('click', async ()=>{
+    const email=document.getElementById('loginEmail').value.trim();
+    const pass =document.getElementById('loginPass').value;
+    if(!email||!pass) return;
+    try{
+      await signInWithEmailAndPassword(auth,email,pass);
+      window.showToast('Welcome back, Barakat! 👋');
+    }catch(e){
+      window.showToast('❌ Wrong email or password',true);
+    }
+  });
+
+  document.getElementById('adminBtn').addEventListener('click', async ()=>{
+    if(isAdmin){await signOut(auth);window.showToast('Logged out.');}
+    else window.openModal('loginModal');
+  });
+
+  // ── RENDER PROJECTS ──────────────────────────────
+  function renderProjectCards(projects){
+    const grid=document.getElementById('projectsGrid');
+    if(!grid) return;
+    grid.innerHTML='';
+
+    projects.forEach((p,i)=>{
+      const tags=(p.tags||[]).map(t=>`<span class="tag">${t}</span>`).join('');
+      const gh=p.github&&p.github!=='#'?`<a href="${p.github}" target="_blank" rel="noopener">GitHub</a>`:`<a class="disabled">GitHub</a>`;
+      const lv=p.live&&p.live!=='#'?`<a href="${p.live}" target="_blank" rel="noopener">Live Demo</a>`:`<a class="disabled">Live Demo</a>`;
+      const actions=isAdmin?`
+        <div class="card-actions">
+          <button class="ca-btn ca-edit" onclick="window._editProject('${p.id}')" title="Edit">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
           </button>
-        </form>
-      </div>
-    </section>
-
-    <footer>
-      © 2026 <a href="#">Barakat Ahmad</a>. Built with passion &amp; Python 🐍
-    </footer>
-    <button class="floating-btn" id="topBtn" aria-label="Back to top">↑</button>
-
-    <!-- ── ADMIN LOGIN MODAL ───────────────────────── -->
-    <div class="modal-overlay" id="loginModal">
-      <div class="modal" style="max-width: 400px">
-        <div class="modal-hdr">
-          <h3 class="modal-title">// Admin Login</h3>
-          <button class="modal-close" onclick="closeModal('loginModal')">
-            ✕
+          <button class="ca-btn ca-del" onclick="window._deleteProject('${p.id}')" title="Delete">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14a2 2 0 01-2 2H8a2 2 0 01-2-2L5 6"/><path d="M10 11v6M14 11v6"/></svg>
           </button>
-        </div>
-        <div
-          id="fbStatusWrap"
-          style="margin-bottom: 1.2rem; display: flex; justify-content: center"
-        ></div>
-        <div class="form-group">
-          <label class="form-label">Email</label>
-          <input
-            class="form-input"
-            id="loginEmail"
-            type="email"
-            placeholder="your@email.com"
-          />
-        </div>
-        <div class="form-group">
-          <label class="form-label">Password</label>
-          <input
-            class="form-input"
-            id="loginPass"
-            type="password"
-            placeholder="••••••••"
-          />
-        </div>
-        <button
-          class="btn primary-btn"
-          id="loginBtn"
-          style="width: 100%; justify-content: center; margin-top: 0.3rem"
-        >
-          Sign In
-        </button>
-        <p class="login-note">Only the portfolio owner can log in.</p>
-      </div>
-    </div>
+        </div>`:'';
+      const card=document.createElement('div');
+      card.className='project-card reveal visible';
+      card.style.transitionDelay=(i*.07)+'s';
+      card.innerHTML=`${actions}<div class="project-image">${p.emoji||'🤖'}</div><div class="project-content"><h3>${p.title}</h3><p>${p.desc}</p><div class="project-tags">${tags}</div><div class="project-links">${gh}${lv}</div></div>`;
+      grid.appendChild(card);
+      if(window.revObs) window.revObs.observe(card);
+    });
 
-    <!-- ── PROJECT MODAL ──────────────────────────── -->
-    <div class="modal-overlay" id="projectModal">
-      <div class="modal">
-        <div class="modal-hdr">
-          <h3 class="modal-title" id="projectModalTitle">// Add Project</h3>
-          <button class="modal-close" onclick="closeModal('projectModal')">
-            ✕
+    if(isAdmin){
+      const btn=document.createElement('button');
+      btn.className='add-card-btn reveal visible';
+      btn.innerHTML=`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg><span>Add New Project</span>`;
+      btn.onclick=()=>openAddProject();
+      grid.appendChild(btn);
+      if(window.revObs) window.revObs.observe(btn);
+    }
+
+    // update count
+    const cEl=document.getElementById('projectCount');
+    if(cEl && typeof window.countUp==='function') window.countUp(cEl,projects.length);
+    if(window.bindHovers) window.bindHovers();
+  }
+
+  // ── RENDER SKILLS ────────────────────────────────
+  function renderSkillCards(skills){
+    const grid=document.getElementById('skillsGrid');
+    if(!grid) return;
+    grid.innerHTML='';
+
+    skills.forEach((s,i)=>{
+      const actions=isAdmin?`
+        <div class="card-actions">
+          <button class="ca-btn ca-edit" onclick="window._editSkill('${s.id}')" title="Edit">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
           </button>
-        </div>
-        <div class="form-group">
-          <label class="form-label">Title *</label
-          ><input
-            class="form-input"
-            id="pTitle"
-            placeholder="e.g. Fraud Detection"
-          />
-        </div>
-        <div class="form-group">
-          <label class="form-label">Description *</label
-          ><textarea
-            class="form-textarea"
-            id="pDesc"
-            placeholder="What does this project do?"
-          ></textarea>
-        </div>
-        <div class="form-row">
-          <div class="form-group">
-            <label class="form-label">Category</label>
-            <select class="form-select" id="pType">
-              <option value="ML">Machine Learning</option>
-              <option value="DL">Deep Learning</option>
-              <option value="NLP">NLP</option>
-              <option value="CV">Computer Vision</option>
-              <option value="DA">Data Analysis</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label class="form-label">Emoji</label
-            ><input
-              class="form-input"
-              id="pEmoji"
-              placeholder="🤖"
-              maxlength="2"
-            />
-          </div>
-        </div>
-        <div class="form-group">
-          <label class="form-label">Tech Stack (comma separated)</label
-          ><input
-            class="form-input"
-            id="pTech"
-            placeholder="Python, Scikit-learn, Pandas"
-          />
-        </div>
-        <div class="form-row">
-          <div class="form-group">
-            <label class="form-label">GitHub URL</label
-            ><input
-              class="form-input"
-              id="pGithub"
-              placeholder="https://github.com/..."
-            />
-          </div>
-          <div class="form-group">
-            <label class="form-label">Live Demo URL</label
-            ><input class="form-input" id="pLive" placeholder="https://..." />
-          </div>
-        </div>
-        <button
-          class="btn primary-btn"
-          id="saveProjectBtn"
-          style="width: 100%; justify-content: center; margin-top: 0.2rem"
-        >
-          Save Project
-        </button>
-      </div>
-    </div>
-
-    <!-- ── SKILL MODAL ────────────────────────────── -->
-    <div class="modal-overlay" id="skillModal">
-      <div class="modal">
-        <div class="modal-hdr">
-          <h3 class="modal-title" id="skillModalTitle">// Add Skill</h3>
-          <button class="modal-close" onclick="closeModal('skillModal')">
-            ✕
+          <button class="ca-btn ca-del" onclick="window._deleteSkill('${s.id}')" title="Delete">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14a2 2 0 01-2 2H8a2 2 0 01-2-2L5 6"/><path d="M10 11v6M14 11v6"/></svg>
           </button>
-        </div>
-        <div class="form-group">
-          <label class="form-label">Skill Name *</label
-          ><input class="form-input" id="sName" placeholder="e.g. TensorFlow" />
-        </div>
-        <div class="form-group">
-          <label class="form-label">Description *</label
-          ><textarea
-            class="form-textarea"
-            id="sDesc"
-            placeholder="What do you use this for?"
-          ></textarea>
-        </div>
-        <div class="form-row">
-          <div class="form-group">
-            <label class="form-label">Proficiency % *</label
-            ><input
-              type="number"
-              class="form-input"
-              id="sLevel"
-              placeholder="85"
-              min="1"
-              max="100"
-            />
-          </div>
-          <div class="form-group">
-            <label class="form-label">Emoji</label
-            ><input
-              class="form-input"
-              id="sEmoji"
-              placeholder="🧠"
-              maxlength="2"
-            />
-          </div>
-        </div>
-        <button
-          class="btn primary-btn"
-          id="saveSkillBtn"
-          style="width: 100%; justify-content: center; margin-top: 0.2rem"
-        >
-          Save Skill
-        </button>
-      </div>
-    </div>
+        </div>`:'';
+      const card=document.createElement('div');
+      card.className='skill-card reveal visible';
+      card.style.transitionDelay=(i*.05)+'s';
+      card.innerHTML=`${actions}<span class="skill-icon">${s.icon||'💡'}</span><h3>${s.name}</h3><p>${s.desc}</p><div class="skill-bar-wrap"><div class="skill-bar-label"><span>Proficiency</span><span>${s.level}%</span></div><div class="skill-bar"><div class="skill-fill" style="width:${s.level}%" data-w="${s.level}"></div></div></div>`;
+      grid.appendChild(card);
+      if(window.revObs) window.revObs.observe(card);
+    });
 
-    <!-- ════════════════════════════════════════════════
-     FIREBASE SDK
-════════════════════════════════════════════════ -->
-    <script type="module">
-      import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
-      import {
-        getFirestore,
-        collection,
-        addDoc,
-        updateDoc,
-        deleteDoc,
-        doc,
-        onSnapshot,
-        query,
-        orderBy,
-      } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
-      import {
-        getAuth,
-        signInWithEmailAndPassword,
-        signOut,
-        onAuthStateChanged,
-      } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-auth.js";
+    if(isAdmin){
+      const btn=document.createElement('button');
+      btn.className='add-card-btn add-skill-btn reveal visible';
+      btn.innerHTML=`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg><span>Add New Skill</span>`;
+      btn.onclick=()=>openAddSkill();
+      grid.appendChild(btn);
+      if(window.revObs) window.revObs.observe(btn);
+    }
 
-      const firebaseConfig = {
-        apiKey: "AIzaSyAdB8BQWxA3b2jWhm_lYw-51sq0nwa8vlY",
-        authDomain: "personal-portfolio-a9824.firebaseapp.com",
-        databaseURL:
-          "https://personal-portfolio-a9824-default-rtdb.firebaseio.com",
-        projectId: "personal-portfolio-a9824",
-        storageBucket: "personal-portfolio-a9824.firebasestorage.app",
-        messagingSenderId: "708755341255",
-        appId: "1:708755341255:web:0dcc7cd0103be35dbce3e2",
-        measurementId: "G-639R0D4TZE",
-      };
+    if(window.barObs){window.barObs.disconnect();window.barObs.observe(grid);}
+    if(window.bindHovers) window.bindHovers();
+  }
 
-      // ── INIT ─────────────────────────────────────────
-      const app = initializeApp(firebaseConfig);
-      const db = getFirestore(app);
-      const auth = getAuth(app);
+  // ── PROJECT CRUD ─────────────────────────────────
+  function openAddProject(){
+    editingProjectId=null;
+    document.getElementById('projectModalTitle').textContent='// Add New Project';
+    document.getElementById('saveProjectBtn').textContent='Save Project';
+    window.clearForm(['pTitle','pDesc','pEmoji','pTech','pGithub','pLive']);
+    document.getElementById('pType').value='ML';
+    window.openModal('projectModal');
+  }
 
-      // ── STATE ────────────────────────────────────────
-      let isAdmin = false;
-      let editingProjectId = null;
-      let editingSkillId = null;
+  window._editProject=(id)=>{
+    const p=localProjects.find(x=>x.id===id);
+    if(!p) return;
+    editingProjectId=id;
+    document.getElementById('projectModalTitle').textContent='// Edit Project';
+    document.getElementById('saveProjectBtn').textContent='Update Project';
+    document.getElementById('pTitle').value=p.title||'';
+    document.getElementById('pDesc').value=p.desc||'';
+    document.getElementById('pEmoji').value=p.emoji||'';
+    document.getElementById('pTech').value=(p.tags||[]).join(', ');
+    document.getElementById('pGithub').value=p.github!=='#'?p.github||'':'';
+    document.getElementById('pLive').value=p.live!=='#'?p.live||'':'';
+    window.openModal('projectModal');
+  };
 
-      let localProjects = [];
-      let localSkills = [];
-
-      // ── FIREBASE STATUS ──────────────────────────────
-      function setFbStatus(ok) {
-        const wrap = document.getElementById("fbStatusWrap");
-        if (wrap) {
-          wrap.innerHTML = `<span class="fb-status ${ok ? "connected" : "error"}">${ok ? "Firebase Connected" : "Connection Error"}</span>`;
-        }
+  document.getElementById('saveProjectBtn').addEventListener('click', async ()=>{
+    const title=document.getElementById('pTitle').value.trim();
+    const desc =document.getElementById('pDesc').value.trim();
+    if(!title||!desc){window.highlight(['pTitle','pDesc']);return;}
+    const data={
+      title,desc,
+      emoji: document.getElementById('pEmoji').value.trim()||'🤖',
+      tags:  document.getElementById('pTech').value.split(',').map(t=>t.trim()).filter(Boolean),
+      github:document.getElementById('pGithub').value.trim()||'#',
+      live:  document.getElementById('pLive').value.trim()||'#',
+    };
+    try{
+      window.closeModal('projectModal');
+      if(editingProjectId){
+        await updateDoc(doc(db,'projects',editingProjectId),data);
+        window.showToast('Project updated! ✅');
+      }else{
+        data.createdAt=Date.now();
+        await addDoc(collection(db,'projects'),data);
+        window.showToast('Project added! 🎉');
       }
+    }catch(e){
+      window.showToast('❌ Save failed: '+e.message,true);
+    }
+  });
 
-      // ── LOADER HIDE ──────────────────────────────────
-      function hideLoader() {
-        const loader = document.getElementById("loader");
-        if (loader && !loader.classList.contains("done")) {
-          loader.classList.add("done");
-        }
+  window._deleteProject=async(id)=>{
+    if(!confirm('Delete this project?')) return;
+    try{await deleteDoc(doc(db,'projects',id));window.showToast('Project deleted.');}
+    catch(e){window.showToast('❌ Delete failed',true);}
+  };
+
+  // ── SKILL CRUD ───────────────────────────────────
+  function openAddSkill(){
+    editingSkillId=null;
+    document.getElementById('skillModalTitle').textContent='// Add New Skill';
+    document.getElementById('saveSkillBtn').textContent='Save Skill';
+    window.clearForm(['sName','sDesc','sLevel','sEmoji']);
+    window.openModal('skillModal');
+  }
+
+  window._editSkill=(id)=>{
+    const s=localSkills.find(x=>x.id===id);
+    if(!s) return;
+    editingSkillId=id;
+    document.getElementById('skillModalTitle').textContent='// Edit Skill';
+    document.getElementById('saveSkillBtn').textContent='Update Skill';
+    document.getElementById('sName').value=s.name||'';
+    document.getElementById('sDesc').value=s.desc||'';
+    document.getElementById('sLevel').value=s.level||'';
+    document.getElementById('sEmoji').value=s.icon||'';
+    window.openModal('skillModal');
+  };
+
+  document.getElementById('saveSkillBtn').addEventListener('click', async ()=>{
+    const name =document.getElementById('sName').value.trim();
+    const desc =document.getElementById('sDesc').value.trim();
+    const level=document.getElementById('sLevel').value.trim();
+    if(!name||!desc||!level){window.highlight(['sName','sDesc','sLevel']);return;}
+    const data={name,desc,level:parseInt(level),icon:document.getElementById('sEmoji').value.trim()||'💡'};
+    try{
+      window.closeModal('skillModal');
+      if(editingSkillId){
+        await updateDoc(doc(db,'skills',editingSkillId),data);
+        window.showToast('Skill updated! ✅');
+      }else{
+        data.createdAt=Date.now();
+        await addDoc(collection(db,'skills'),data);
+        window.showToast('Skill added! 🚀');
       }
+    }catch(e){
+      window.showToast('❌ Save failed: '+e.message,true);
+    }
+  });
 
-      let projectsLoaded = false;
-      let skillsLoaded = false;
+  window._deleteSkill=async(id)=>{
+    if(!confirm('Delete this skill?')) return;
+    try{await deleteDoc(doc(db,'skills',id));window.showToast('Skill deleted.');}
+    catch(e){window.showToast('❌ Delete failed',true);}
+  };
 
-      function checkInitialLoadComplete() {
-        if (projectsLoaded && skillsLoaded) {
-          hideLoader();
-        }
-      }
+  // ── REAL-TIME LISTENERS ──────────────────────────
+  // Projects
+  onSnapshot(
+    query(collection(db,'projects'),orderBy('createdAt','asc')),
+    snap=>{
+      localProjects=snap.docs.map(d=>({id:d.id,...d.data()}));
+      renderProjectCards(localProjects);
+      setFbStatus(true);
+      hideLoader();
+    },
+    err=>{
+      console.error('Projects snapshot error:',err);
+      setFbStatus(false);
+      renderProjectCards([]);
+      hideLoader();
+    }
+  );
 
-      // ── AUTH STATE ───────────────────────────────────
-      onAuthStateChanged(auth, (user) => {
-        isAdmin = !!user;
-        const adminBtn = document.getElementById("adminBtn");
+  // Skills
+  onSnapshot(
+    query(collection(db,'skills'),orderBy('createdAt','asc')),
+    snap=>{
+      localSkills=snap.docs.map(d=>({id:d.id,...d.data()}));
+      renderSkillCards(localSkills);
+    },
+    err=>{
+      console.error('Skills snapshot error:',err);
+      renderSkillCards([]);
+    }
+  );
 
-        if (adminBtn) {
-          adminBtn.innerHTML = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="13" height="13"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg><span>${isAdmin ? "Logout" : "Admin"}</span>`;
-        }
-
-        const bar = document.getElementById("adminBarWrap");
-        if (bar) bar.style.display = isAdmin ? "block" : "none";
-
-        renderProjectCards(localProjects);
-        renderSkillCards(localSkills);
-
-        if (isAdmin) closeModal("loginModal");
-      });
-
-      // ── LOGIN / LOGOUT ───────────────────────────────
-      document
-        .getElementById("loginBtn")
-        .addEventListener("click", async () => {
-          const email = document.getElementById("loginEmail").value.trim();
-          const pass = document.getElementById("loginPass").value;
-          if (!email || !pass) return;
-          try {
-            await signInWithEmailAndPassword(auth, email, pass);
-            showToast("Welcome back, Barakat! 👋");
-          } catch (e) {
-            showToast("❌ Wrong email or password");
-          }
-        });
-
-      document
-        .getElementById("adminBtn")
-        .addEventListener("click", async () => {
-          if (isAdmin) {
-            await signOut(auth);
-            showToast("Logged out.");
-          } else {
-            openModal("loginModal");
-          }
-        });
-
-      // ── RENDERING LOGIC ──────────────────────────────
-      function renderProjectCards(projects) {
-        const grid = document.getElementById("projectsGrid");
-        if (!grid) return;
-        grid.innerHTML = "";
-
-        projects.forEach((p, i) => {
-          const tags = (p.tags || [])
-            .map((t) => `<span class="tag">${t}</span>`)
-            .join("");
-          const gh =
-            p.github && p.github !== "#"
-              ? `<a href="${p.github}" target="_blank" rel="noopener">GitHub</a>`
-              : `<a class="disabled">GitHub</a>`;
-          const lv =
-            p.live && p.live !== "#"
-              ? `<a href="${p.live}" target="_blank" rel="noopener">Live Demo</a>`
-              : `<a class="disabled">Live Demo</a>`;
-
-          const adminActions = isAdmin
-            ? `<div class="card-actions">
-            <button class="ca-btn ca-edit" onclick="editProject('${p.id}')" title="Edit">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
-            </button>
-            <button class="ca-btn ca-del" onclick="deleteProject('${p.id}')" title="Delete">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14a2 2 0 01-2 2H8a2 2 0 01-2-2L5 6"/><path d="M10 11v6M14 11v6"/></svg>
-            </button>
-          </div>`
-            : "";
-
-          const card = document.createElement("div");
-          card.className = "project-card reveal visible";
-          card.innerHTML = `
-        ${adminActions}
-        <div class="project-image">${p.emoji || "🤖"}</div>
-        <div class="project-content">
-          <h3>${p.title}</h3>
-          <p>${p.desc}</p>
-          <div class="project-tags">${tags}</div>
-          <div class="project-links">${gh}${lv}</div>
-        </div>`;
-          grid.appendChild(card);
-          if (window.revObs) window.revObs.observe(card);
-        });
-
-        if (isAdmin) {
-          const addBtn = document.createElement("button");
-          addBtn.className = "add-card-btn reveal visible";
-          addBtn.innerHTML = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg><span>Add New Project</span>`;
-          addBtn.onclick = () => openAddProject();
-          grid.appendChild(addBtn);
-          if (window.revObs) window.revObs.observe(addBtn);
-        }
-        if (window.bindHovers) window.bindHovers();
-      }
-
-      function renderSkillCards(skills) {
-        const grid = document.getElementById("skillsGrid");
-        if (!grid) return;
-        grid.innerHTML = "";
-
-        skills.forEach((s, i) => {
-          const adminActions = isAdmin
-            ? `<div class="card-actions">
-            <button class="ca-btn ca-edit" onclick="editSkill('${s.id}')" title="Edit">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
-            </button>
-            <button class="ca-btn ca-del" onclick="deleteSkill('${s.id}')" title="Delete">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14a2 2 0 01-2 2H8a2 2 0 01-2-2L5 6"/><path d="M10 11v6M14 11v6"/></svg>
-            </button>
-          </div>`
-            : "";
-
-          const card = document.createElement("div");
-          card.className = "skill-card reveal visible";
-          card.innerHTML = `
-        ${adminActions}
-        <span class="skill-icon">${s.icon || "💡"}</span>
-        <h3>${s.name}</h3>
-        <p>${s.desc}</p>
-        <div class="skill-bar-wrap">
-          <div class="skill-bar-label"><span>Proficiency</span><span>${s.level}%</span></div>
-          <div class="skill-bar"><div class="skill-fill" style="width: ${s.level}%" data-w="${s.level}"></div></div>
-        </div>`;
-          grid.appendChild(card);
-          if (window.revObs) window.revObs.observe(card);
-        });
-
-        if (isAdmin) {
-          const addBtn = document.createElement("button");
-          addBtn.className = "add-card-btn add-skill-btn reveal visible";
-          addBtn.innerHTML = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg><span>Add New Skill</span>`;
-          addBtn.onclick = () => openAddSkill();
-          grid.appendChild(addBtn);
-          if (window.revObs) window.revObs.observe(addBtn);
-        }
-
-        if (window.barObs) {
-          window.barObs.disconnect();
-          window.barObs.observe(grid);
-        }
-        if (window.bindHovers) window.bindHovers();
-      }
-
-      // ── PROJECT CRUD ─────────────────────────────────
-      function openAddProject() {
-        editingProjectId = null;
-        document.getElementById("projectModalTitle").textContent =
-          "// Add New Project";
-        document.getElementById("saveProjectBtn").textContent = "Save Project";
-        clearForm(["pTitle", "pDesc", "pEmoji", "pTech", "pGithub", "pLive"]);
-        document.getElementById("pType").value = "ML";
-        openModal("projectModal");
-      }
-
-      window.editProject = (id) => {
-        const p = localProjects.find((proj) => proj.id === id);
-        if (!p) return;
-        editingProjectId = id;
-        document.getElementById("projectModalTitle").textContent =
-          "// Edit Project";
-        document.getElementById("saveProjectBtn").textContent =
-          "Update Project";
-        document.getElementById("pTitle").value = p.title || "";
-        document.getElementById("pDesc").value = p.desc || "";
-        document.getElementById("pEmoji").value = p.emoji || "";
-        document.getElementById("pTech").value = (p.tags || []).join(", ");
-        document.getElementById("pGithub").value =
-          p.github !== "#" ? p.github || "" : "";
-        document.getElementById("pLive").value =
-          p.live !== "#" ? p.live || "" : "";
-        openModal("projectModal");
-      };
-
-      document
-        .getElementById("saveProjectBtn")
-        .addEventListener("click", async () => {
-          const title = document.getElementById("pTitle").value.trim();
-          const desc = document.getElementById("pDesc").value.trim();
-          if (!title || !desc) {
-            highlight(["pTitle", "pDesc"]);
-            return;
-          }
-
-          const data = {
-            title,
-            desc,
-            emoji: document.getElementById("pEmoji").value.trim() || "🤖",
-            tags: document
-              .getElementById("pTech")
-              .value.split(",")
-              .map((t) => t.trim())
-              .filter(Boolean),
-            github: document.getElementById("pGithub").value.trim() || "#",
-            live: document.getElementById("pLive").value.trim() || "#",
-          };
-
-          try {
-            closeModal("projectModal");
-            if (editingProjectId) {
-              await updateDoc(doc(db, "projects", editingProjectId), data);
-              showToast("Project updated! ✅");
-            } else {
-              data.createdAt = Date.now();
-              await addDoc(collection(db, "projects"), data);
-              showToast("Project added! 🎉");
-            }
-          } catch (e) {
-            showToast("❌ Error saving. Check Firebase rules.");
-          }
-        });
-
-      window.deleteProject = async (id) => {
-        if (!confirm("Delete this project?")) return;
-        try {
-          await deleteDoc(doc(db, "projects", id));
-          showToast("Project deleted.");
-        } catch (e) {
-          showToast("❌ Delete Error.");
-        }
-      };
-
-      // ── SKILL CRUD ───────────────────────────────────
-      function openAddSkill() {
-        editingSkillId = null;
-        document.getElementById("skillModalTitle").textContent =
-          "// Add New Skill";
-        document.getElementById("saveSkillBtn").textContent = "Save Skill";
-        clearForm(["sName", "sDesc", "sLevel", "sEmoji"]);
-        openModal("skillModal");
-      }
-
-      window.editSkill = (id) => {
-        const s = localSkills.find((sk) => sk.id === id);
-        if (!s) return;
-        editingSkillId = id;
-        document.getElementById("skillModalTitle").textContent =
-          "// Edit Skill";
-        document.getElementById("saveSkillBtn").textContent = "Update Skill";
-        document.getElementById("sName").value = s.name || "";
-        document.getElementById("sDesc").value = s.desc || "";
-        document.getElementById("sLevel").value = s.level || "";
-        document.getElementById("sEmoji").value = s.icon || "";
-        openModal("skillModal");
-      };
-
-      document
-        .getElementById("saveSkillBtn")
-        .addEventListener("click", async () => {
-          const name = document.getElementById("sName").value.trim();
-          const desc = document.getElementById("sDesc").value.trim();
-          const level = document.getElementById("sLevel").value.trim();
-          if (!name || !desc || !level) {
-            highlight(["sName", "sDesc", "sLevel"]);
-            return;
-          }
-          const data = {
-            name,
-            desc,
-            level: parseInt(level),
-            icon: document.getElementById("sEmoji").value.trim() || "💡",
-          };
-          try {
-            closeModal("skillModal");
-            if (editingSkillId) {
-              await updateDoc(doc(db, "skills", editingSkillId), data);
-              showToast("Skill updated! ✅");
-            } else {
-              data.createdAt = Date.now();
-              await addDoc(collection(db, "skills"), data);
-              showToast("Skill added! 🚀");
-            }
-          } catch (e) {
-            showToast("❌ Error saving. Check Firebase rules.");
-          }
-        });
-
-      window.deleteSkill = async (id) => {
-        if (!confirm("Delete this skill?")) return;
-        try {
-          await deleteDoc(doc(db, "skills", id));
-          showToast("Skill deleted.");
-        } catch (e) {
-          showToast("❌ Delete Error.");
-        }
-      };
-
-      // ── DELAYED RUN TO COMPLETELY STOP BROWSER TAB SPINNING ──
-      if (document.readyState === "complete") {
-        initFirebaseStreams();
-      } else {
-        window.addEventListener("load", () => {
-          // Browser ke ghumne wale spinner ko force-stop karein
-          setTimeout(() => {
-            window.stop();
-          }, 50);
-          // Firebase streams ko start karein
-          setTimeout(initFirebaseStreams, 100);
-        });
-      }
-
-      function initFirebaseStreams() {
-        // Projects Real-time Sync
-        const qProjects = query(
-          collection(db, "projects"),
-          orderBy("createdAt", "asc"),
-        );
-        onSnapshot(
-          qProjects,
-          (snap) => {
-            localProjects = snap.docs.map((d) => ({ id: d.id, ...d.data() }));
-            renderProjectCards(localProjects);
-
-            const countEl = document.getElementById("projectCount");
-            if (countEl && typeof countUp === "function") {
-              countUp(countEl, localProjects.length);
-            } else if (countEl) {
-              countEl.textContent = localProjects.length; // Fallback agar countUp fail ho jaye
-            }
-
-            setFbStatus(true);
-            projectsLoaded = true;
-            hideLoader(); // Force hide loader as soon as data arrives
-          },
-          (err) => {
-            console.error("Projects Error: ", err);
-            setFbStatus(false);
-            projectsLoaded = true;
-            hideLoader();
-          },
-        );
-
-        // Skills Real-time Sync
-        const qSkills = query(
-          collection(db, "skills"),
-          orderBy("createdAt", "asc"),
-        );
-        onSnapshot(
-          qSkills,
-          (snap) => {
-            localSkills = snap.docs.map((d) => ({ id: d.id, ...d.data() }));
-            renderSkillCards(localSkills);
-            skillsLoaded = true;
-            hideLoader(); // Force hide loader as soon as data arrives
-          },
-          (err) => {
-            console.error("Skills Error: ", err);
-            skillsLoaded = true;
-            hideLoader();
-          },
-        );
-      }
-
-      // ── FORCED CUTOFF (AB LOADER HAR HAAL MEIN HAT JAYEGA) ──
-      setTimeout(() => {
-        hideLoader();
-        // Agar Firebase late ho, toh loader hatne ke baad bhi data load ho sake
-        if (localProjects.length === 0) {
-          const countEl = document.getElementById("projectCount");
-          if (countEl) countEl.textContent = "0";
-        }
-      }, 2000);
-    </script>
-
-    <!-- ── NON-MODULE UI SCRIPT ────────────────────── -->
-    <script>
-      // THEME
-      const html = document.documentElement;
-      html.setAttribute(
-        "data-theme",
-        localStorage.getItem("ba_theme") || "dark",
-      );
-      document.getElementById("themeToggle").addEventListener("click", () => {
-        const n = html.getAttribute("data-theme") === "dark" ? "light" : "dark";
-        html.setAttribute("data-theme", n);
-        localStorage.setItem("ba_theme", n);
-      });
-
-      // CURSOR
-      const cur = document.getElementById("cur"),
-        ring = document.getElementById("cur-ring");
-      let mx = 0,
-        my = 0,
-        rx = 0,
-        ry = 0;
-      document.addEventListener("mousemove", (e) => {
-        mx = e.clientX;
-        my = e.clientY;
-        cur.style.left = mx + "px";
-        cur.style.top = my + "px";
-      });
-      (function a() {
-        rx += (mx - rx) * 0.13;
-        ry += (my - ry) * 0.13;
-        ring.style.left = rx + "px";
-        ring.style.top = ry + "px";
-        requestAnimationFrame(a);
-      })();
-      const hOn = () => {
-        cur.classList.add("hov");
-        ring.classList.add("hov");
-      };
-      const hOff = () => {
-        cur.classList.remove("hov");
-        ring.classList.remove("hov");
-      };
-      function bindHovers() {
-        document
-          .querySelectorAll(
-            "a,button,.project-card,.skill-card,.stat-box,.add-card-btn",
-          )
-          .forEach((el) => {
-            el.removeEventListener("mouseenter", hOn);
-            el.removeEventListener("mouseleave", hOff);
-            el.addEventListener("mouseenter", hOn);
-            el.addEventListener("mouseleave", hOff);
-          });
-      }
-      bindHovers();
-
-      // NAV
-      const navbar = document.getElementById("navbar");
-      window.addEventListener(
-        "scroll",
-        () => {
-          navbar.classList.toggle("scrolled", window.scrollY > 50);
-          document
-            .getElementById("topBtn")
-            .classList.toggle("show", window.scrollY > 300);
-          document.querySelectorAll("section[id]").forEach((s) => {
-            const a = document.querySelector(`.nav-links a[href="#${s.id}"]`);
-            if (a)
-              a.classList.toggle(
-                "active",
-                window.scrollY >= s.offsetTop - 130 &&
-                  window.scrollY < s.offsetTop + s.offsetHeight - 130,
-              );
-          });
-        },
-        { passive: true },
-      );
-      document
-        .getElementById("topBtn")
-        .addEventListener("click", () =>
-          window.scrollTo({ top: 0, behavior: "smooth" }),
-        );
-      document.querySelectorAll(".nav-links a").forEach((a) =>
-        a.addEventListener("click", () => {
-          document.getElementById("menu-menu").checked = false;
-        }),
-      );
-
-      // REVEAL
-      const revObs = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((e, i) => {
-            if (e.isIntersecting)
-              setTimeout(() => e.target.classList.add("visible"), i * 55);
-          });
-        },
-        { threshold: 0.09 },
-      );
-      document.querySelectorAll(".reveal").forEach((el) => revObs.observe(el));
-
-      // SKILL BARS
-      const barObs = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((e) => {
-            if (e.isIntersecting)
-              e.target.querySelectorAll(".skill-fill").forEach((b) => {
-                b.style.width = b.dataset.w + "%";
-              });
-          });
-        },
-        { threshold: 0.25 },
-      );
-
-      // TYPEWRITER
-      const words = ["AI & ML", "Intelligent", "Data-Driven", "Predictive"];
-      let wi = 0,
-        ci = 0,
-        er = false;
-      const tEl = document.getElementById("typeTarget");
-      function type() {
-        const w = words[wi];
-        if (!er) {
-          tEl.textContent = w.slice(0, ++ci);
-          if (ci === w.length) {
-            er = true;
-            setTimeout(type, 1800);
-            return;
-          }
-        } else {
-          tEl.textContent = w.slice(0, --ci);
-          if (ci === 0) {
-            er = false;
-            wi = (wi + 1) % words.length;
-          }
-        }
-        setTimeout(type, er ? 52 : 88);
-      }
-      setTimeout(type, 1400);
-
-      // COUNTER
-      function countUp(el, target) {
-        let s = 0;
-        const step = (ts) => {
-          if (!s) s = ts;
-          const p = Math.min((ts - s) / 1200, 1);
-          el.textContent = Math.floor(p * target);
-          if (p < 1) requestAnimationFrame(step);
-          else el.textContent = target;
-        };
-        requestAnimationFrame(step);
-      }
-      window.countUp = countUp;
-
-      // MODAL HELPERS
-      function openModal(id) {
-        document.getElementById(id).classList.add("open");
-      }
-      function closeModal(id) {
-        document.getElementById(id).classList.remove("open");
-      }
-      window.openModal = openModal;
-      window.closeModal = closeModal;
-      document.querySelectorAll(".modal-overlay").forEach((ov) =>
-        ov.addEventListener("click", (e) => {
-          if (e.target === ov) ov.classList.remove("open");
-        }),
-      );
-
-      function clearForm(ids) {
-        ids.forEach((id) => {
-          const el = document.getElementById(id);
-          if (el) {
-            el.value = "";
-            el.style.borderColor = "";
-          }
-        });
-      }
-      function highlight(ids) {
-        ids.forEach((id) => {
-          const el = document.getElementById(id);
-          if (el && !el.value.trim()) el.style.borderColor = "#f43f5e";
-        });
-      }
-      window.clearForm = clearForm;
-      window.highlight = highlight;
-
-      // TOAST
-      function showToast(msg) {
-        const t = document.getElementById("toast");
-        document.getElementById("toast-msg").textContent = msg;
-        t.classList.add("show");
-        setTimeout(() => t.classList.remove("show"), 3500);
-      }
-      window.showToast = showToast;
-
-      // CONTACT
-      document.getElementById("contactForm").addEventListener("submit", (e) => {
-        e.preventDefault();
-        showToast("Message sent! I'll get back to you soon 🚀");
-        e.target.reset();
-      });
-
-      // ── FIREBASE BROWSER TAB LOADER FIX ──
-      window.addEventListener("load", () => {
-        // 1. Pehle browser ko complete load hone dein takay tab loader ruk jaye
-        setTimeout(() => {
-          try {
-            window.stop(); // Chrome tab loader ko force stop karein
-          } catch (e) {}
-        }, 50);
-
-        // 2. Uske 300ms baad Firebase shuru hoga bina tab loader ko disturb kiye
-        setTimeout(() => {
-          initFirebaseStreams();
-        }, 300);
-      });
-    </script>
-  </body>
+</script>
+</body>
 </html>
