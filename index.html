@@ -1705,7 +1705,7 @@
           const addBtn = document.createElement("button");
           addBtn.className = "add-card-btn reveal";
           addBtn.innerHTML = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg><span>Add New Project</span>`;
-          addBtn.onclick = () => openAddProject();
+          addBtn.onclick = () => window.openAddProject();
           grid.appendChild(addBtn);
           if(window.revObs) window.revObs.observe(addBtn);
         }
@@ -1758,7 +1758,7 @@
           const addBtn = document.createElement("button");
           addBtn.className = "add-card-btn add-skill-btn reveal";
           addBtn.innerHTML = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg><span>Add New Skill</span>`;
-          addBtn.onclick = () => openAddSkill();
+          addBtn.onclick = () => window.openAddSkill();
           grid.appendChild(addBtn);
           if(window.revObs) window.revObs.observe(addBtn);
         }
@@ -1782,6 +1782,7 @@
         document.getElementById("pType").value = "ML";
         window.openModal("projectModal");
       }
+      window.openAddProject = openAddProject;
 
       window.editProject = async (id) => {
         const snap = await getDocs(collection(db, "projects"));
@@ -1794,6 +1795,7 @@
         document.getElementById("pTitle").value = p.title || "";
         document.getElementById("pDesc").value = p.desc || "";
         document.getElementById("pEmoji").value = p.emoji || "";
+        document.getElementById("pType").value = p.category || "ML";
         document.getElementById("pTech").value = (p.tags || []).join(", ");
         document.getElementById("pGithub").value = p.github !== "#" ? p.github || "" : "";
         document.getElementById("pLive").value = p.live !== "#" ? p.live || "" : "";
@@ -1810,6 +1812,7 @@
         const data = {
           title,
           desc,
+          category: document.getElementById("pType").value,
           emoji: document.getElementById("pEmoji").value.trim() || "🤖",
           tags: document.getElementById("pTech").value.split(",").map(t => t.trim()).filter(Boolean),
           github: document.getElementById("pGithub").value.trim() || "#",
@@ -1847,6 +1850,7 @@
         window.clearForm(["sName", "sDesc", "sLevel", "sEmoji"]);
         window.openModal("skillModal");
       }
+      window.openAddSkill = openAddSkill;
 
       window.editSkill = async (id) => {
         const snap = await getDocs(collection(db, "skills"));
