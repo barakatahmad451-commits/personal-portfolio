@@ -18,7 +18,10 @@
       rel="preload"
       as="style"
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap"
-      onload="this.onload=null;this.rel='stylesheet';"
+      onload="
+        this.onload = null;
+        this.rel = 'stylesheet';
+      "
     />
     <noscript
       ><link
@@ -105,12 +108,18 @@
       }
 
       body {
-        font-family: "Poppins", -apple-system, BlinkMacSystemFont, sans-serif;
+        font-family:
+          "Poppins",
+          -apple-system,
+          BlinkMacSystemFont,
+          sans-serif;
         background: var(--bg);
         color: var(--text);
         overflow-x: hidden;
         cursor: none;
-        transition: background 0.4s, color 0.4s;
+        transition:
+          background 0.4s,
+          color 0.4s;
       }
       #cur {
         width: 10px;
@@ -201,7 +210,9 @@
         align-items: center;
         justify-content: center;
         gap: 0;
-        transition: opacity 0.5s, visibility 0.5s;
+        transition:
+          opacity 0.5s,
+          visibility 0.5s;
       }
       #loader.done {
         opacity: 0;
@@ -255,11 +266,18 @@
         box-shadow: 0 0 20px rgba(var(--primary-rgb), 0.5);
       }
       @keyframes orbitSpin {
-        to { transform: rotate(360deg); }
+        to {
+          transform: rotate(360deg);
+        }
       }
       @keyframes corePulse {
-        0%, 100% { transform: scale(1); }
-        50% { transform: scale(1.08); }
+        0%,
+        100% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.08);
+        }
       }
       .ld-name {
         font-family: "JetBrains Mono", monospace;
@@ -288,9 +306,15 @@
         animation: ldFill 1.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
       }
       @keyframes ldFill {
-        0% { width: 0%; }
-        60% { width: 75%; }
-        100% { width: 100%; }
+        0% {
+          width: 0%;
+        }
+        60% {
+          width: 75%;
+        }
+        100% {
+          width: 100%;
+        }
       }
       .ld-status {
         font-family: "JetBrains Mono", monospace;
@@ -304,11 +328,21 @@
         animation: ldDots 1.2s steps(4, end) infinite;
       }
       @keyframes ldDots {
-        0% { content: ""; }
-        25% { content: "."; }
-        50% { content: ".."; }
-        75% { content: "..."; }
-        100% { content: ""; }
+        0% {
+          content: "";
+        }
+        25% {
+          content: ".";
+        }
+        50% {
+          content: "..";
+        }
+        75% {
+          content: "...";
+        }
+        100% {
+          content: "";
+        }
       }
 
       /* NAV */
@@ -325,7 +359,9 @@
         background: var(--nav-bg);
         border-bottom: 1px solid var(--border);
         z-index: 1000;
-        transition: padding 0.3s, background 0.3s;
+        transition:
+          padding 0.3s,
+          background 0.3s;
       }
       nav.scrolled {
         padding: 13px 8%;
@@ -410,10 +446,20 @@
         font-size: 0.65rem;
         transition: opacity 0.3s;
       }
-      .theme-toggle-icon.sun { right: 4px; opacity: 1; }
-      .theme-toggle-icon.moon { left: 4px; opacity: 0; }
-      [data-theme="light"] .theme-toggle-icon.sun { opacity: 0; }
-      [data-theme="light"] .theme-toggle-icon.moon { opacity: 1; }
+      .theme-toggle-icon.sun {
+        right: 4px;
+        opacity: 1;
+      }
+      .theme-toggle-icon.moon {
+        left: 4px;
+        opacity: 0;
+      }
+      [data-theme="light"] .theme-toggle-icon.sun {
+        opacity: 0;
+      }
+      [data-theme="light"] .theme-toggle-icon.moon {
+        opacity: 1;
+      }
 
       /* ADMIN BUTTON */
       .admin-btn {
@@ -503,8 +549,13 @@
         animation: pulse 1.8s infinite;
       }
       @keyframes pulse {
-        0%, 100% { opacity: 0.5; }
-        50% { opacity: 1; }
+        0%,
+        100% {
+          opacity: 0.5;
+        }
+        50% {
+          opacity: 1;
+        }
       }
       .hero-content h1 {
         font-size: clamp(2.5rem, 5vw, 4.4rem);
@@ -588,7 +639,10 @@
         backdrop-filter: blur(16px);
         padding: 30px 22px;
         box-shadow: var(--shadow);
-        transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275), border-color 0.4s, box-shadow 0.4s;
+        transition:
+          transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+          border-color 0.4s,
+          box-shadow 0.4s;
         will-change: transform;
       }
       .profile-card:hover {
@@ -622,12 +676,19 @@
         position: absolute;
         width: 200%;
         height: 200%;
-        background: conic-gradient(transparent, var(--primary), var(--secondary), transparent 60%);
+        background: conic-gradient(
+          transparent,
+          var(--primary),
+          var(--secondary),
+          transparent 60%
+        );
         animation: spin 4s linear infinite;
         z-index: 1;
       }
       @keyframes spin {
-        100% { transform: rotate(360deg); }
+        100% {
+          transform: rotate(360deg);
+        }
       }
       .profile-card h2 {
         text-align: center;
@@ -704,7 +765,8 @@
         color: var(--secondary);
         text-transform: uppercase;
       }
-      .section-tag::before, .section-tag::after {
+      .section-tag::before,
+      .section-tag::after {
         content: "";
         flex: 0 0 36px;
         height: 1px;
@@ -804,7 +866,8 @@
         opacity: 0;
         transition: opacity 0.2s;
       }
-      .skill-card:hover .card-actions, .project-card:hover .card-actions {
+      .skill-card:hover .card-actions,
+      .project-card:hover .card-actions {
         opacity: 1;
       }
       .ca-btn {
@@ -870,7 +933,11 @@
         align-items: center;
         justify-content: center;
         font-size: 2.4rem;
-        background: linear-gradient(135deg, rgba(var(--primary-rgb), 0.35), rgba(var(--secondary-rgb), 0.35));
+        background: linear-gradient(
+          135deg,
+          rgba(var(--primary-rgb), 0.35),
+          rgba(var(--secondary-rgb), 0.35)
+        );
         border-bottom: 1px solid var(--border);
         position: relative;
         overflow: hidden;
@@ -879,7 +946,11 @@
         content: "";
         position: absolute;
         inset: 0;
-        background: linear-gradient(to bottom, transparent 55%, rgba(0,0,0,0.25));
+        background: linear-gradient(
+          to bottom,
+          transparent 55%,
+          rgba(0, 0, 0, 0.25)
+        );
       }
       .project-content {
         padding: 20px;
@@ -1014,7 +1085,8 @@
         flex-direction: column;
         gap: 14px;
       }
-      .contact-form input, .contact-form textarea {
+      .contact-form input,
+      .contact-form textarea {
         padding: 13px 15px;
         border-radius: 10px;
         border: 1px solid var(--input-border);
@@ -1025,7 +1097,8 @@
         outline: none;
         transition: all 0.3s;
       }
-      .contact-form input:focus, .contact-form textarea:focus {
+      .contact-form input:focus,
+      .contact-form textarea:focus {
         border-color: var(--secondary);
         box-shadow: 0 0 0 3px rgba(var(--secondary-rgb), 0.12);
       }
@@ -1033,7 +1106,8 @@
         min-height: 130px;
         resize: vertical;
       }
-      .contact-form input::placeholder, .contact-form textarea::placeholder {
+      .contact-form input::placeholder,
+      .contact-form textarea::placeholder {
         color: var(--muted2);
       }
       footer {
@@ -1091,7 +1165,9 @@
         cursor: pointer;
         box-shadow: 0 5px 20px rgba(var(--primary-rgb), 0.4);
         z-index: 2000;
-        transition: bottom 0.4s, transform 0.2s;
+        transition:
+          bottom 0.4s,
+          transform 0.2s;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -1107,7 +1183,7 @@
       .modal-overlay {
         position: fixed;
         inset: 0;
-        background: rgba(0,0,0,0.78);
+        background: rgba(0, 0, 0, 0.78);
         backdrop-filter: blur(10px);
         z-index: 5000;
         display: flex;
@@ -1175,7 +1251,9 @@
         color: var(--muted);
         margin-bottom: 0.4rem;
       }
-      .form-input, .form-textarea, .form-select {
+      .form-input,
+      .form-textarea,
+      .form-select {
         width: 100%;
         background: var(--input-bg);
         border: 1px solid var(--input-border);
@@ -1185,13 +1263,18 @@
         font-family: inherit;
         font-size: 0.88rem;
         outline: none;
-        transition: border-color 0.3s, box-shadow 0.3s;
+        transition:
+          border-color 0.3s,
+          box-shadow 0.3s;
       }
-      .form-input:focus, .form-textarea:focus, .form-select:focus {
+      .form-input:focus,
+      .form-textarea:focus,
+      .form-select:focus {
         border-color: var(--primary);
         box-shadow: 0 0 0 3px rgba(var(--primary-rgb), 0.12);
       }
-      .form-input::placeholder, .form-textarea::placeholder {
+      .form-input::placeholder,
+      .form-textarea::placeholder {
         color: var(--muted2);
       }
       .form-textarea {
@@ -1220,7 +1303,11 @@
         font-family: "JetBrains Mono", monospace;
       }
       .admin-bar {
-        background: linear-gradient(90deg, rgba(var(--primary-rgb), 0.08), rgba(var(--secondary-rgb), 0.08));
+        background: linear-gradient(
+          90deg,
+          rgba(var(--primary-rgb), 0.08),
+          rgba(var(--secondary-rgb), 0.08)
+        );
         border: 1px solid rgba(var(--primary-rgb), 0.2);
         border-radius: 10px;
         padding: 0.7rem 1rem;
@@ -1274,17 +1361,31 @@
 
       /* ANIMATIONS */
       @keyframes fadeUp {
-        from { opacity: 0; transform: translateY(28px); }
-        to { opacity: 1; transform: translateY(0); }
+        from {
+          opacity: 0;
+          transform: translateY(28px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
       }
       @keyframes fadeLeft {
-        from { opacity: 0; transform: translateX(28px); }
-        to { opacity: 1; transform: translateX(0); }
+        from {
+          opacity: 0;
+          transform: translateX(28px);
+        }
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
       }
       .reveal {
         opacity: 0;
         transform: translateY(32px);
-        transition: opacity 0.65s ease, transform 0.65s ease;
+        transition:
+          opacity 0.65s ease,
+          transform 0.65s ease;
       }
       .reveal.visible {
         opacity: 1;
@@ -1301,24 +1402,40 @@
         border-radius: 1px;
       }
       @keyframes blink {
-        0%, 100% { opacity: 1; }
-        50% { opacity: 0; }
+        0%,
+        100% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0;
+        }
       }
 
       /* SKELETON LOADER */
       .skeleton {
-        background: linear-gradient(90deg, var(--surface) 25%, var(--surface2) 50%, var(--surface) 75%);
+        background: linear-gradient(
+          90deg,
+          var(--surface) 25%,
+          var(--surface2) 50%,
+          var(--surface) 75%
+        );
         background-size: 200% 100%;
         animation: shimmer 1.5s infinite;
         border-radius: 8px;
       }
       @keyframes shimmer {
-        0% { background-position: 200% 0; }
-        100% { background-position: -200% 0; }
+        0% {
+          background-position: 200% 0;
+        }
+        100% {
+          background-position: -200% 0;
+        }
       }
 
       @media (max-width: 992px) {
-        .menu-toggle { display: flex; }
+        .menu-toggle {
+          display: flex;
+        }
         .nav-links {
           position: fixed;
           top: 0;
@@ -1334,28 +1451,67 @@
           transition: right 0.4s cubic-bezier(0.1, 0.9, 0.2, 1);
           z-index: 999;
         }
-        .nav-links a { font-size: 1.1rem; }
-        .menu-checkbox:checked ~ .nav-right .nav-links { right: 0; }
-        .menu-checkbox:checked ~ .menu-toggle span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
-        .menu-checkbox:checked ~ .menu-toggle span:nth-child(2) { opacity: 0; }
-        .menu-checkbox:checked ~ .menu-toggle span:nth-child(3) { transform: rotate(-45deg) translate(5px, -6px); }
-        .hero { flex-direction: column; text-align: center; justify-content: center; gap: 48px; }
-        .hero-content p { margin: 0 auto 2rem; }
-        .hero-buttons { justify-content: center; }
-        section { padding: 100px 5% 70px; }
-        .form-row { grid-template-columns: 1fr; }
-        .admin-btn span { display: none; }
+        .nav-links a {
+          font-size: 1.1rem;
+        }
+        .menu-checkbox:checked ~ .nav-right .nav-links {
+          right: 0;
+        }
+        .menu-checkbox:checked ~ .menu-toggle span:nth-child(1) {
+          transform: rotate(45deg) translate(5px, 5px);
+        }
+        .menu-checkbox:checked ~ .menu-toggle span:nth-child(2) {
+          opacity: 0;
+        }
+        .menu-checkbox:checked ~ .menu-toggle span:nth-child(3) {
+          transform: rotate(-45deg) translate(5px, -6px);
+        }
+        .hero {
+          flex-direction: column;
+          text-align: center;
+          justify-content: center;
+          gap: 48px;
+        }
+        .hero-content p {
+          margin: 0 auto 2rem;
+        }
+        .hero-buttons {
+          justify-content: center;
+        }
+        section {
+          padding: 100px 5% 70px;
+        }
+        .form-row {
+          grid-template-columns: 1fr;
+        }
+        .admin-btn span {
+          display: none;
+        }
       }
       @media (max-width: 576px) {
-        .hero-content h1 { font-size: 2.3rem; }
-        .section-title { font-size: 1.9rem; }
-        .contact-box { padding: 22px 16px; }
-        .modal { padding: 1.5rem; }
-        .toast { right: 1rem; bottom: 1rem; left: 1rem; max-width: none; }
+        .hero-content h1 {
+          font-size: 2.3rem;
+        }
+        .section-title {
+          font-size: 1.9rem;
+        }
+        .contact-box {
+          padding: 22px 16px;
+        }
+        .modal {
+          padding: 1.5rem;
+        }
+        .toast {
+          right: 1rem;
+          bottom: 1rem;
+          left: 1rem;
+          max-width: none;
+        }
       }
     </style>
   </head>
   <body>
+    <!-- LOADER -->
     <div id="loader">
       <div class="ld-orbit">
         <div class="ld-orbit-ring"></div>
@@ -1365,7 +1521,9 @@
       </div>
       <div class="ld-name">Barakat Ahmad</div>
       <div class="ld-bar-wrap"><div class="ld-bar-fill"></div></div>
-      <div class="ld-status">Connecting to Firebase<span class="ld-dots"></span></div>
+      <div class="ld-status">
+        Connecting to Firebase<span class="ld-dots"></span>
+      </div>
     </div>
 
     <div id="cur"></div>
@@ -1375,23 +1533,40 @@
     <div class="ambient amb-2"></div>
 
     <div class="toast" id="toast">
-      <svg class="toast-icon" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-        <polyline points="20 6 9 17 4 12"/>
+      <svg
+        class="toast-icon"
+        width="17"
+        height="17"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2.5"
+      >
+        <polyline points="20 6 9 17 4 12" />
       </svg>
       <span id="toast-msg"></span>
     </div>
 
+    <!-- NAV -->
     <nav id="navbar">
       <a href="#home" class="logo">Barakat.</a>
       <input type="checkbox" id="menu-menu" class="menu-checkbox" />
-      <label for="menu-menu" class="menu-toggle" aria-label="Menu"><span></span><span></span><span></span></label>
+      <label for="menu-menu" class="menu-toggle" aria-label="Menu"
+        ><span></span><span></span><span></span
+      ></label>
       <div class="nav-right">
         <div class="nav-links">
-          <a href="#home">Home</a><a href="#skills">Skills</a><a href="#projects">Projects</a><a href="#contact">Contact</a>
+          <a href="#home">Home</a><a href="#skills">Skills</a
+          ><a href="#projects">Projects</a><a href="#contact">Contact</a>
         </div>
         <button class="admin-btn" id="adminBtn">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
           </svg>
           <span>Admin</span>
         </button>
@@ -1402,20 +1577,37 @@
       </div>
     </nav>
 
+    <!-- HERO -->
     <section class="hero" id="home">
       <div class="hero-content">
         <div class="hero-badge">🟢 Open to opportunities</div>
-        <h1>Building <span class="gradient-text"><span id="typeTarget"></span><span class="type-cursor"></span></span><br>Projects That Matter</h1>
+        <h1>
+          Building
+          <span class="gradient-text"
+            ><span id="typeTarget"></span
+            ><span class="type-cursor"></span></span
+          ><br />Projects That Matter
+        </h1>
         <p>
-          I'm <strong>Barakat Ahmad</strong> — a Machine Learning developer focused on building intelligent systems using real-world datasets and modern AI technologies. I work with Python, Scikit-learn, Pandas, NumPy, and deep data analysis to create impactful ML solutions.
+          I'm <strong>Barakat Ahmad</strong> — a Machine Learning developer
+          focused on building intelligent systems using real-world datasets and
+          modern AI technologies. I work with Python, Scikit-learn, Pandas,
+          NumPy, and deep data analysis to create impactful ML solutions.
         </p>
         <div class="hero-buttons">
           <a href="#projects" class="btn primary-btn">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-              <rect x="3" y="3" width="7" height="7" rx="1"/>
-              <rect x="14" y="3" width="7" height="7" rx="1"/>
-              <rect x="3" y="14" width="7" height="7" rx="1"/>
-              <rect x="14" y="14" width="7" height="7" rx="1"/>
+            <svg
+              width="15"
+              height="15"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2.5"
+            >
+              <rect x="3" y="3" width="7" height="7" rx="1" />
+              <rect x="14" y="3" width="7" height="7" rx="1" />
+              <rect x="3" y="14" width="7" height="7" rx="1" />
+              <rect x="14" y="14" width="7" height="7" rx="1" />
             </svg>
             View Projects
           </a>
@@ -1425,10 +1617,21 @@
       <div class="hero-image">
         <div class="profile-card">
           <div class="profile-circle">
-            <img src="barakat-3d.png" alt="Barakat Ahmad" onerror="this.style.display='none'; this.parentElement.innerHTML+='<span style=\'font-size:3.2rem;z-index:3;position:relative\'>👨‍💻</span>';">
+            <img
+              src="barakat-3d.png"
+              alt="Barakat Ahmad"
+              onerror="
+                this.style.display = 'none';
+                this.parentElement.innerHTML +=
+                  '<span style=\'font-size:3.2rem;z-index:3;position:relative\'>👨‍💻</span>';
+              "
+            />
           </div>
           <h2>Barakat Ahmad</h2>
-          <p>ML Developer &nbsp;•&nbsp; Python Enthusiast<br>Data Scientist &nbsp;•&nbsp; Future AI Engineer</p>
+          <p>
+            ML Developer &nbsp;•&nbsp; Python Enthusiast<br />Data Scientist
+            &nbsp;•&nbsp; Future AI Engineer
+          </p>
           <div class="stats">
             <div class="stat-box">
               <h4 id="projectCount">0</h4>
@@ -1447,29 +1650,46 @@
       </div>
     </section>
 
+    <!-- SKILLS -->
     <section id="skills">
       <div class="reveal">
         <div class="section-tag"><span>Expertise</span></div>
-        <h2 class="section-title">My <span class="gradient-text">Skills</span></h2>
-        <p class="section-subtitle">Technologies and tools I use while building Machine Learning and AI projects.</p>
+        <h2 class="section-title">
+          My <span class="gradient-text">Skills</span>
+        </h2>
+        <p class="section-subtitle">
+          Technologies and tools I use while building Machine Learning and AI
+          projects.
+        </p>
       </div>
       <div class="skills-grid" id="skillsGrid"></div>
     </section>
 
+    <!-- PROJECTS -->
     <section id="projects">
       <div class="reveal">
         <div class="section-tag"><span>Portfolio</span></div>
-        <h2 class="section-title">My <span class="gradient-text">Projects</span></h2>
-        <p class="section-subtitle">Machine Learning and data science projects I've built from scratch.</p>
+        <h2 class="section-title">
+          My <span class="gradient-text">Projects</span>
+        </h2>
+        <p class="section-subtitle">
+          Machine Learning and data science projects I've built from scratch.
+        </p>
       </div>
       <div class="projects-container" id="projectsGrid"></div>
     </section>
 
+    <!-- CONTACT -->
     <section id="contact">
       <div class="reveal">
         <div class="section-tag"><span>Get In Touch</span></div>
-        <h2 class="section-title">Let's <span class="gradient-text">Connect</span></h2>
-        <p class="section-subtitle">Want to collaborate, hire, or discuss ML ideas? Feel free to reach out.</p>
+        <h2 class="section-title">
+          Let's <span class="gradient-text">Connect</span>
+        </h2>
+        <p class="section-subtitle">
+          Want to collaborate, hire, or discuss ML ideas? Feel free to reach
+          out.
+        </p>
       </div>
       <div class="contact-box reveal">
         <h2>Send a Message</h2>
@@ -1477,7 +1697,13 @@
           <input type="text" placeholder="Your Name" required />
           <input type="email" placeholder="Your Email" required />
           <textarea placeholder="Write your message here..."></textarea>
-          <button type="submit" class="btn primary-btn" style="justify-content: center;">Send Message</button>
+          <button
+            type="submit"
+            class="btn primary-btn"
+            style="justify-content: center"
+          >
+            Send Message
+          </button>
         </form>
       </div>
     </section>
@@ -1487,37 +1713,72 @@
     </footer>
     <button class="floating-btn" id="topBtn" aria-label="Back to top">↑</button>
 
+    <!-- ── ADMIN LOGIN MODAL ───────────────────────── -->
     <div class="modal-overlay" id="loginModal">
-      <div class="modal" style="max-width:400px">
+      <div class="modal" style="max-width: 400px">
         <div class="modal-hdr">
           <h3 class="modal-title">// Admin Login</h3>
-          <button class="modal-close" onclick="closeModal('loginModal')">✕</button>
+          <button class="modal-close" onclick="closeModal('loginModal')">
+            ✕
+          </button>
         </div>
-        <div id="fbStatusWrap" style="margin-bottom:1.2rem; display:flex; justify-content:center"></div>
+        <div
+          id="fbStatusWrap"
+          style="margin-bottom: 1.2rem; display: flex; justify-content: center"
+        ></div>
         <div class="form-group">
           <label class="form-label">Email</label>
-          <input class="form-input" id="loginEmail" type="email" placeholder="your@email.com">
+          <input
+            class="form-input"
+            id="loginEmail"
+            type="email"
+            placeholder="your@email.com"
+          />
         </div>
         <div class="form-group">
           <label class="form-label">Password</label>
-          <input class="form-input" id="loginPass" type="password" placeholder="••••••••">
+          <input
+            class="form-input"
+            id="loginPass"
+            type="password"
+            placeholder="••••••••"
+          />
         </div>
-        <button class="btn primary-btn" id="loginBtn" style="width:100%; justify-content:center; margin-top:0.3rem">Sign In</button>
+        <button
+          class="btn primary-btn"
+          id="loginBtn"
+          style="width: 100%; justify-content: center; margin-top: 0.3rem"
+        >
+          Sign In
+        </button>
         <p class="login-note">Only the portfolio owner can log in.</p>
       </div>
     </div>
 
+    <!-- ── PROJECT MODAL ──────────────────────────── -->
     <div class="modal-overlay" id="projectModal">
       <div class="modal">
         <div class="modal-hdr">
           <h3 class="modal-title" id="projectModalTitle">// Add Project</h3>
-          <button class="modal-close" onclick="closeModal('projectModal')">✕</button>
+          <button class="modal-close" onclick="closeModal('projectModal')">
+            ✕
+          </button>
         </div>
         <div class="form-group">
-          <label class="form-label">Title *</label><input class="form-input" id="pTitle" placeholder="e.g. Fraud Detection">
+          <label class="form-label">Title *</label
+          ><input
+            class="form-input"
+            id="pTitle"
+            placeholder="e.g. Fraud Detection"
+          />
         </div>
         <div class="form-group">
-          <label class="form-label">Description *</label><textarea class="form-textarea" id="pDesc" placeholder="What does this project do?"></textarea>
+          <label class="form-label">Description *</label
+          ><textarea
+            class="form-textarea"
+            id="pDesc"
+            placeholder="What does this project do?"
+          ></textarea>
         </div>
         <div class="form-row">
           <div class="form-group">
@@ -1531,62 +1792,133 @@
             </select>
           </div>
           <div class="form-group">
-            <label class="form-label">Emoji</label><input class="form-input" id="pEmoji" placeholder="🤖" maxlength="2">
+            <label class="form-label">Emoji</label
+            ><input
+              class="form-input"
+              id="pEmoji"
+              placeholder="🤖"
+              maxlength="2"
+            />
           </div>
         </div>
         <div class="form-group">
-          <label class="form-label">Tech Stack (comma separated)</label><input class="form-input" id="pTech" placeholder="Python, Scikit-learn, Pandas">
+          <label class="form-label">Tech Stack (comma separated)</label
+          ><input
+            class="form-input"
+            id="pTech"
+            placeholder="Python, Scikit-learn, Pandas"
+          />
         </div>
         <div class="form-row">
           <div class="form-group">
-            <label class="form-label">GitHub URL</label><input class="form-input" id="pGithub" placeholder="https://github.com/...">
+            <label class="form-label">GitHub URL</label
+            ><input
+              class="form-input"
+              id="pGithub"
+              placeholder="https://github.com/..."
+            />
           </div>
           <div class="form-group">
-            <label class="form-label">Live Demo URL</label><input class="form-input" id="pLive" placeholder="https://...">
+            <label class="form-label">Live Demo URL</label
+            ><input class="form-input" id="pLive" placeholder="https://..." />
           </div>
         </div>
-        <button class="btn primary-btn" id="saveProjectBtn" style="width:100%; justify-content:center; margin-top:0.2rem">Save Project</button>
+        <button
+          class="btn primary-btn"
+          id="saveProjectBtn"
+          style="width: 100%; justify-content: center; margin-top: 0.2rem"
+        >
+          Save Project
+        </button>
       </div>
     </div>
 
+    <!-- ── SKILL MODAL ────────────────────────────── -->
     <div class="modal-overlay" id="skillModal">
       <div class="modal">
         <div class="modal-hdr">
           <h3 class="modal-title" id="skillModalTitle">// Add Skill</h3>
-          <button class="modal-close" onclick="closeModal('skillModal')">✕</button>
+          <button class="modal-close" onclick="closeModal('skillModal')">
+            ✕
+          </button>
         </div>
         <div class="form-group">
-          <label class="form-label">Skill Name *</label><input class="form-input" id="sName" placeholder="e.g. TensorFlow">
+          <label class="form-label">Skill Name *</label
+          ><input class="form-input" id="sName" placeholder="e.g. TensorFlow" />
         </div>
         <div class="form-group">
-          <label class="form-label">Description *</label><textarea class="form-textarea" id="sDesc" placeholder="What do you use this for?"></textarea>
+          <label class="form-label">Description *</label
+          ><textarea
+            class="form-textarea"
+            id="sDesc"
+            placeholder="What do you use this for?"
+          ></textarea>
         </div>
         <div class="form-row">
           <div class="form-group">
-            <label class="form-label">Proficiency % *</label><input type="number" class="form-input" id="sLevel" placeholder="85" min="1" max="100">
+            <label class="form-label">Proficiency % *</label
+            ><input
+              type="number"
+              class="form-input"
+              id="sLevel"
+              placeholder="85"
+              min="1"
+              max="100"
+            />
           </div>
           <div class="form-group">
-            <label class="form-label">Emoji</label><input class="form-input" id="sEmoji" placeholder="🧠" maxlength="2">
+            <label class="form-label">Emoji</label
+            ><input
+              class="form-input"
+              id="sEmoji"
+              placeholder="🧠"
+              maxlength="2"
+            />
           </div>
         </div>
-        <button class="btn primary-btn" id="saveSkillBtn" style="width:100%; justify-content:center; margin-top:0.2rem">Save Skill</button>
+        <button
+          class="btn primary-btn"
+          id="saveSkillBtn"
+          style="width: 100%; justify-content: center; margin-top: 0.2rem"
+        >
+          Save Skill
+        </button>
       </div>
     </div>
 
+    <!-- ════════════════════════════════════════════════
+     FIREBASE SDK
+════════════════════════════════════════════════ -->
     <script type="module">
       import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
-      import { getFirestore, collection, addDoc, getDocs, updateDoc, deleteDoc, doc, query, orderBy } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
-      import { getAuth, signInWithEmailAndPassword, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-auth.js";
+      import {
+        getFirestore,
+        collection,
+        addDoc,
+        updateDoc,
+        deleteDoc,
+        doc,
+        onSnapshot,
+        query,
+        orderBy,
+      } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
+      import {
+        getAuth,
+        signInWithEmailAndPassword,
+        signOut,
+        onAuthStateChanged,
+      } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-auth.js";
 
       const firebaseConfig = {
         apiKey: "AIzaSyAdB8BQWxA3b2jWhm_lYw-51sq0nwa8vlY",
         authDomain: "personal-portfolio-a9824.firebaseapp.com",
-        databaseURL: "https://personal-portfolio-a9824-default-rtdb.firebaseio.com",
+        databaseURL:
+          "https://personal-portfolio-a9824-default-rtdb.firebaseio.com",
         projectId: "personal-portfolio-a9824",
         storageBucket: "personal-portfolio-a9824.firebasestorage.app",
         messagingSenderId: "708755341255",
         appId: "1:708755341255:web:0dcc7cd0103be35dbce3e2",
-        measurementId: "G-639R0D4TZE"
+        measurementId: "G-639R0D4TZE",
       };
 
       // ── INIT ─────────────────────────────────────────
@@ -1599,402 +1931,543 @@
       let editingProjectId = null;
       let editingSkillId = null;
 
+      let localProjects = [];
+      let localSkills = [];
+
       // ── FIREBASE STATUS ──────────────────────────────
       function setFbStatus(ok) {
         const wrap = document.getElementById("fbStatusWrap");
-        if(wrap) wrap.innerHTML = `<span class="fb-status ${ok ? 'connected' : 'error'}">${ok ? 'Firebase Connected' : 'Connection Error'}</span>`;
+        if (wrap) {
+          wrap.innerHTML = `<span class="fb-status ${ok ? "connected" : "error"}">${ok ? "Firebase Connected" : "Connection Error"}</span>`;
+        }
       }
 
       // ── LOADER HIDE ──────────────────────────────────
       function hideLoader() {
-        const ldr = document.getElementById("loader");
-        if(ldr) ldr.classList.add("done");
+        const loader = document.getElementById("loader");
+        if (loader && !loader.classList.contains("done")) {
+          loader.classList.add("done");
+        }
+      }
+
+      let projectsLoaded = false;
+      let skillsLoaded = false;
+
+      function checkInitialLoadComplete() {
+        if (projectsLoaded && skillsLoaded) {
+          hideLoader();
+        }
       }
 
       // ── AUTH STATE ───────────────────────────────────
       onAuthStateChanged(auth, (user) => {
         isAdmin = !!user;
         const adminBtn = document.getElementById("adminBtn");
+
         if (adminBtn) {
-          adminBtn.innerHTML = isAdmin 
-            ? `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="13" height="13"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg><span>Logout</span>`
-            : `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="13" height="13"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg><span>Admin</span>`;
+          adminBtn.innerHTML = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="13" height="13"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg><span>${isAdmin ? "Logout" : "Admin"}</span>`;
         }
 
         const bar = document.getElementById("adminBarWrap");
         if (bar) bar.style.display = isAdmin ? "block" : "none";
 
-        renderProjects();
-        renderSkills();
-        if (isAdmin) window.closeModal("loginModal");
+        renderProjectCards(localProjects);
+        renderSkillCards(localSkills);
+
+        if (isAdmin) closeModal("loginModal");
       });
 
-      // ── LOGIN ────────────────────────────────────────
-      document.getElementById("loginBtn").addEventListener("click", async () => {
-        const email = document.getElementById("loginEmail").value.trim();
-        const pass = document.getElementById("loginPass").value;
-        if (!email || !pass) return;
-        try {
-          await signInWithEmailAndPassword(auth, email, pass);
-          window.showToast("Welcome back, Barakat! 👋");
-        } catch (e) {
-          window.showToast("❌ Wrong email or password");
-        }
-      });
+      // ── LOGIN / LOGOUT ───────────────────────────────
+      document
+        .getElementById("loginBtn")
+        .addEventListener("click", async () => {
+          const email = document.getElementById("loginEmail").value.trim();
+          const pass = document.getElementById("loginPass").value;
+          if (!email || !pass) return;
+          try {
+            await signInWithEmailAndPassword(auth, email, pass);
+            showToast("Welcome back, Barakat! 👋");
+          } catch (e) {
+            showToast("❌ Wrong email or password");
+          }
+        });
 
-      document.getElementById("adminBtn").addEventListener("click", async () => {
-        if (isAdmin) {
-          await signOut(auth);
-          window.showToast("Logged out.");
-        } else {
-          window.openModal("loginModal");
-        }
-      });
+      document
+        .getElementById("adminBtn")
+        .addEventListener("click", async () => {
+          if (isAdmin) {
+            await signOut(auth);
+            showToast("Logged out.");
+          } else {
+            openModal("loginModal");
+          }
+        });
 
-      // ── FIRESTORE: PROJECTS ──────────────────────────
-      async function loadProjects() {
-        try {
-          const snap = await getDocs(query(collection(db, "projects"), orderBy("createdAt", "asc")));
-          const projects = snap.docs.map(d => ({ id: d.id, ...d.data() }));
-          renderProjectCards(projects);
-          if(window.countUp) window.countUp(document.getElementById("projectCount"), projects.length);
-          setFbStatus(true);
-        } catch (e) {
-          setFbStatus(false);
-          renderProjectCards([]);
-        }
-        hideLoader();
-      }
-
+      // ── RENDERING LOGIC ──────────────────────────────
       function renderProjectCards(projects) {
         const grid = document.getElementById("projectsGrid");
-        if(!grid) return;
+        if (!grid) return;
         grid.innerHTML = "";
 
         projects.forEach((p, i) => {
-          const tags = (p.tags || []).map(t => `<span class="tag">${t}</span>`).join("");
-          const gh = (p.github && p.github !== "#") ? `<a href="${p.github}" target="_blank" rel="noopener">GitHub</a>` : `<a class="disabled">GitHub</a>`;
-          const lv = (p.live && p.live !== "#") ? `<a href="${p.live}" target="_blank" rel="noopener">Live Demo</a>` : `<a class="disabled">Live Demo</a>`;
-          const adminActions = isAdmin ? `
-            <div class="card-actions">
-              <button class="ca-btn ca-edit" onclick="editProject('${p.id}')" title="Edit">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
-              </button>
-              <button class="ca-btn ca-del" onclick="deleteProject('${p.id}')" title="Delete">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14a2 2 0 01-2 2H8a2 2 0 01-2-2L5 6"/><path d="M10 11v6M14 11v6"/></svg>
-              </button>
-            </div>` : "";
+          const tags = (p.tags || [])
+            .map((t) => `<span class="tag">${t}</span>`)
+            .join("");
+          const gh =
+            p.github && p.github !== "#"
+              ? `<a href="${p.github}" target="_blank" rel="noopener">GitHub</a>`
+              : `<a class="disabled">GitHub</a>`;
+          const lv =
+            p.live && p.live !== "#"
+              ? `<a href="${p.live}" target="_blank" rel="noopener">Live Demo</a>`
+              : `<a class="disabled">Live Demo</a>`;
+
+          const adminActions = isAdmin
+            ? `<div class="card-actions">
+            <button class="ca-btn ca-edit" onclick="editProject('${p.id}')" title="Edit">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+            </button>
+            <button class="ca-btn ca-del" onclick="deleteProject('${p.id}')" title="Delete">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14a2 2 0 01-2 2H8a2 2 0 01-2-2L5 6"/><path d="M10 11v6M14 11v6"/></svg>
+            </button>
+          </div>`
+            : "";
 
           const card = document.createElement("div");
-          card.className = "project-card reveal";
-          card.style.transitionDelay = (i * 0.04) + "s";
+          card.className = "project-card reveal visible";
           card.innerHTML = `
-            ${adminActions}
-            <div class="project-image">${p.emoji || "🤖"}</div>
-            <div class="project-content">
-              <h3>${p.title}</h3>
-              <p>${p.desc}</p>
-              <div class="project-tags">${tags}</div>
-              <div class="project-links">${gh}${lv}</div>
-            </div>`;
+        ${adminActions}
+        <div class="project-image">${p.emoji || "🤖"}</div>
+        <div class="project-content">
+          <h3>${p.title}</h3>
+          <p>${p.desc}</p>
+          <div class="project-tags">${tags}</div>
+          <div class="project-links">${gh}${lv}</div>
+        </div>`;
           grid.appendChild(card);
-          if(window.revObs) window.revObs.observe(card);
+          if (window.revObs) window.revObs.observe(card);
         });
 
         if (isAdmin) {
           const addBtn = document.createElement("button");
-          addBtn.className = "add-card-btn reveal";
+          addBtn.className = "add-card-btn reveal visible";
           addBtn.innerHTML = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg><span>Add New Project</span>`;
-          addBtn.onclick = () => window.openAddProject();
+          addBtn.onclick = () => openAddProject();
           grid.appendChild(addBtn);
-          if(window.revObs) window.revObs.observe(addBtn);
+          if (window.revObs) window.revObs.observe(addBtn);
         }
-        if(window.bindHovers) window.bindHovers();
-      }
-
-      // ── FIRESTORE: SKILLS ────────────────────────────
-      async function loadSkills() {
-        try {
-          const snap = await getDocs(query(collection(db, "skills"), orderBy("createdAt", "asc")));
-          renderSkillCards(snap.docs.map(d => ({ id: d.id, ...d.data() })));
-        } catch (e) {
-          renderSkillCards([]);
-        }
+        if (window.bindHovers) window.bindHovers();
       }
 
       function renderSkillCards(skills) {
         const grid = document.getElementById("skillsGrid");
-        if(!grid) return;
+        if (!grid) return;
         grid.innerHTML = "";
 
         skills.forEach((s, i) => {
-          const adminActions = isAdmin ? `
-            <div class="card-actions">
-              <button class="ca-btn ca-edit" onclick="editSkill('${s.id}')" title="Edit">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
-              </button>
-              <button class="ca-btn ca-del" onclick="deleteSkill('${s.id}')" title="Delete">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14a2 2 0 01-2 2H8a2 2 0 01-2-2L5 6"/><path d="M10 11v6M14 11v6"/></svg>
-              </button>
-            </div>` : "";
+          const adminActions = isAdmin
+            ? `<div class="card-actions">
+            <button class="ca-btn ca-edit" onclick="editSkill('${s.id}')" title="Edit">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+            </button>
+            <button class="ca-btn ca-del" onclick="deleteSkill('${s.id}')" title="Delete">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14a2 2 0 01-2 2H8a2 2 0 01-2-2L5 6"/><path d="M10 11v6M14 11v6"/></svg>
+            </button>
+          </div>`
+            : "";
 
           const card = document.createElement("div");
-          card.className = "skill-card reveal";
-          card.style.transitionDelay = (i * 0.03) + "s";
+          card.className = "skill-card reveal visible";
           card.innerHTML = `
-            ${adminActions}
-            <span class="skill-icon">${s.icon || "💡"}</span>
-            <h3>${s.name}</h3>
-            <p>${s.desc}</p>
-            <div class="skill-bar-wrap">
-              <div class="skill-bar-label"><span>Proficiency</span><span>${s.level}%</span></div>
-              <div class="skill-bar"><div class="skill-fill" data-w="${s.level}"></div></div>
-            </div>`;
+        ${adminActions}
+        <span class="skill-icon">${s.icon || "💡"}</span>
+        <h3>${s.name}</h3>
+        <p>${s.desc}</p>
+        <div class="skill-bar-wrap">
+          <div class="skill-bar-label"><span>Proficiency</span><span>${s.level}%</span></div>
+          <div class="skill-bar"><div class="skill-fill" style="width: ${s.level}%" data-w="${s.level}"></div></div>
+        </div>`;
           grid.appendChild(card);
-          if(window.revObs) window.revObs.observe(card);
+          if (window.revObs) window.revObs.observe(card);
         });
 
         if (isAdmin) {
           const addBtn = document.createElement("button");
-          addBtn.className = "add-card-btn add-skill-btn reveal";
+          addBtn.className = "add-card-btn add-skill-btn reveal visible";
           addBtn.innerHTML = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg><span>Add New Skill</span>`;
-          addBtn.onclick = () => window.openAddSkill();
+          addBtn.onclick = () => openAddSkill();
           grid.appendChild(addBtn);
-          if(window.revObs) window.revObs.observe(addBtn);
+          if (window.revObs) window.revObs.observe(addBtn);
         }
 
-        if(window.barObs) {
+        if (window.barObs) {
           window.barObs.disconnect();
           window.barObs.observe(grid);
         }
-        if(window.bindHovers) window.bindHovers();
+        if (window.bindHovers) window.bindHovers();
       }
-
-      function renderProjects() { loadProjects(); }
-      function renderSkills() { loadSkills(); }
 
       // ── PROJECT CRUD ─────────────────────────────────
       function openAddProject() {
         editingProjectId = null;
-        document.getElementById("projectModalTitle").textContent = "// Add New Project";
+        document.getElementById("projectModalTitle").textContent =
+          "// Add New Project";
         document.getElementById("saveProjectBtn").textContent = "Save Project";
-        window.clearForm(["pTitle", "pDesc", "pEmoji", "pTech", "pGithub", "pLive"]);
+        clearForm(["pTitle", "pDesc", "pEmoji", "pTech", "pGithub", "pLive"]);
         document.getElementById("pType").value = "ML";
-        window.openModal("projectModal");
+        openModal("projectModal");
       }
-      window.openAddProject = openAddProject;
 
-      window.editProject = async (id) => {
-        const snap = await getDocs(collection(db, "projects"));
-        const doc_ = snap.docs.find(d => d.id === id);
-        if (!doc_) return;
-        const p = doc_.data();
+      window.editProject = (id) => {
+        const p = localProjects.find((proj) => proj.id === id);
+        if (!p) return;
         editingProjectId = id;
-        document.getElementById("projectModalTitle").textContent = "// Edit Project";
-        document.getElementById("saveProjectBtn").textContent = "Update Project";
+        document.getElementById("projectModalTitle").textContent =
+          "// Edit Project";
+        document.getElementById("saveProjectBtn").textContent =
+          "Update Project";
         document.getElementById("pTitle").value = p.title || "";
         document.getElementById("pDesc").value = p.desc || "";
         document.getElementById("pEmoji").value = p.emoji || "";
-        document.getElementById("pType").value = p.category || "ML";
         document.getElementById("pTech").value = (p.tags || []).join(", ");
-        document.getElementById("pGithub").value = p.github !== "#" ? p.github || "" : "";
-        document.getElementById("pLive").value = p.live !== "#" ? p.live || "" : "";
-        window.openModal("projectModal");
+        document.getElementById("pGithub").value =
+          p.github !== "#" ? p.github || "" : "";
+        document.getElementById("pLive").value =
+          p.live !== "#" ? p.live || "" : "";
+        openModal("projectModal");
       };
 
-      document.getElementById("saveProjectBtn").addEventListener("click", async () => {
-        const title = document.getElementById("pTitle").value.trim();
-        const desc = document.getElementById("pDesc").value.trim();
-        if (!title || !desc) {
-          window.highlight(["pTitle", "pDesc"]);
-          return;
-        }
-        const data = {
-          title,
-          desc,
-          category: document.getElementById("pType").value,
-          emoji: document.getElementById("pEmoji").value.trim() || "🤖",
-          tags: document.getElementById("pTech").value.split(",").map(t => t.trim()).filter(Boolean),
-          github: document.getElementById("pGithub").value.trim() || "#",
-          live: document.getElementById("pLive").value.trim() || "#",
-        };
-        
-        try {
-          if (editingProjectId) {
-            await updateDoc(doc(db, "projects", editingProjectId), data);
-            window.showToast("Project updated! ✅");
-          } else {
-            data.createdAt = Date.now();
-            await addDoc(collection(db, "projects"), data);
-            window.showToast("Project added! 🎉");
+      document
+        .getElementById("saveProjectBtn")
+        .addEventListener("click", async () => {
+          const title = document.getElementById("pTitle").value.trim();
+          const desc = document.getElementById("pDesc").value.trim();
+          if (!title || !desc) {
+            highlight(["pTitle", "pDesc"]);
+            return;
           }
-          window.closeModal("projectModal");
-          loadProjects();
-        } catch (e) {
-          window.showToast("❌ Error saving. Check Firebase rules.");
-        }
-      });
+
+          const data = {
+            title,
+            desc,
+            emoji: document.getElementById("pEmoji").value.trim() || "🤖",
+            tags: document
+              .getElementById("pTech")
+              .value.split(",")
+              .map((t) => t.trim())
+              .filter(Boolean),
+            github: document.getElementById("pGithub").value.trim() || "#",
+            live: document.getElementById("pLive").value.trim() || "#",
+          };
+
+          try {
+            closeModal("projectModal");
+            if (editingProjectId) {
+              await updateDoc(doc(db, "projects", editingProjectId), data);
+              showToast("Project updated! ✅");
+            } else {
+              data.createdAt = Date.now();
+              await addDoc(collection(db, "projects"), data);
+              showToast("Project added! 🎉");
+            }
+          } catch (e) {
+            showToast("❌ Error saving. Check Firebase rules.");
+          }
+        });
 
       window.deleteProject = async (id) => {
         if (!confirm("Delete this project?")) return;
-        await deleteDoc(doc(db, "projects", id));
-        window.showToast("Project deleted.");
-        loadProjects();
+        try {
+          await deleteDoc(doc(db, "projects", id));
+          showToast("Project deleted.");
+        } catch (e) {
+          showToast("❌ Delete Error.");
+        }
       };
 
       // ── SKILL CRUD ───────────────────────────────────
       function openAddSkill() {
         editingSkillId = null;
-        document.getElementById("skillModalTitle").textContent = "// Add New Skill";
+        document.getElementById("skillModalTitle").textContent =
+          "// Add New Skill";
         document.getElementById("saveSkillBtn").textContent = "Save Skill";
-        window.clearForm(["sName", "sDesc", "sLevel", "sEmoji"]);
-        window.openModal("skillModal");
+        clearForm(["sName", "sDesc", "sLevel", "sEmoji"]);
+        openModal("skillModal");
       }
-      window.openAddSkill = openAddSkill;
 
-      window.editSkill = async (id) => {
-        const snap = await getDocs(collection(db, "skills"));
-        const doc_ = snap.docs.find(d => d.id === id);
-        if (!doc_) return;
-        const s = doc_.data();
+      window.editSkill = (id) => {
+        const s = localSkills.find((sk) => sk.id === id);
+        if (!s) return;
         editingSkillId = id;
-        document.getElementById("skillModalTitle").textContent = "// Edit Skill";
+        document.getElementById("skillModalTitle").textContent =
+          "// Edit Skill";
         document.getElementById("saveSkillBtn").textContent = "Update Skill";
         document.getElementById("sName").value = s.name || "";
         document.getElementById("sDesc").value = s.desc || "";
         document.getElementById("sLevel").value = s.level || "";
         document.getElementById("sEmoji").value = s.icon || "";
-        window.openModal("skillModal");
+        openModal("skillModal");
       };
 
-      document.getElementById("saveSkillBtn").addEventListener("click", async () => {
-        const name = document.getElementById("sName").value.trim();
-        const desc = document.getElementById("sDesc").value.trim();
-        const level = document.getElementById("sLevel").value.trim();
-        if (!name || !desc || !level) {
-          window.highlight(["sName", "sDesc", "sLevel"]);
-          return;
-        }
-        const data = {
-          name,
-          desc,
-          level: parseInt(level),
-          icon: document.getElementById("sEmoji").value.trim() || "💡"
-        };
-        try {
-          if (editingSkillId) {
-            await updateDoc(doc(db, "skills", editingSkillId), data);
-            window.showToast("Skill updated! ✅");
-          } else {
-            data.createdAt = Date.now();
-            await addDoc(collection(db, "skills"), data);
-            window.showToast("Skill added! 🚀");
+      document
+        .getElementById("saveSkillBtn")
+        .addEventListener("click", async () => {
+          const name = document.getElementById("sName").value.trim();
+          const desc = document.getElementById("sDesc").value.trim();
+          const level = document.getElementById("sLevel").value.trim();
+          if (!name || !desc || !level) {
+            highlight(["sName", "sDesc", "sLevel"]);
+            return;
           }
-          window.closeModal("skillModal");
-          loadSkills();
-        } catch (e) {
-          window.showToast("❌ Error saving. Check Firebase rules.");
-        }
-      });
+          const data = {
+            name,
+            desc,
+            level: parseInt(level),
+            icon: document.getElementById("sEmoji").value.trim() || "💡",
+          };
+          try {
+            closeModal("skillModal");
+            if (editingSkillId) {
+              await updateDoc(doc(db, "skills", editingSkillId), data);
+              showToast("Skill updated! ✅");
+            } else {
+              data.createdAt = Date.now();
+              await addDoc(collection(db, "skills"), data);
+              showToast("Skill added! 🚀");
+            }
+          } catch (e) {
+            showToast("❌ Error saving. Check Firebase rules.");
+          }
+        });
 
       window.deleteSkill = async (id) => {
         if (!confirm("Delete this skill?")) return;
-        await deleteDoc(doc(db, "skills", id));
-        window.showToast("Skill deleted.");
-        loadSkills();
+        try {
+          await deleteDoc(doc(db, "skills", id));
+          showToast("Skill deleted.");
+        } catch (e) {
+          showToast("❌ Delete Error.");
+        }
       };
 
-      // Fallback loader removal
-      setTimeout(hideLoader, 2500);
-      loadProjects();
-      loadSkills();
+      // ── DELAYED RUN TO COMPLETELY STOP BROWSER TAB SPINNING ──
+      if (document.readyState === "complete") {
+        initFirebaseStreams();
+      } else {
+        window.addEventListener("load", () => {
+          // Browser ke ghumne wale spinner ko force-stop karein
+          setTimeout(() => {
+            window.stop();
+          }, 50);
+          // Firebase streams ko start karein
+          setTimeout(initFirebaseStreams, 100);
+        });
+      }
+
+      function initFirebaseStreams() {
+        // Projects Real-time Sync
+        const qProjects = query(
+          collection(db, "projects"),
+          orderBy("createdAt", "asc"),
+        );
+        onSnapshot(
+          qProjects,
+          (snap) => {
+            localProjects = snap.docs.map((d) => ({ id: d.id, ...d.data() }));
+            renderProjectCards(localProjects);
+
+            const countEl = document.getElementById("projectCount");
+            if (countEl && typeof countUp === "function") {
+              countUp(countEl, localProjects.length);
+            } else if (countEl) {
+              countEl.textContent = localProjects.length; // Fallback agar countUp fail ho jaye
+            }
+
+            setFbStatus(true);
+            projectsLoaded = true;
+            hideLoader(); // Force hide loader as soon as data arrives
+          },
+          (err) => {
+            console.error("Projects Error: ", err);
+            setFbStatus(false);
+            projectsLoaded = true;
+            hideLoader();
+          },
+        );
+
+        // Skills Real-time Sync
+        const qSkills = query(
+          collection(db, "skills"),
+          orderBy("createdAt", "asc"),
+        );
+        onSnapshot(
+          qSkills,
+          (snap) => {
+            localSkills = snap.docs.map((d) => ({ id: d.id, ...d.data() }));
+            renderSkillCards(localSkills);
+            skillsLoaded = true;
+            hideLoader(); // Force hide loader as soon as data arrives
+          },
+          (err) => {
+            console.error("Skills Error: ", err);
+            skillsLoaded = true;
+            hideLoader();
+          },
+        );
+      }
+
+      // ── FORCED CUTOFF (AB LOADER HAR HAAL MEIN HAT JAYEGA) ──
+      setTimeout(() => {
+        hideLoader();
+        // Agar Firebase late ho, toh loader hatne ke baad bhi data load ho sake
+        if (localProjects.length === 0) {
+          const countEl = document.getElementById("projectCount");
+          if (countEl) countEl.textContent = "0";
+        }
+      }, 2000);
     </script>
 
+    <!-- ── NON-MODULE UI SCRIPT ────────────────────── -->
     <script>
+      // THEME
       const html = document.documentElement;
-      html.setAttribute("data-theme", localStorage.getItem("ba_theme") || "dark");
+      html.setAttribute(
+        "data-theme",
+        localStorage.getItem("ba_theme") || "dark",
+      );
       document.getElementById("themeToggle").addEventListener("click", () => {
         const n = html.getAttribute("data-theme") === "dark" ? "light" : "dark";
         html.setAttribute("data-theme", n);
         localStorage.setItem("ba_theme", n);
       });
 
-      // CURSOR SETUP
-      const cur = document.getElementById("cur"), ring = document.getElementById("cur-ring");
-      let mx = 0, my = 0, rx = 0, ry = 0;
+      // CURSOR
+      const cur = document.getElementById("cur"),
+        ring = document.getElementById("cur-ring");
+      let mx = 0,
+        my = 0,
+        rx = 0,
+        ry = 0;
       document.addEventListener("mousemove", (e) => {
-        mx = e.clientX; my = e.clientY;
-        cur.style.left = mx + "px"; cur.style.top = my + "px";
+        mx = e.clientX;
+        my = e.clientY;
+        cur.style.left = mx + "px";
+        cur.style.top = my + "px";
       });
       (function a() {
-        rx += (mx - rx) * 0.13; ry += (my - ry) * 0.13;
-        ring.style.left = rx + "px"; ring.style.top = ry + "px";
+        rx += (mx - rx) * 0.13;
+        ry += (my - ry) * 0.13;
+        ring.style.left = rx + "px";
+        ring.style.top = ry + "px";
         requestAnimationFrame(a);
       })();
-      const hOn = () => { cur.classList.add("hov"); ring.classList.add("hov"); };
-      const hOff = () => { cur.classList.remove("hov"); ring.classList.remove("hov"); };
-      
+      const hOn = () => {
+        cur.classList.add("hov");
+        ring.classList.add("hov");
+      };
+      const hOff = () => {
+        cur.classList.remove("hov");
+        ring.classList.remove("hov");
+      };
       function bindHovers() {
-        document.querySelectorAll("a,button,.project-card,.skill-card,.stat-box,.add-card-btn").forEach(el => {
-          el.removeEventListener("mouseenter", hOn);
-          el.removeEventListener("mouseleave", hOff);
-          el.addEventListener("mouseenter", hOn);
-          el.addEventListener("mouseleave", hOff);
-        });
+        document
+          .querySelectorAll(
+            "a,button,.project-card,.skill-card,.stat-box,.add-card-btn",
+          )
+          .forEach((el) => {
+            el.removeEventListener("mouseenter", hOn);
+            el.removeEventListener("mouseleave", hOff);
+            el.addEventListener("mouseenter", hOn);
+            el.addEventListener("mouseleave", hOff);
+          });
       }
-      window.bindHovers = bindHovers;
       bindHovers();
 
-      // NAV RESPONSIVENESS
+      // NAV
       const navbar = document.getElementById("navbar");
-      window.addEventListener("scroll", () => {
-        navbar.classList.toggle("scrolled", window.scrollY > 50);
-        document.getElementById("topBtn").classList.toggle("show", window.scrollY > 300);
-        document.querySelectorAll("section[id]").forEach(s => {
-          const a = document.querySelector(`.nav-links a[href="#${s.id}"]`);
-          if (a) a.classList.toggle("active", window.scrollY >= s.offsetTop - 130 && window.scrollY < s.offsetTop + s.offsetHeight - 130);
-        });
-      }, { passive: true });
+      window.addEventListener(
+        "scroll",
+        () => {
+          navbar.classList.toggle("scrolled", window.scrollY > 50);
+          document
+            .getElementById("topBtn")
+            .classList.toggle("show", window.scrollY > 300);
+          document.querySelectorAll("section[id]").forEach((s) => {
+            const a = document.querySelector(`.nav-links a[href="#${s.id}"]`);
+            if (a)
+              a.classList.toggle(
+                "active",
+                window.scrollY >= s.offsetTop - 130 &&
+                  window.scrollY < s.offsetTop + s.offsetHeight - 130,
+              );
+          });
+        },
+        { passive: true },
+      );
+      document
+        .getElementById("topBtn")
+        .addEventListener("click", () =>
+          window.scrollTo({ top: 0, behavior: "smooth" }),
+        );
+      document.querySelectorAll(".nav-links a").forEach((a) =>
+        a.addEventListener("click", () => {
+          document.getElementById("menu-menu").checked = false;
+        }),
+      );
 
-      document.getElementById("topBtn").addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
-      document.querySelectorAll(".nav-links a").forEach(a => a.addEventListener("click", () => { document.getElementById("menu-menu").checked = false; }));
+      // REVEAL
+      const revObs = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((e, i) => {
+            if (e.isIntersecting)
+              setTimeout(() => e.target.classList.add("visible"), i * 55);
+          });
+        },
+        { threshold: 0.09 },
+      );
+      document.querySelectorAll(".reveal").forEach((el) => revObs.observe(el));
 
-      // INTERSECTION OBSERVERS
-      const revObs = new IntersectionObserver((entries) => {
-        entries.forEach((e) => {
-          if (e.isIntersecting) e.target.classList.add("visible");
-        });
-      }, { threshold: 0.05 });
-      window.revObs = revObs;
-      document.querySelectorAll(".reveal").forEach(el => revObs.observe(el));
+      // SKILL BARS
+      const barObs = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((e) => {
+            if (e.isIntersecting)
+              e.target.querySelectorAll(".skill-fill").forEach((b) => {
+                b.style.width = b.dataset.w + "%";
+              });
+          });
+        },
+        { threshold: 0.25 },
+      );
 
-      const barObs = new IntersectionObserver((entries) => {
-        entries.forEach(e => {
-          if (e.isIntersecting) e.target.querySelectorAll(".skill-fill").forEach(b => { b.style.width = b.dataset.w + "%"; });
-        });
-      }, { threshold: 0.1 });
-      window.barObs = barObs;
-
-      // TYPEWRITER EFFECT
+      // TYPEWRITER
       const words = ["AI & ML", "Intelligent", "Data-Driven", "Predictive"];
-      let wi = 0, ci = 0, er = false;
+      let wi = 0,
+        ci = 0,
+        er = false;
       const tEl = document.getElementById("typeTarget");
       function type() {
         const w = words[wi];
         if (!er) {
           tEl.textContent = w.slice(0, ++ci);
-          if (ci === w.length) { er = true; setTimeout(type, 1800); return; }
+          if (ci === w.length) {
+            er = true;
+            setTimeout(type, 1800);
+            return;
+          }
         } else {
           tEl.textContent = w.slice(0, --ci);
-          if (ci === 0) { er = false; wi = (wi + 1) % words.length; }
+          if (ci === 0) {
+            er = false;
+            wi = (wi + 1) % words.length;
+          }
         }
         setTimeout(type, er ? 52 : 88);
       }
       setTimeout(type, 1400);
 
-      // DATA TRANSITION INTERFACES
+      // COUNTER
       function countUp(el, target) {
-        if(!el) return;
         let s = 0;
         const step = (ts) => {
           if (!s) s = ts;
@@ -2007,21 +2480,32 @@
       }
       window.countUp = countUp;
 
-      function openModal(id) { document.getElementById(id).classList.add("open"); }
-      function closeModal(id) { document.getElementById(id).classList.remove("open"); }
+      // MODAL HELPERS
+      function openModal(id) {
+        document.getElementById(id).classList.add("open");
+      }
+      function closeModal(id) {
+        document.getElementById(id).classList.remove("open");
+      }
       window.openModal = openModal;
       window.closeModal = closeModal;
-
-      document.querySelectorAll(".modal-overlay").forEach(ov => ov.addEventListener("click", (e) => { if (e.target === ov) ov.classList.remove("open"); }));
+      document.querySelectorAll(".modal-overlay").forEach((ov) =>
+        ov.addEventListener("click", (e) => {
+          if (e.target === ov) ov.classList.remove("open");
+        }),
+      );
 
       function clearForm(ids) {
-        ids.forEach(id => {
+        ids.forEach((id) => {
           const el = document.getElementById(id);
-          if (el) { el.value = ""; el.style.borderColor = ""; }
+          if (el) {
+            el.value = "";
+            el.style.borderColor = "";
+          }
         });
       }
       function highlight(ids) {
-        ids.forEach(id => {
+        ids.forEach((id) => {
           const el = document.getElementById(id);
           if (el && !el.value.trim()) el.style.borderColor = "#f43f5e";
         });
@@ -2029,6 +2513,7 @@
       window.clearForm = clearForm;
       window.highlight = highlight;
 
+      // TOAST
       function showToast(msg) {
         const t = document.getElementById("toast");
         document.getElementById("toast-msg").textContent = msg;
@@ -2037,10 +2522,26 @@
       }
       window.showToast = showToast;
 
+      // CONTACT
       document.getElementById("contactForm").addEventListener("submit", (e) => {
         e.preventDefault();
         showToast("Message sent! I'll get back to you soon 🚀");
         e.target.reset();
+      });
+
+      // ── FIREBASE BROWSER TAB LOADER FIX ──
+      window.addEventListener("load", () => {
+        // 1. Pehle browser ko complete load hone dein takay tab loader ruk jaye
+        setTimeout(() => {
+          try {
+            window.stop(); // Chrome tab loader ko force stop karein
+          } catch (e) {}
+        }, 50);
+
+        // 2. Uske 300ms baad Firebase shuru hoga bina tab loader ko disturb kiye
+        setTimeout(() => {
+          initFirebaseStreams();
+        }, 300);
       });
     </script>
   </body>
