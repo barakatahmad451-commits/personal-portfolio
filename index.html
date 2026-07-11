@@ -3,13 +3,14 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="description" content="Barakat Ahmad — Machine Learning Developer building intelligent AI systems with Python, Scikit-learn, TensorFlow and more."/>
-  <title>Barakat Ahmad | ML Developer</title>
+  <meta name="description" content="Barakat Ahmad — Software Engineer building across C++, DSA, full-stack web development, SQL, and Machine Learning / Generative AI."/>
+  <title>Barakat Ahmad | Software Engineer</title>
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>👨‍💻</text></svg>"/>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
   <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap" onload="this.onload=null;this.rel='stylesheet'"/>
   <noscript><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet"/></noscript>
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
   <style>
     *{margin:0;padding:0;box-sizing:border-box;}html{scroll-behavior:smooth;}
     [data-theme="dark"]{--bg:#020617;--bg2:#040d1f;--surface:rgba(255,255,255,.04);--surface2:rgba(255,255,255,.07);--border:rgba(255,255,255,.08);--border2:rgba(255,255,255,.14);--text:#fff;--muted:#94a3b8;--muted2:#64748b;--primary:#8b5cf6;--secondary:#06b6d4;--primary-rgb:139,92,246;--secondary-rgb:6,182,212;--shadow:0 20px 50px rgba(0,0,0,.55);--shadow-sm:0 8px 25px rgba(0,0,0,.4);--glow-p:0 0 30px rgba(139,92,246,.35);--glow-s:0 0 30px rgba(6,182,212,.35);--nav-bg:rgba(2,6,23,.82);--nav-scrolled:rgba(2,6,23,.97);--card-bg:rgba(255,255,255,.025);--loader-bg:#020617;--amb1:rgba(139,92,246,.13);--amb2:rgba(6,182,212,.1);--grid-line:rgba(255,255,255,.025);--tag-bg:rgba(139,92,246,.1);--tag-border:rgba(139,92,246,.22);--tag-text:#d8b4fe;--input-bg:rgba(255,255,255,.04);--input-border:rgba(255,255,255,.08);--modal-bg:#07101f;--danger-bg:rgba(244,63,94,.12);--danger:hsl(350,90%,60%);}
@@ -144,6 +145,9 @@
     #contact{background:var(--bg2);}
     .contact-box{max-width:600px;margin:auto;background:var(--card-bg);border:1px solid var(--border);border-radius:22px;padding:36px 30px;backdrop-filter:blur(15px);}
     .contact-box h2{font-size:1.5rem;margin-bottom:1.5rem;text-align:center;font-weight:700;color:var(--text);}
+    .contact-direct{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-bottom:1.6rem;}
+    .contact-direct a{display:flex;align-items:center;gap:.45rem;padding:9px 15px;border-radius:10px;background:var(--surface);border:1px solid var(--border2);color:var(--text);font-size:.82rem;font-weight:600;text-decoration:none;transition:all .3s;}
+    .contact-direct a:hover{background:linear-gradient(90deg,var(--primary),var(--secondary));border-color:transparent;color:#fff;transform:translateY(-2px);}
     .contact-form{display:flex;flex-direction:column;gap:14px;}
     .contact-form input,.contact-form textarea{padding:13px 15px;border-radius:10px;border:1px solid var(--input-border);background:var(--input-bg);color:var(--text);font-family:inherit;font-size:.9rem;outline:none;transition:all .3s;}
     .contact-form input:focus,.contact-form textarea:focus{border-color:var(--secondary);box-shadow:0 0 0 3px rgba(var(--secondary-rgb),.12);}
@@ -214,7 +218,7 @@
 <div id="loader">
   <div class="ld-orbit">
     <div class="ld-orbit-ring"></div><div class="ld-orbit-ring"></div><div class="ld-orbit-ring"></div>
-    <div class="ld-orbit-core">ML</div>
+    <div class="ld-orbit-core">SE</div>
   </div>
   <div class="ld-name">Barakat Ahmad</div>
   <div class="ld-bar-wrap"><div class="ld-bar-fill"></div></div>
@@ -252,7 +256,7 @@
 <section class="hero" id="home">
   <div class="hero-content">
     <h1>Building <span class="gradient-text"><span id="typeTarget"></span><span class="type-cursor"></span></span><br/>Projects That Matter</h1>
-    <p>I'm <strong>Barakat Ahmad</strong> — a Machine Learning developer focused on building intelligent systems using real-world datasets and modern AI technologies. I work with Python, Scikit-learn, Pandas, NumPy, and deep data analysis to create impactful ML solutions.</p>
+    <p>I'm <strong>Barakat Ahmad</strong> — a Software Engineering student who builds across the stack: C++ and Data Structures & Algorithms, full-stack web apps with React and SQL, and Machine Learning / Generative AI with Python. I like taking a problem apart until the right approach becomes obvious.</p>
     <div class="hero-buttons">
       <a href="#projects" class="btn primary-btn">
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
@@ -267,11 +271,11 @@
         <img src="barakat-3d.png" alt="Barakat Ahmad" onerror="this.style.display='none';this.parentElement.innerHTML+='<span style=\'font-size:3.2rem;z-index:3;position:relative\'>👨‍💻</span>'"/>
       </div>
       <h2>Barakat Ahmad</h2>
-      <p>ML Developer &nbsp;•&nbsp; Python Enthusiast<br/>Data Scientist &nbsp;•&nbsp; Future AI Engineer</p>
+      <p>Software Engineer &nbsp;•&nbsp; Full-Stack Developer<br/>C++ / DSA &nbsp;•&nbsp; ML &amp; GenAI Enthusiast</p>
       <div class="stats">
         <div class="stat-box"><h4 id="projectCount">0</h4><span>Projects</span></div>
         <div class="stat-box"><h4>1+</h4><span>Years</span></div>
-        <div class="stat-box"><h4>ML</h4><span>Focus</span></div>
+        <div class="stat-box"><h4>SWE</h4><span>Focus</span></div>
       </div>
     </div>
   </div>
@@ -281,7 +285,7 @@
   <div class="reveal">
     <div class="section-tag"><span>Expertise</span></div>
     <h2 class="section-title">My <span class="gradient-text">Skills</span></h2>
-    <p class="section-subtitle">Technologies and tools I use while building Machine Learning and AI projects.</p>
+    <p class="section-subtitle">Technologies and tools I use across systems programming, full-stack web development, and Machine Learning / AI.</p>
   </div>
   <div class="skills-grid" id="skillsGrid"></div>
 </section>
@@ -290,7 +294,7 @@
   <div class="reveal">
     <div class="section-tag"><span>Portfolio</span></div>
     <h2 class="section-title">My <span class="gradient-text">Projects</span></h2>
-    <p class="section-subtitle">Machine Learning and data science projects I've built from scratch.</p>
+    <p class="section-subtitle">A mix of C++/DSA systems, full-stack web apps, and Machine Learning / AI projects I've built from scratch.</p>
   </div>
   <div class="projects-container" id="projectsGrid"></div>
 </section>
@@ -299,20 +303,26 @@
   <div class="reveal">
     <div class="section-tag"><span>Get In Touch</span></div>
     <h2 class="section-title">Let's <span class="gradient-text">Connect</span></h2>
-    <p class="section-subtitle">Want to collaborate, hire, or discuss ML ideas? Feel free to reach out.</p>
+    <p class="section-subtitle">Want to collaborate, hire, or talk about software or ML ideas? Feel free to reach out.</p>
   </div>
   <div class="contact-box reveal">
     <h2>Send a Message</h2>
+    <div class="contact-direct">
+      <a href="mailto:barakatahmad451@gmail.com">✉️ barakatahmad451@gmail.com</a>
+      <a href="tel:+923218686716">📞 +92 321 8686716</a>
+      <a href="https://linkedin.com/in/barakat-ahmad" target="_blank" rel="noopener">💼 LinkedIn</a>
+      <a href="https://github.com/barakatahmad451-commits" target="_blank" rel="noopener">🐙 GitHub</a>
+    </div>
     <form class="contact-form" id="contactForm">
-      <input type="text" placeholder="Your Name" required/>
-      <input type="email" placeholder="Your Email" required/>
-      <textarea placeholder="Write your message here..."></textarea>
-      <button type="submit" class="btn primary-btn" style="justify-content:center;">Send Message</button>
+      <input type="text" id="cName" placeholder="Your Name" required/>
+      <input type="email" id="cEmail" placeholder="Your Email" required/>
+      <textarea id="cMessage" placeholder="Write your message here..." required></textarea>
+      <button type="submit" class="btn primary-btn" id="sendMsgBtn" style="justify-content:center;">Send Message</button>
     </form>
   </div>
 </section>
 
-<footer>© 2026 <a href="#">Barakat Ahmad</a>. Built with passion &amp; Python 🐍</footer>
+<footer>© 2026 <a href="mailto:barakatahmad451@gmail.com">Barakat Ahmad</a>. Built with passion &amp; Python 🐍</footer>
 <button class="floating-btn" id="topBtn" aria-label="Back to top">↑</button>
 
 <!-- ADMIN LOGIN MODAL -->
@@ -419,7 +429,7 @@
   const barObs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting)e.target.querySelectorAll('.skill-fill').forEach(b=>{b.style.width=b.dataset.w+'%';});});},{threshold:.25});
   window.barObs=barObs;
   // TYPEWRITER
-  const words=['AI & ML','Intelligent','Data-Driven','Predictive'];
+  const words=['Software','Full-Stack','AI & ML','Reliable'];
   let wi=0,ci=0,er=false;
   const tEl=document.getElementById('typeTarget');
   function type(){const w=words[wi];if(!er){tEl.textContent=w.slice(0,++ci);if(ci===w.length){er=true;setTimeout(type,1800);return;}}else{tEl.textContent=w.slice(0,--ci);if(ci===0){er=false;wi=(wi+1)%words.length;}}setTimeout(type,er?52:88);}
@@ -443,8 +453,46 @@
     t.classList.add('show');setTimeout(()=>t.classList.remove('show'),3500);
   }
   window.showToast=showToast;
-  // CONTACT
-  document.getElementById('contactForm').addEventListener('submit',e=>{e.preventDefault();showToast("Message sent! I'll get back to you soon 🚀");e.target.reset();});
+  // CONTACT — sends a real email to Barakat via EmailJS.
+  // Setup required once (see README): replace the 3 placeholders below with
+  // your own EmailJS Public Key, Service ID, and Template ID.
+  const EMAILJS_PUBLIC_KEY = "4_Qqnu59MUGnoVuZ4";
+  const EMAILJS_SERVICE_ID = "service_qwbbpqp";
+  const EMAILJS_TEMPLATE_ID = "__ejs-test-mail-service__";
+  if (window.emailjs) emailjs.init(EMAILJS_PUBLIC_KEY);
+
+  document.getElementById('contactForm').addEventListener('submit', async e => {
+    e.preventDefault();
+    const name = document.getElementById('cName').value.trim();
+    const email = document.getElementById('cEmail').value.trim();
+    const message = document.getElementById('cMessage').value.trim();
+    if (!name || !email || !message) { window.showToast('Please fill in all fields.', true); return; }
+
+    const btn = document.getElementById('sendMsgBtn');
+    const originalText = btn.textContent;
+    btn.textContent = 'Sending...';
+    btn.disabled = true;
+
+    try {
+      if (EMAILJS_PUBLIC_KEY === "YOUR_PUBLIC_KEY") {
+        throw new Error("EmailJS isn't configured yet — see README for the 5-minute setup.");
+      }
+      await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
+        from_name: name,
+        from_email: email,
+        message: message,
+        to_email: "barakatahmad451@gmail.com",
+      });
+      window.showToast("Message sent! I'll get back to you soon 🚀");
+      e.target.reset();
+    } catch (err) {
+      console.error('EmailJS send error:', err);
+      window.showToast('❌ ' + (err.message || 'Could not send message. Please email me directly.'), true);
+    } finally {
+      btn.textContent = originalText;
+      btn.disabled = false;
+    }
+  });
   // LOADER fallback — hide after 3s no matter what
   setTimeout(()=>document.getElementById('loader').classList.add('done'),3000);
 </script>
@@ -452,7 +500,7 @@
 <!-- ════ FIREBASE MODULE SCRIPT ════ -->
 <script type="module">
   import { initializeApp }     from 'https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js';
-  import { getFirestore, collection, addDoc, updateDoc, deleteDoc, doc, onSnapshot, query, orderBy }
+  import { getFirestore, collection, addDoc, updateDoc, setDoc, deleteDoc, doc, onSnapshot, query, orderBy }
                                from 'https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js';
   import { getAuth, signInWithEmailAndPassword, signOut, onAuthStateChanged }
                                from 'https://www.gstatic.com/firebasejs/11.0.1/firebase-auth.js';
@@ -480,6 +528,33 @@
   let localSkills   = [];
   let editingProjectId = null;
   let editingSkillId   = null;
+
+  // ── FALLBACK SEED DATA ────────────────────────────
+  // Shown automatically when Firestore has no data yet (or is unreachable).
+  // Add real entries via the Admin panel any time — they will replace this seed data.
+  const SEED_PROJECTS = [
+    { id:"seed-1", title:"Library Management System", desc:"Console app using a custom linked list and hash-table index for O(1) ISBN lookups, with file-based persistence.", emoji:"📚", tags:["C++","OOP","DSA"], github:"https://github.com/barakatahmad451-commits", live:"#" },
+    { id:"seed-2", title:"Student Result Management System", desc:"Grade and GPA engine built with a hand-written merge sort for ranking and binary search for fast roll-number lookup.", emoji:"🎓", tags:["C++","DSA"], github:"https://github.com/barakatahmad451-commits", live:"#" },
+    { id:"seed-3", title:"E-Commerce Website", desc:"Responsive storefront with cart state, dynamic filtering, and a custom visual identity.", emoji:"🛒", tags:["React","HTML","CSS"], github:"https://github.com/barakatahmad451-commits", live:"#" },
+    { id:"seed-4", title:"Personal Portfolio Website", desc:"A clean, editorial-style personal portfolio built with React.", emoji:"🧑‍💻", tags:["React","CSS"], github:"https://github.com/barakatahmad451-commits", live:"#" },
+    { id:"seed-5", title:"Task Management Web App", desc:"Kanban-style task tracker with a React front end backed by a real SQLite (WASM) database.", emoji:"✅", tags:["React","SQL"], github:"https://github.com/barakatahmad451-commits", live:"#" },
+    { id:"seed-6", title:"Hospital Management System", desc:"Normalized relational schema plus a C++ interface for managing patient/doctor records and reports.", emoji:"🏥", tags:["SQL","C++"], github:"https://github.com/barakatahmad451-commits", live:"#" },
+    { id:"seed-7", title:"Movie Recommendation Engine", desc:"Content-based recommender using cosine similarity over movie metadata.", emoji:"🎬", tags:["Python","Machine Learning"], github:"https://github.com/barakatahmad451-commits", live:"#" },
+    { id:"seed-8", title:"Spam Email Classifier", desc:"Text classifier using TF-IDF features to flag spam messages.", emoji:"📧", tags:["Python","Machine Learning"], github:"https://github.com/barakatahmad451-commits", live:"#" },
+    { id:"seed-9", title:"AI Chatbot", desc:"Conversational chatbot built on a Generative AI / LLM API with prompt engineering.", emoji:"🤖", tags:["Python","GenAI"], github:"https://github.com/barakatahmad451-commits", live:"#" },
+    { id:"seed-10", title:"Sentiment Analysis Tool", desc:"NLP pipeline classifying text as positive, negative, or neutral.", emoji:"💬", tags:["Python","NLP"], github:"https://github.com/barakatahmad451-commits", live:"#" },
+  ];
+
+  const SEED_SKILLS = [
+    { id:"seed-s1", name:"Python", desc:"Core language for scripting, data analysis, and building ML models.", level:90, icon:"🐍" },
+    { id:"seed-s2", name:"C++", desc:"Systems-level programming with strong OOP and DSA fundamentals.", level:85, icon:"⚙️" },
+    { id:"seed-s3", name:"Machine Learning", desc:"Building and evaluating models with real-world datasets.", level:80, icon:"🤖" },
+    { id:"seed-s4", name:"React.js", desc:"Building responsive, component-based front ends.", level:78, icon:"⚛️" },
+    { id:"seed-s5", name:"SQL / MySQL", desc:"Designing schemas and writing queries for relational data.", level:80, icon:"🗄️" },
+    { id:"seed-s6", name:"Generative AI", desc:"Prompt engineering and building LLM-powered applications.", level:75, icon:"✨" },
+    { id:"seed-s7", name:"Data Structures & Algorithms", desc:"Writing efficient, well-reasoned solutions to core CS problems.", level:85, icon:"🧩" },
+    { id:"seed-s8", name:"Git & GitHub", desc:"Version control and collaborative workflows.", level:82, icon:"🌱" },
+  ];
 
   // ── HELPERS ──────────────────────────────────────
   function hideLoader(){document.getElementById('loader').classList.add('done');}
@@ -635,7 +710,7 @@
     try{
       window.closeModal('projectModal');
       if(editingProjectId){
-        await updateDoc(doc(db,'projects',editingProjectId),data);
+        await setDoc(doc(db,'projects',editingProjectId),{...data,createdAt:Date.now()},{merge:true});
         window.showToast('Project updated! ✅');
       }else{
         data.createdAt=Date.now();
@@ -684,7 +759,7 @@
     try{
       window.closeModal('skillModal');
       if(editingSkillId){
-        await updateDoc(doc(db,'skills',editingSkillId),data);
+        await setDoc(doc(db,'skills',editingSkillId),{...data,createdAt:Date.now()},{merge:true});
         window.showToast('Skill updated! ✅');
       }else{
         data.createdAt=Date.now();
@@ -707,7 +782,7 @@
   onSnapshot(
     query(collection(db,'projects'),orderBy('createdAt','asc')),
     snap=>{
-      localProjects=snap.docs.map(d=>({id:d.id,...d.data()}));
+      localProjects=snap.docs.length?snap.docs.map(d=>({id:d.id,...d.data()})):SEED_PROJECTS;
       renderProjectCards(localProjects);
       setFbStatus(true);
       hideLoader();
@@ -715,7 +790,8 @@
     err=>{
       console.error('Projects snapshot error:',err);
       setFbStatus(false);
-      renderProjectCards([]);
+      localProjects=SEED_PROJECTS;
+      renderProjectCards(SEED_PROJECTS);
       hideLoader();
     }
   );
@@ -724,12 +800,13 @@
   onSnapshot(
     query(collection(db,'skills'),orderBy('createdAt','asc')),
     snap=>{
-      localSkills=snap.docs.map(d=>({id:d.id,...d.data()}));
+      localSkills=snap.docs.length?snap.docs.map(d=>({id:d.id,...d.data()})):SEED_SKILLS;
       renderSkillCards(localSkills);
     },
     err=>{
       console.error('Skills snapshot error:',err);
-      renderSkillCards([]);
+      localSkills=SEED_SKILLS;
+      renderSkillCards(SEED_SKILLS);
     }
   );
 
