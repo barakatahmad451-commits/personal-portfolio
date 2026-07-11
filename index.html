@@ -456,9 +456,9 @@
   // CONTACT — sends a real email to Barakat via EmailJS.
   // Setup required once (see README): replace the 3 placeholders below with
   // your own EmailJS Public Key, Service ID, and Template ID.
-  const EMAILJS_PUBLIC_KEY = "4_Qqnu59MUGnoVuZ4";
-  const EMAILJS_SERVICE_ID = "service_qwbbpqp";
-  const EMAILJS_TEMPLATE_ID = "__ejs-test-mail-service__";
+  const EMAILJS_PUBLIC_KEY = 4_Qqnu59MUGnoVuZ4;
+  const EMAILJS_SERVICE_ID = service_qwbbpqp;
+  const EMAILJS_TEMPLATE_ID = __ejs-test-mail-service__;
   if (window.emailjs) emailjs.init(EMAILJS_PUBLIC_KEY);
 
   document.getElementById('contactForm').addEventListener('submit', async e => {
