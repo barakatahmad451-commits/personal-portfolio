@@ -478,9 +478,9 @@
         throw new Error("EmailJS isn't configured yet — see README for the 5-minute setup.");
       }
       await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
-        from_name: name,
-        from_email: email,
-        message: message,
+        user_name: name,
+        user_email: email,
+        user_message: message,
         to_email: "barakatahmad451@gmail.com",
       });
       window.showToast("Message sent! I'll get back to you soon 🚀");
