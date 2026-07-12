@@ -364,11 +364,64 @@
     <div class="form-row">
       <div class="form-group"><label class="form-label">Category</label>
         <select class="form-select" id="pType">
-          <option value="ML">Machine Learning</option><option value="DL">Deep Learning</option>
-          <option value="NLP">NLP</option><option value="CV">Computer Vision</option><option value="DA">Data Analysis</option>
+          <optgroup label="Software Engineering">
+            <option value="WEB">Web Development</option>
+            <option value="FS">Full-Stack</option>
+            <option value="SYS">Systems / C++</option>
+            <option value="DB">Database</option>
+          </optgroup>
+          <optgroup label="ML / AI">
+            <option value="ML">Machine Learning</option><option value="DL">Deep Learning</option>
+            <option value="NLP">NLP</option><option value="CV">Computer Vision</option>
+            <option value="GENAI">Generative AI</option><option value="DA">Data Analysis</option>
+          </optgroup>
         </select>
       </div>
-      <div class="form-group"><label class="form-label">Emoji</label><input class="form-input" id="pEmoji" placeholder="🤖" maxlength="2"/></div>
+      <div class="form-group">
+        <label class="form-label">Logo</label>
+        <select class="form-input" id="pIconSelect">
+          <option value="auto">✨ Auto-detect from tech stack</option>
+          <optgroup label="Languages">
+            <option value="python">Python</option>
+            <option value="cpp">C++</option>
+            <option value="javascript">JavaScript</option>
+            <option value="java">Java</option>
+            <option value="csharp">C#</option>
+            <option value="php">PHP</option>
+          </optgroup>
+          <optgroup label="Web & Frameworks">
+            <option value="react">React</option>
+            <option value="nodejs">Node.js</option>
+            <option value="html5">HTML5</option>
+            <option value="css3">CSS3</option>
+          </optgroup>
+          <optgroup label="Databases">
+            <option value="mysql">MySQL / SQL</option>
+            <option value="postgresql">PostgreSQL</option>
+            <option value="mongodb">MongoDB</option>
+            <option value="firebase">Firebase</option>
+          </optgroup>
+          <optgroup label="ML / AI">
+            <option value="tensorflow">Machine Learning / TensorFlow</option>
+            <option value="pytorch">PyTorch</option>
+            <option value="genai">Generative AI</option>
+          </optgroup>
+          <optgroup label="Tools">
+            <option value="git">Git</option>
+            <option value="github">GitHub</option>
+            <option value="docker">Docker</option>
+            <option value="figma">Figma</option>
+          </optgroup>
+          <optgroup label="Concepts">
+            <option value="dsa">Data Structures &amp; Algorithms</option>
+          </optgroup>
+          <option value="custom">Other (custom emoji)</option>
+        </select>
+      </div>
+    </div>
+    <div class="form-group" id="pCustomEmojiWrap" style="display:none;">
+      <label class="form-label">Custom Emoji</label>
+      <input class="form-input" id="pEmoji" placeholder="🤖" maxlength="2"/>
     </div>
     <div class="form-group"><label class="form-label">Tech Stack (comma separated)</label><input class="form-input" id="pTech" placeholder="Python, Scikit-learn, Pandas"/></div>
     <div class="form-row">
@@ -580,17 +633,60 @@
   // ── FALLBACK SEED DATA ────────────────────────────
   // Shown automatically when Firestore has no data yet (or is unreachable).
   // Add real entries via the Admin panel any time — they will replace this seed data.
+  // ── PROJECT LOGO MAP ──────────────────────────────
+  // Same idea as the skill logo map but sized for the taller project-card image area.
+  const DEVICON_LG = n => `<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/${n}" style="width:3.2rem;height:3.2rem;"/>`;
+  window.PROJECT_LOGO_MAP = {
+    python:      DEVICON_LG("python/python-original.svg"),
+    cpp:         DEVICON_LG("cplusplus/cplusplus-original.svg"),
+    javascript:  DEVICON_LG("javascript/javascript-original.svg"),
+    java:        DEVICON_LG("java/java-original.svg"),
+    csharp:      DEVICON_LG("csharp/csharp-original.svg"),
+    php:         DEVICON_LG("php/php-original.svg"),
+    react:       DEVICON_LG("react/react-original.svg"),
+    nodejs:      DEVICON_LG("nodejs/nodejs-original.svg"),
+    html5:       DEVICON_LG("html5/html5-original.svg"),
+    css3:        DEVICON_LG("css3/css3-original.svg"),
+    mysql:       DEVICON_LG("mysql/mysql-original.svg"),
+    postgresql:  DEVICON_LG("postgresql/postgresql-original.svg"),
+    mongodb:     DEVICON_LG("mongodb/mongodb-original.svg"),
+    firebase:    DEVICON_LG("firebase/firebase-plain.svg"),
+    tensorflow:  DEVICON_LG("tensorflow/tensorflow-original.svg"),
+    pytorch:     DEVICON_LG("pytorch/pytorch-original.svg"),
+    git:         DEVICON_LG("git/git-original.svg"),
+    docker:      DEVICON_LG("docker/docker-original.svg"),
+    figma:       DEVICON_LG("figma/figma-original.svg"),
+    github:      '<i class="fa-brands fa-github" style="color:var(--text);font-size:2.6rem"></i>',
+    genai:       '<i class="fa-solid fa-wand-magic-sparkles" style="color:var(--secondary);font-size:2.6rem"></i>',
+    dsa:         '<i class="fa-solid fa-diagram-project" style="color:var(--primary);font-size:2.6rem"></i>',
+  };
+  // Auto-detect a project's logo from its tech-stack tags (first recognized match wins).
+  window.getAutoProjectIcon = (techStackText) => {
+    const s = (techStackText || "").toLowerCase();
+    const rules = [
+      [/c\+\+/, "cpp"], [/c#/, "csharp"], [/python/, "python"], [/java(?!script)/, "java"],
+      [/javascript|js\b/, "javascript"], [/php/, "php"], [/react/, "react"], [/node/, "nodejs"],
+      [/html/, "html5"], [/css/, "css3"], [/postgres/, "postgresql"], [/mongo/, "mongodb"],
+      [/mysql|sql/, "mysql"], [/firebase/, "firebase"], [/pytorch/, "pytorch"],
+      [/tensorflow|machine learning|\bml\b/, "tensorflow"], [/generative|genai|gpt|llm/, "genai"],
+      [/git(?!hub)/, "git"], [/github/, "github"], [/docker/, "docker"], [/figma/, "figma"],
+      [/data structure|algorithm|\bdsa\b/, "dsa"],
+    ];
+    for (const [re, key] of rules) if (re.test(s)) return window.PROJECT_LOGO_MAP[key];
+    return null;
+  };
+
   const SEED_PROJECTS = [
-    { id:"seed-1", title:"Library Management System", desc:"Console app using a custom linked list and hash-table index for O(1) ISBN lookups, with file-based persistence.", emoji:"📚", tags:["C++","OOP","DSA"], github:"https://github.com/barakatahmad451-commits", live:"#" },
-    { id:"seed-2", title:"Student Result Management System", desc:"Grade and GPA engine built with a hand-written merge sort for ranking and binary search for fast roll-number lookup.", emoji:"🎓", tags:["C++","DSA"], github:"https://github.com/barakatahmad451-commits", live:"#" },
-    { id:"seed-3", title:"E-Commerce Website", desc:"Responsive storefront with cart state, dynamic filtering, and a custom visual identity.", emoji:"🛒", tags:["React","HTML","CSS"], github:"https://github.com/barakatahmad451-commits", live:"#" },
-    { id:"seed-4", title:"Personal Portfolio Website", desc:"A clean, editorial-style personal portfolio built with React.", emoji:"🧑‍💻", tags:["React","CSS"], github:"https://github.com/barakatahmad451-commits", live:"#" },
-    { id:"seed-5", title:"Task Management Web App", desc:"Kanban-style task tracker with a React front end backed by a real SQLite (WASM) database.", emoji:"✅", tags:["React","SQL"], github:"https://github.com/barakatahmad451-commits", live:"#" },
-    { id:"seed-6", title:"Hospital Management System", desc:"Normalized relational schema plus a C++ interface for managing patient/doctor records and reports.", emoji:"🏥", tags:["SQL","C++"], github:"https://github.com/barakatahmad451-commits", live:"#" },
-    { id:"seed-7", title:"Movie Recommendation Engine", desc:"Content-based recommender using cosine similarity over movie metadata.", emoji:"🎬", tags:["Python","Machine Learning"], github:"https://github.com/barakatahmad451-commits", live:"#" },
-    { id:"seed-8", title:"Spam Email Classifier", desc:"Text classifier using TF-IDF features to flag spam messages.", emoji:"📧", tags:["Python","Machine Learning"], github:"https://github.com/barakatahmad451-commits", live:"#" },
-    { id:"seed-9", title:"AI Chatbot", desc:"Conversational chatbot built on a Generative AI / LLM API with prompt engineering.", emoji:"🤖", tags:["Python","GenAI"], github:"https://github.com/barakatahmad451-commits", live:"#" },
-    { id:"seed-10", title:"Sentiment Analysis Tool", desc:"NLP pipeline classifying text as positive, negative, or neutral.", emoji:"💬", tags:["Python","NLP"], github:"https://github.com/barakatahmad451-commits", live:"#" },
+    { id:"seed-1", title:"Library Management System", desc:"Console app using a custom linked list and hash-table index for O(1) ISBN lookups, with file-based persistence.", emoji:window.PROJECT_LOGO_MAP.cpp, tags:["C++","OOP","DSA"], github:"https://github.com/barakatahmad451-commits", live:"#" },
+    { id:"seed-2", title:"Student Result Management System", desc:"Grade and GPA engine built with a hand-written merge sort for ranking and binary search for fast roll-number lookup.", emoji:window.PROJECT_LOGO_MAP.dsa, tags:["C++","DSA"], github:"https://github.com/barakatahmad451-commits", live:"#" },
+    { id:"seed-3", title:"E-Commerce Website", desc:"Responsive storefront with cart state, dynamic filtering, and a custom visual identity.", emoji:window.PROJECT_LOGO_MAP.react, tags:["React","HTML","CSS"], github:"https://github.com/barakatahmad451-commits", live:"#" },
+    { id:"seed-4", title:"Personal Portfolio Website", desc:"A clean, editorial-style personal portfolio built with React.", emoji:window.PROJECT_LOGO_MAP.react, tags:["React","CSS"], github:"https://github.com/barakatahmad451-commits", live:"#" },
+    { id:"seed-5", title:"Task Management Web App", desc:"Kanban-style task tracker with a React front end backed by a real SQLite (WASM) database.", emoji:window.PROJECT_LOGO_MAP.mysql, tags:["React","SQL"], github:"https://github.com/barakatahmad451-commits", live:"#" },
+    { id:"seed-6", title:"Hospital Management System", desc:"Normalized relational schema plus a C++ interface for managing patient/doctor records and reports.", emoji:window.PROJECT_LOGO_MAP.cpp, tags:["SQL","C++"], github:"https://github.com/barakatahmad451-commits", live:"#" },
+    { id:"seed-7", title:"Movie Recommendation Engine", desc:"Content-based recommender using cosine similarity over movie metadata.", emoji:window.PROJECT_LOGO_MAP.python, tags:["Python","Machine Learning"], github:"https://github.com/barakatahmad451-commits", live:"#" },
+    { id:"seed-8", title:"Spam Email Classifier", desc:"Text classifier using TF-IDF features to flag spam messages.", emoji:window.PROJECT_LOGO_MAP.python, tags:["Python","Machine Learning"], github:"https://github.com/barakatahmad451-commits", live:"#" },
+    { id:"seed-9", title:"AI Chatbot", desc:"Conversational chatbot built on a Generative AI / LLM API with prompt engineering.", emoji:window.PROJECT_LOGO_MAP.genai, tags:["Python","GenAI"], github:"https://github.com/barakatahmad451-commits", live:"#" },
+    { id:"seed-10", title:"Sentiment Analysis Tool", desc:"NLP pipeline classifying text as positive, negative, or neutral.", emoji:window.PROJECT_LOGO_MAP.python, tags:["Python","NLP"], github:"https://github.com/barakatahmad451-commits", live:"#" },
   ];
 
   const SEED_SKILLS = [
@@ -770,9 +866,15 @@
     document.getElementById('projectModalTitle').textContent='// Add New Project';
     document.getElementById('saveProjectBtn').textContent='Save Project';
     window.clearForm(['pTitle','pDesc','pEmoji','pTech','pGithub','pLive']);
-    document.getElementById('pType').value='ML';
+    document.getElementById('pType').value='WEB';
+    document.getElementById('pIconSelect').value='auto';
+    document.getElementById('pCustomEmojiWrap').style.display='none';
     window.openModal('projectModal');
   }
+
+  document.getElementById('pIconSelect').addEventListener('change', e=>{
+    document.getElementById('pCustomEmojiWrap').style.display = e.target.value==='custom' ? 'block' : 'none';
+  });
 
   window._editProject=(id)=>{
     const p=localProjects.find(x=>x.id===id);
@@ -782,10 +884,19 @@
     document.getElementById('saveProjectBtn').textContent='Update Project';
     document.getElementById('pTitle').value=p.title||'';
     document.getElementById('pDesc').value=p.desc||'';
-    document.getElementById('pEmoji').value=p.emoji||'';
     document.getElementById('pTech').value=(p.tags||[]).join(', ');
     document.getElementById('pGithub').value=p.github!=='#'?p.github||'':'';
     document.getElementById('pLive').value=p.live!=='#'?p.live||'':'';
+    const matchKey = Object.keys(window.PROJECT_LOGO_MAP||{}).find(k => window.PROJECT_LOGO_MAP[k]===p.emoji);
+    if(matchKey){
+      document.getElementById('pIconSelect').value=matchKey;
+      document.getElementById('pCustomEmojiWrap').style.display='none';
+      document.getElementById('pEmoji').value='';
+    }else{
+      document.getElementById('pIconSelect').value='custom';
+      document.getElementById('pCustomEmojiWrap').style.display='block';
+      document.getElementById('pEmoji').value=p.emoji||'';
+    }
     window.openModal('projectModal');
   };
 
@@ -793,10 +904,20 @@
     const title=document.getElementById('pTitle').value.trim();
     const desc =document.getElementById('pDesc').value.trim();
     if(!title||!desc){window.highlight(['pTitle','pDesc']);return;}
+    const techStack = document.getElementById('pTech').value;
+    const iconChoice = document.getElementById('pIconSelect').value;
+    let emoji;
+    if(iconChoice==='auto'){
+      emoji = window.getAutoProjectIcon(techStack + ' ' + title) || '<i class="fa-solid fa-code" style="color:var(--secondary);font-size:2.6rem"></i>';
+    }else if(iconChoice==='custom'){
+      emoji = document.getElementById('pEmoji').value.trim() || '🤖';
+    }else{
+      emoji = window.PROJECT_LOGO_MAP[iconChoice] || '<i class="fa-solid fa-code" style="color:var(--secondary);font-size:2.6rem"></i>';
+    }
     const data={
       title,desc,
-      emoji: document.getElementById('pEmoji').value.trim()||'🤖',
-      tags:  document.getElementById('pTech').value.split(',').map(t=>t.trim()).filter(Boolean),
+      emoji,
+      tags:  techStack.split(',').map(t=>t.trim()).filter(Boolean),
       github:document.getElementById('pGithub').value.trim()||'#',
       live:  document.getElementById('pLive').value.trim()||'#',
     };
