@@ -384,9 +384,51 @@
     </div>
     <div class="form-group"><label class="form-label">Skill Name *</label><input class="form-input" id="sName" placeholder="e.g. TensorFlow"/></div>
     <div class="form-group"><label class="form-label">Description *</label><textarea class="form-textarea" id="sDesc" placeholder="What do you use this for?"></textarea></div>
-    <div class="form-row">
-      <div class="form-group"><label class="form-label">Proficiency % *</label><input type="number" class="form-input" id="sLevel" placeholder="85" min="1" max="100"/></div>
-      <div class="form-group"><label class="form-label">Emoji</label><input class="form-input" id="sEmoji" placeholder="🧠" maxlength="2"/></div>
+    <div class="form-group"><label class="form-label">Proficiency % *</label><input type="number" class="form-input" id="sLevel" placeholder="85" min="1" max="100"/></div>
+    <div class="form-group">
+      <label class="form-label">Logo</label>
+      <select class="form-input" id="sIconSelect">
+        <option value="auto">✨ Auto-detect from skill name</option>
+        <optgroup label="Languages">
+          <option value="python">Python</option>
+          <option value="cpp">C++</option>
+          <option value="javascript">JavaScript</option>
+          <option value="java">Java</option>
+          <option value="csharp">C#</option>
+          <option value="php">PHP</option>
+        </optgroup>
+        <optgroup label="Web & Frameworks">
+          <option value="react">React</option>
+          <option value="nodejs">Node.js</option>
+          <option value="html5">HTML5</option>
+          <option value="css3">CSS3</option>
+        </optgroup>
+        <optgroup label="Databases">
+          <option value="mysql">MySQL / SQL</option>
+          <option value="postgresql">PostgreSQL</option>
+          <option value="mongodb">MongoDB</option>
+          <option value="firebase">Firebase</option>
+        </optgroup>
+        <optgroup label="ML / AI">
+          <option value="tensorflow">Machine Learning / TensorFlow</option>
+          <option value="pytorch">PyTorch</option>
+          <option value="genai">Generative AI</option>
+        </optgroup>
+        <optgroup label="Tools">
+          <option value="git">Git</option>
+          <option value="github">GitHub</option>
+          <option value="docker">Docker</option>
+          <option value="figma">Figma</option>
+        </optgroup>
+        <optgroup label="Concepts">
+          <option value="dsa">Data Structures &amp; Algorithms</option>
+        </optgroup>
+        <option value="custom">Other (custom emoji)</option>
+      </select>
+    </div>
+    <div class="form-group" id="sCustomEmojiWrap" style="display:none;">
+      <label class="form-label">Custom Emoji</label>
+      <input class="form-input" id="sEmoji" placeholder="🧠" maxlength="2"/>
     </div>
     <button class="btn primary-btn" id="saveSkillBtn" style="width:100%;justify-content:center;margin-top:.2rem;">Save Skill</button>
   </div>
@@ -557,6 +599,51 @@
     { id:"seed-s7", name:"Data Structures & Algorithms", desc:"Writing efficient, well-reasoned solutions to core CS problems.", level:85, icon:'<i class="fa-solid fa-diagram-project" style="color:var(--primary)"></i>' },
     { id:"seed-s8", name:"Git & GitHub", desc:"Version control and collaborative workflows.", level:82, icon:'<i class="fa-brands fa-github" style="color:var(--text)"></i>' },
   ];
+
+  // ── SKILL LOGO MAP ────────────────────────────────
+  // Powers the "Logo" dropdown in the Add/Edit Skill admin form, plus
+  // auto-detection from the typed skill name. Exposed on window so the
+  // non-module admin-form script (below) can use it too.
+  const DEVICON = n => `<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/${n}" style="width:1.9rem;height:1.9rem;"/>`;
+  window.SKILL_LOGO_MAP = {
+    python:      DEVICON("python/python-original.svg"),
+    cpp:         DEVICON("cplusplus/cplusplus-original.svg"),
+    javascript:  DEVICON("javascript/javascript-original.svg"),
+    java:        DEVICON("java/java-original.svg"),
+    csharp:      DEVICON("csharp/csharp-original.svg"),
+    php:         DEVICON("php/php-original.svg"),
+    react:       DEVICON("react/react-original.svg"),
+    nodejs:      DEVICON("nodejs/nodejs-original.svg"),
+    html5:       DEVICON("html5/html5-original.svg"),
+    css3:        DEVICON("css3/css3-original.svg"),
+    mysql:       DEVICON("mysql/mysql-original.svg"),
+    postgresql:  DEVICON("postgresql/postgresql-original.svg"),
+    mongodb:     DEVICON("mongodb/mongodb-original.svg"),
+    firebase:    DEVICON("firebase/firebase-plain.svg"),
+    tensorflow:  DEVICON("tensorflow/tensorflow-original.svg"),
+    pytorch:     DEVICON("pytorch/pytorch-original.svg"),
+    git:         DEVICON("git/git-original.svg"),
+    docker:      DEVICON("docker/docker-original.svg"),
+    figma:       DEVICON("figma/figma-original.svg"),
+    github:      '<i class="fa-brands fa-github" style="color:var(--text)"></i>',
+    genai:       '<i class="fa-solid fa-wand-magic-sparkles" style="color:var(--secondary)"></i>',
+    dsa:         '<i class="fa-solid fa-diagram-project" style="color:var(--primary)"></i>',
+  };
+  // Keyword → map-key, used to auto-detect a logo from the typed skill name.
+  window.getAutoSkillIcon = (skillName) => {
+    const s = (skillName || "").toLowerCase();
+    const rules = [
+      [/c\+\+/, "cpp"], [/c#/, "csharp"], [/python/, "python"], [/java(?!script)/, "java"],
+      [/javascript|js\b/, "javascript"], [/php/, "php"], [/react/, "react"], [/node/, "nodejs"],
+      [/html/, "html5"], [/css/, "css3"], [/postgres/, "postgresql"], [/mongo/, "mongodb"],
+      [/mysql|sql/, "mysql"], [/firebase/, "firebase"], [/pytorch/, "pytorch"],
+      [/tensorflow|machine learning|\bml\b/, "tensorflow"], [/generative|genai|gpt|llm/, "genai"],
+      [/git(?!hub)/, "git"], [/github/, "github"], [/docker/, "docker"], [/figma/, "figma"],
+      [/data structure|algorithm|\bdsa\b/, "dsa"],
+    ];
+    for (const [re, key] of rules) if (re.test(s)) return window.SKILL_LOGO_MAP[key];
+    return null;
+  };
 
   // ── HELPERS ──────────────────────────────────────
   function hideLoader(){document.getElementById('loader').classList.add('done');}
@@ -736,8 +823,14 @@
     document.getElementById('skillModalTitle').textContent='// Add New Skill';
     document.getElementById('saveSkillBtn').textContent='Save Skill';
     window.clearForm(['sName','sDesc','sLevel','sEmoji']);
+    document.getElementById('sIconSelect').value='auto';
+    document.getElementById('sCustomEmojiWrap').style.display='none';
     window.openModal('skillModal');
   }
+
+  document.getElementById('sIconSelect').addEventListener('change', e=>{
+    document.getElementById('sCustomEmojiWrap').style.display = e.target.value==='custom' ? 'block' : 'none';
+  });
 
   window._editSkill=(id)=>{
     const s=localSkills.find(x=>x.id===id);
@@ -748,7 +841,17 @@
     document.getElementById('sName').value=s.name||'';
     document.getElementById('sDesc').value=s.desc||'';
     document.getElementById('sLevel').value=s.level||'';
-    document.getElementById('sEmoji').value=s.icon||'';
+    // Try to match the stored icon back to one of the preset logos; otherwise treat it as a custom emoji.
+    const matchKey = Object.keys(window.SKILL_LOGO_MAP||{}).find(k => window.SKILL_LOGO_MAP[k]===s.icon);
+    if(matchKey){
+      document.getElementById('sIconSelect').value=matchKey;
+      document.getElementById('sCustomEmojiWrap').style.display='none';
+      document.getElementById('sEmoji').value='';
+    }else{
+      document.getElementById('sIconSelect').value='custom';
+      document.getElementById('sCustomEmojiWrap').style.display='block';
+      document.getElementById('sEmoji').value=s.icon||'';
+    }
     window.openModal('skillModal');
   };
 
@@ -757,7 +860,16 @@
     const desc =document.getElementById('sDesc').value.trim();
     const level=document.getElementById('sLevel').value.trim();
     if(!name||!desc||!level){window.highlight(['sName','sDesc','sLevel']);return;}
-    const data={name,desc,level:parseInt(level),icon:document.getElementById('sEmoji').value.trim()||'💡'};
+    const iconChoice = document.getElementById('sIconSelect').value;
+    let icon;
+    if(iconChoice==='auto'){
+      icon = window.getAutoSkillIcon(name) || '<i class="fa-solid fa-code" style="color:var(--secondary)"></i>';
+    }else if(iconChoice==='custom'){
+      icon = document.getElementById('sEmoji').value.trim() || '💡';
+    }else{
+      icon = window.SKILL_LOGO_MAP[iconChoice] || '<i class="fa-solid fa-code" style="color:var(--secondary)"></i>';
+    }
+    const data={name,desc,level:parseInt(level),icon};
     try{
       window.closeModal('skillModal');
       if(editingSkillId){
