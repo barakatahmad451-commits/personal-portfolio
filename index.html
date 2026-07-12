@@ -9,6 +9,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
   <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap" onload="this.onload=null;this.rel='stylesheet'"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/devicon/2.16.0/devicon.min.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
   <noscript><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet"/></noscript>
   <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
   <style>
@@ -458,7 +460,7 @@
   // your own EmailJS Public Key, Service ID, and Template ID.
   const EMAILJS_PUBLIC_KEY = "4_Qqnu59MUGnoVuZ4";
   const EMAILJS_SERVICE_ID = "service_qwbbpqp";
-  const EMAILJS_TEMPLATE_ID = "__ejs-test-mail-service__";
+  const EMAILJS_TEMPLATE_ID = "template_gufe09m";
   if (window.emailjs) emailjs.init(EMAILJS_PUBLIC_KEY);
 
   document.getElementById('contactForm').addEventListener('submit', async e => {
@@ -478,9 +480,10 @@
         throw new Error("EmailJS isn't configured yet — see README for the 5-minute setup.");
       }
       await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
-        user_name: name,
-        user_email: email,
-        user_message: message,
+        from_name: name,
+        from_email: email,
+        message: message,
+        to_email: "barakatahmad451@gmail.com",
       });
       window.showToast("Message sent! I'll get back to you soon 🚀");
       e.target.reset();
@@ -545,14 +548,14 @@
   ];
 
   const SEED_SKILLS = [
-    { id:"seed-s1", name:"Python", desc:"Core language for scripting, data analysis, and building ML models.", level:90, icon:"🐍" },
-    { id:"seed-s2", name:"C++", desc:"Systems-level programming with strong OOP and DSA fundamentals.", level:85, icon:"⚙️" },
-    { id:"seed-s3", name:"Machine Learning", desc:"Building and evaluating models with real-world datasets.", level:80, icon:"🤖" },
-    { id:"seed-s4", name:"React.js", desc:"Building responsive, component-based front ends.", level:78, icon:"⚛️" },
-    { id:"seed-s5", name:"SQL / MySQL", desc:"Designing schemas and writing queries for relational data.", level:80, icon:"🗄️" },
-    { id:"seed-s6", name:"Generative AI", desc:"Prompt engineering and building LLM-powered applications.", level:75, icon:"✨" },
-    { id:"seed-s7", name:"Data Structures & Algorithms", desc:"Writing efficient, well-reasoned solutions to core CS problems.", level:85, icon:"🧩" },
-    { id:"seed-s8", name:"Git & GitHub", desc:"Version control and collaborative workflows.", level:82, icon:"🌱" },
+    { id:"seed-s1", name:"Python", desc:"Core language for scripting, data analysis, and building ML models.", level:90, icon:'<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" style="width:1.9rem;height:1.9rem;"/>' },
+    { id:"seed-s2", name:"C++", desc:"Systems-level programming with strong OOP and DSA fundamentals.", level:85, icon:'<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg" alt="C++" style="width:1.9rem;height:1.9rem;"/>' },
+    { id:"seed-s3", name:"Machine Learning", desc:"Building and evaluating models with real-world datasets.", level:80, icon:'<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg" alt="Machine Learning" style="width:1.9rem;height:1.9rem;"/>' },
+    { id:"seed-s4", name:"React.js", desc:"Building responsive, component-based front ends.", level:78, icon:'<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React" style="width:1.9rem;height:1.9rem;"/>' },
+    { id:"seed-s5", name:"SQL / MySQL", desc:"Designing schemas and writing queries for relational data.", level:80, icon:'<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="MySQL" style="width:1.9rem;height:1.9rem;"/>' },
+    { id:"seed-s6", name:"Generative AI", desc:"Prompt engineering and building LLM-powered applications.", level:75, icon:'<i class="fa-solid fa-wand-magic-sparkles" style="color:var(--secondary)"></i>' },
+    { id:"seed-s7", name:"Data Structures & Algorithms", desc:"Writing efficient, well-reasoned solutions to core CS problems.", level:85, icon:'<i class="fa-solid fa-diagram-project" style="color:var(--primary)"></i>' },
+    { id:"seed-s8", name:"Git & GitHub", desc:"Version control and collaborative workflows.", level:82, icon:'<i class="fa-brands fa-github" style="color:var(--text)"></i>' },
   ];
 
   // ── HELPERS ──────────────────────────────────────
